@@ -1,0 +1,49 @@
+mixin subPages(id, size)
+    - var html = raw(block)
+
+    - if (typeof size == "undefined"){
+    -   size = 5
+    - }
+
+    if dev
+        - var counter = 0
+        each _id in staticData.subPages
+            if counter < size
+                - var _html = html.replace(/{title}/g,staticData.page.title).replace(/{url}/g,staticData.page.url).replace(/{subPageId}/g,_id).replace(/{userId}/g,staticData.page.userId).replace(/{template}/g,staticData.page.template).replace(/{pageOrder}/g,staticData.page.pageOrder).replace(/{updateDate}/g,staticData.page.updateDate).replace(/{createDate}/g,staticData.page.createDate).replace(/{pageSpot}/g,staticData.page.pageSpot).replace(/{pageContent}/g,staticData.page.pageContent)
+                = "\n"
+                | !{_html}
+                - counter++
+    else
+        - var itemVar = "item" + ID();
+        = "\n"
+        - var pageId = "@CurrentPage.PageID";
+        - var _size   = "5"
+        if size
+            - _size = size
+        if id
+            - pageId = subPages(id)
+        = "@foreach (var " + itemVar + " in pages.SubPages(" + pageId + ")," + _size + "){"
+        - var _html = html.replace(/{title}/g,"@" + itemVar + ".Title").replace(/{url}/g,"@" + itemVar + ".Url").replace(/{subPageId}/g,"@" + itemVar + ".ItemID")
+        = "\n"
+        | !{_html}
+        = "\n"
+        = "\n"
+        = "}"
+
+- var subPages = function(id){
+-       if(id == "{pageId}"){
+-           if( dev ){
+-               return staticData.page.id
+-           }else{
+-               return "@CurrentPage.PageID"
+-           }
+-       }
+-       if(id == "{parentPageId}"){
+-           if( dev ){
+-               return staticData.page.id
+-           }else{
+-               return "@ParentPage.PageID"
+-           }
+-       }
+-       return id
+- }

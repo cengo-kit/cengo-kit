@@ -1,0 +1,16 @@
+include ../mixins/_svgsprite
+include ../mixins/cms/_main
+include ../mixins/cms/_functions
+
+doctype html
+html(lang="en")
+    block vars
+    head
+        block title
+            title #{pageTitle} - My Static Site
+        link(rel='stylesheet', href='assets/css/screen.css')
+    body(class='#{bodyClass}')
+
+        block content
+
+        script(src='assets/js/script.js')

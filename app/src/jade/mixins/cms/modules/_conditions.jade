@@ -1,0 +1,14 @@
+mixin if(condition)
+    if dev
+        block
+    else
+        ="\n"
+        ="if(" + condition + "){"
+        block
+        ="\n"
+        ="}"
+        ="\n"
+
+- var pageVars = function(_page){
+-   return _page.replace(/{title}/g,staticData.page.title).replace(/{url}/g,staticData.page.url).replace(/{subPageId}/g,_id).replace(/{userId}/g,staticData.page.userId).replace(/{template}/g,staticData.page.template).replace(/{pageOrder}/g,staticData.page.pageOrder).replace(/{updateDate}/g,staticData.page.updateDate).replace(/{createDate}/g,staticData.page.createDate).replace(/{pageSpot}/g,staticData.page.pageSpot).replace(/{pageContent}/g,staticData.page.pageContent)
+- }

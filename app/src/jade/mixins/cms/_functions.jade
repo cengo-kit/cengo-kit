@@ -1,0 +1,13 @@
+- var raw = function(html){
+-        var prevBuf = buf;
+-        buf = []
+-        html()
+-        var blockResult = buf.join("")
+-        buf = prevBuf;
+-        return blockResult
+-    };
+
+- var ID = function () {
+-    return '_' + Math.random().toString(36).substr(2, 9);
+- }
+

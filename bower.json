@@ -1,0 +1,21 @@
+{
+  "name": "Totallystatical",
+  "version": "0.1.0",
+  "authors": [
+    "Arden de Raaij <a.de.raaij@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components"
+  ],
+  "dependencies": {
+    "normalize-scss": "latest",
+    "susy": "latest",
+    "compass-breakpoint": "latest"
+  },
+  "devDependencies": {
+    "bxslider-4": "^4.2.5"
+  }
+}
