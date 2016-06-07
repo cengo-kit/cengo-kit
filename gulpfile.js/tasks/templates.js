@@ -2,13 +2,13 @@ var browserSync = require('browser-sync');
 var gulp = require('gulp');
 var plugins = require('gulp-load-plugins')();
 var config = require('../config/templates');
-var staticData = require('../../data.json');
-//var cms = require('../../cms.json');
+
+global.staticData = require('../../data/content.json');
 var errorHandler = require('../lib/errorHandler');
 var data = require('gulp-data');
 
-
 var templatesTask = function () {
+    
     return gulp.src(config.source)
 
         // Only build changed files
@@ -36,8 +36,12 @@ var templatesTask = function () {
         .pipe(data(function(file) {
             return {
                 dev: (gulp.info == "dev") ? true : false,
-                staticData:staticData,
-                //cms:cms
+                cms:{
+                    image: require('../../data/image.js'),
+                    page: require('../../data/page.js'),
+                    imageGallery: require('../../data/imageGallery.js'),
+                    subPage: require('../../data/subPage.js')
+                }
             };
         }))
 

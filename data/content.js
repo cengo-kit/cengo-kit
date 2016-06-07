@@ -1,4 +1,4 @@
-{
+module.exports = {
   "page": {
     "title": "Ornek Sayfa Basligi",
     "id": 1543,
@@ -61,4 +61,4 @@
     421,
     422
   ]
-}
+};
