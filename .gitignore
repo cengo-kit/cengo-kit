@@ -1,4 +1,5 @@
 node_modules
+dist
+.tmp
 bower_components
-.idea
-app/build
+test/bower_components

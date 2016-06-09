@@ -1,21 +1,21 @@
 {
-  "name": "Totallystatical",
-  "version": "0.1.0",
-  "authors": [
-    "Arden de Raaij <a.de.raaij@gmail.com>"
-  ],
-  "license": "MIT",
-  "ignore": [
-    "**/.*",
-    "node_modules",
-    "bower_components"
-  ],
+  "name": "yoaman",
+  "private": true,
   "dependencies": {
-    "normalize-scss": "latest",
-    "susy": "latest",
-    "compass-breakpoint": "latest"
+    "bootstrap-sass": "~3.3.5",
+    "modernizr": "~2.8.1"
+  },
+  "overrides": {
+    "bootstrap-sass": {
+      "main": [
+        "assets/stylesheets/_bootstrap.scss",
+        "assets/fonts/bootstrap/*",
+        "assets/javascripts/bootstrap.js"
+      ]
+    }
   },
   "devDependencies": {
-    "bxslider-4": "^4.2.5"
+    "chai": "^3.5.0",
+    "mocha": "^2.5.3"
   }
 }

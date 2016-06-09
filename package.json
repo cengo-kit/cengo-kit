@@ -1,68 +1,47 @@
 {
-  "name": "gri-cengo-kit",
-  "version": "0.2.0",
-  "description": "Site generator",
-  "repository": {
-    "type": "git",
-    "url": ""
+  "private": true,
+  "engines": {
+    "node": ">=4"
   },
-  "keywords": [
-    "gulp",
-    "static",
-    "site",
-    "generator"
-  ],
-  "author": "Gri",
-  "license": "MIT",
-  "bugs": {
-    "url": ""
-  },
-  "homepage": "",
-  "dependencies": {},
   "devDependencies": {
-    "babel-core": "^5.8.29",
-    "babel-loader": "^5.3.2",
-    "browser-sync": "^2.7.13",
-    "compression": "^1.6.0",
-    "del": "^2.0.2",
-    "express": "^4.13.3",
+    "babel-core": "^6.4.0",
+    "babel-preset-es2015": "^6.3.13",
+    "babel-register": "^6.5.2",
+    "browser-sync": "^2.2.1",
+    "del": "^1.1.1",
     "gulp": "^3.9.0",
-    "gulp-autoprefixer": "^3.1.0",
-    "gulp-bower": "0.0.11",
-    "gulp-cached": "^1.1.0",
-    "gulp-changed": "^1.2.1",
-    "gulp-concat": "^2.6.0",
-    "gulp-cssnano": "^2.1.0",
+    "gulp-autoprefixer": "^3.0.1",
+    "gulp-babel": "^6.1.1",
+    "gulp-cache": "^0.4.2",
+    "gulp-cssnano": "^2.0.0",
     "gulp-data": "^1.2.1",
-    "gulp-ext-replace": "^0.3.0",
-    "gulp-filter": "^3.0.1",
-    "gulp-fontgen": "^0.1.6",
-    "gulp-ftp": "^1.1.0",
+    "gulp-eslint": "^2.0.0",
+    "gulp-htmlmin": "^1.3.0",
     "gulp-if": "^2.0.0",
-    "gulp-imagemin": "^2.4.0",
-    "gulp-jshint": "^2.0.0",
-    "gulp-load-plugins": "^1.2.0",
-    "gulp-notify": "^2.2.0",
-    "gulp-jade": "^0.10",
-    "gulp-jade-inheritance": "^0.5.5",
-    "gulp-rename": "^1.2.0",
-    "gulp-rev": "^6.0.1",
-    "gulp-rev-napkin": "^0.1.0",
-    "gulp-rev-replace": "^0.4.2",
-    "gulp-sass": "^2.1.1",
-    "gulp-sass-bulk-import": "^1.0.1",
-    "gulp-sequence": "^0.4.0",
-    "gulp-sftp": "^0.1.5",
-    "gulp-sizereport": "^1.1.3",
-    "gulp-sourcemaps": "^1.6.0",
-    "gulp-svgstore": "^5.0.5",
-    "gulp-uglify": "^1.0.2",
-    "gulp-util": "^3.0.6",
-    "gulp-watch": "^4.2.4",
-    "morgan": "^1.6.1",
-    "open": "0.0.5",
-    "require-dir": "^0.3.0",
-    "vinyl-ftp": "^0.4.5",
-    "webpack": "^1.12.2"
+    "gulp-imagemin": "^2.2.1",
+    "gulp-jade": "^1.1.0",
+    "gulp-load-plugins": "^0.10.0",
+    "gulp-plumber": "^1.0.1",
+    "gulp-sass": "^2.0.0",
+    "gulp-sequence": "^0.4.5",
+    "gulp-size": "^1.2.1",
+    "gulp-sourcemaps": "^1.5.0",
+    "gulp-uglify": "^1.1.0",
+    "gulp-useref": "^3.0.0",
+    "main-bower-files": "^2.5.0",
+    "wiredep": "^2.2.2"
+  },
+  "eslintConfig": {
+    "env": {
+      "es6": true,
+      "node": true,
+      "browser": true
+    },
+    "rules": {
+      "quotes": [
+        2,
+        "single"
+      ]
+    }
   }
 }
