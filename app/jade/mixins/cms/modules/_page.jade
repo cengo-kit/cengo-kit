@@ -3,9 +3,9 @@ mixin page(variable)
     - var _html
 
     if dev
-        - _html = html.replace(/{pageTitle}/g,staticData.page.title).replace(/{pageUrl}/g,staticData.page.url).replace(/{subPageId}/g,_id).replace(/{pageId}/g,_id).replace(/{pageUserId}/g,staticData.page.userId).replace(/{pageTemplate}/g,staticData.page.template).replace(/{pageOrder}/g,staticData.page.pageOrder).replace(/{pageUpdateDate}/g,staticData.page.updateDate).replace(/{pageCreateDate}/g,staticData.page.createDate).replace(/{pageSpot}/g,staticData.page.pageSpot).replace(/{pageContent}/g,staticData.page.pageContent)
+        - _html = render(html, 'page', 'html')
     else
-        - _html = html.replace(/{pageTitle}/g,"@CurrentPage.Page").replace(/{pageUrl}/g,"@CurrentPage.Url").replace(/{subPageId}/g,"@CurrentPage.PageID").replace(/{pageId}/g,"@CurrentPage.PageID").replace(/{pageUserId}/g,"@CurrentPage.UserID").replace(/{pageTemplate}/g,"@CurrentPage.Template").replace(/{pageOrder}/g,"@CurrentPage.PageOrder").replace(/{pageUpdateDate}/g,"@CurrentPage.UpdateDate").replace(/{pageCreateDate}/g, "@CurrentPage.CreateDate").replace(/{pageSpot}/g, "@CurrentPage.PageSpot").replace(/{pageContent}/g, "@CurrentPage.PageContent")
+        - _html = render(html, 'page', 'cms')
     ="\n"
     | !{_html}
 

@@ -1,0 +1,12 @@
+//-
+   Created by kutbettin.yavuz on 10.6.2016.
+
+- var render = function(data, methodName, type) {
+- for(var i = 0; i < cms[methodName].length; i++) {
+-   data = data.replace(new RegExp(cms[methodName][i]['key'], 'g'), cms[methodName][i][type])
+- }
+-
+- return data;
+-
+-
+- }

@@ -79,7 +79,8 @@ gulp.task('images', () => {
 });
 
 gulp.task('fonts', () => {
-  return gulp.src(require('main-bower-files')('**/*.{eot,svg,ttf,woff,woff2}', function (err) {})
+  return gulp.src(require('main-bower-files')('**/*.{eot,svg,ttf,woff,woff2}', function (err) {
+  })
     .concat('app/fonts/**/*'))
     .pipe(gulp.dest('.tmp/fonts'))
     .pipe(gulp.dest('dist/fonts'));
@@ -97,7 +98,9 @@ gulp.task('extras', () => {
 
 gulp.task('clean', del.bind(null, ['.tmp', 'dist']));
 
-gulp.task('devGulpInfo', () => {gulp.info = "cms"});
+gulp.task('devGulpInfo', () => {
+  gulp.info = "dev"
+});
 gulp.task('serve', ['devGulpInfo', 'views', 'styles', 'scripts', 'fonts'], () => {
   gulp.info = "dev"
   browserSync({
@@ -123,7 +126,9 @@ gulp.task('serve', ['devGulpInfo', 'views', 'styles', 'scripts', 'fonts'], () =>
   gulp.watch('bower.json', ['wiredep', 'fonts']);
 });
 
-gulp.task('cmsGulpInfo', () => {gulp.info = "cms"});
+gulp.task('cmsGulpInfo', () => {
+  gulp.info = "cms"
+});
 gulp.task('cms', ['cmsGulpInfo', 'views', 'styles', 'scripts', 'fonts'], () => {
 
   browserSync({
@@ -152,21 +157,21 @@ gulp.task('cms', ['cmsGulpInfo', 'views', 'styles', 'scripts', 'fonts'], () => {
 
 gulp.task('views', () => {
   return gulp.src('app/jade/*.jade')
-    .pipe($.data( (file) => {
-        return {
-          dev: (gulp.info == "dev") ? true : false,
-          cms:{
-            image: require('./data/image.js'),
-            page: require('./data/page.js'),
-            imageGallery: require('./data/imageGallery.js'),
-            subPage: require('./data/subPage.js')
-          }
-        };
-}))
-.pipe($.plumber())
-  .pipe($.jade({pretty: true}))
-  .pipe(gulp.dest('.tmp'))
-  .pipe(reload({stream: true}));
+    .pipe($.data((file) => {
+      return {
+        dev: (gulp.info == "dev") ? true : false,
+        cms: {
+          image: require('./data/image.js')(),
+          page: require('./data/page.js')(),
+          imageGallery: require('./data/imageGallery.js')(),
+          subPage: require('./data/subPage.js')()
+        }
+      };
+    }))
+    .pipe($.plumber())
+    .pipe($.jade({pretty: true}))
+    .pipe(gulp.dest('.tmp'))
+    .pipe(reload({stream: true}));
 });
 
 
@@ -214,7 +219,6 @@ gulp.task('wiredep', () => {
     }))
     .pipe(gulp.dest('app'));
 });
-
 
 
 gulp.task('build', ['lint', 'html', 'images', 'fonts', 'extras'], () => {
