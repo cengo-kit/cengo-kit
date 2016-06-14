@@ -1,49 +1,49 @@
-module.exports = function () {
+module.exports = function (content) {
     return [
         {
             "key": "{id}",
             "cms": "@pages.Image(CurrentPage.Images,'{contextKey}').ImageID",
-            "html": staticData.image.id
+            "html": content.image.id
         },
         {
             "key": "{fileName}",
             "cms": "@pages.Image(CurrentPage.Images,'{contextKey}').FileName",
-            "html": staticData.image.fileName
+            "html": content.image.fileName
         },
         {
             "key": "{title}",
             "cms": "@pages.Image(CurrentPage.Images,'{contextKey}').Title",
-            "html": staticData.image.title
+            "html": content.image.title
         },
         {
             "key": "{altText}",
             "cms": "@pages.Image(CurrentPage.Images,'{contextKey}').AltText",
-            "html": staticData.image.altText
+            "html": content.image.altText
         },
         {
             "key": "{description}",
             "cms": "@pages.Image(CurrentPage.Images,'{contextKey}').Description",
-            "html": staticData.image.description
+            "html": content.image.description
         },
         {
             "key": "{tag}",
             "cms": "@pages.Image(CurrentPage.Images,'{contextKey}').Tag",
-            "html": staticData.image.tag
+            "html": content.image.tag
         },
         {
             "key": "{extension}",
             "cms": "@pages.Image(CurrentPage.Images,'{contextKey}').Extension",
-            "html": staticData.image.extension
+            "html": content.image.extension
         },
         {
             "key": "{width}",
             "cms": "@pages.Image(CurrentPage.Images,'{contextKey}').W",
-            "html": staticData.image.width
+            "html": content.image.width
         },
         {
             "key": "{height}",
             "cms": "@pages.Image(CurrentPage.Images,'{contextKey}').H",
-            "html": staticData.image.height
+            "html": content.image.height
         }
     ];
 };

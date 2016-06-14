@@ -2,12 +2,7 @@ mixin page(variable)
     - var html = raw(block)
     - var _html
 
-    if dev
-        - _html = render(html, 'page', 'html')
-    else
-        - _html = render(html, 'page', 'cms')
-    ="\n"
-    | !{_html}
+    !{cms.fn.render(_html,'page')}
 
 - var page = function(id){
 -       if(id == "current"){

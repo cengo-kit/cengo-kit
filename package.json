@@ -43,5 +43,6 @@
         "single"
       ]
     }
-  }
+  },
+  "test": "mocha ./test/spec/test.js"
 }

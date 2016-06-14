@@ -4,7 +4,7 @@ const gulpLoadPlugins = require('gulp-load-plugins');
 const browserSync = require('browser-sync');
 const del = require('del');
 const wiredep = require('wiredep').stream;
-global.staticData = require('./data/content.js');
+const cms = require('./cms/cms');
 const $ = gulpLoadPlugins();
 const reload = browserSync.reload;
 
@@ -159,13 +159,8 @@ gulp.task('views', () => {
   return gulp.src('app/jade/*.jade')
     .pipe($.data((file) => {
       return {
-        dev: (gulp.info == "dev") ? true : false,
-        cms: {
-          image: require('./data/image.js')(),
-          page: require('./data/page.js')(),
-          imageGallery: require('./data/imageGallery.js')(),
-          subPage: require('./data/subPage.js')()
-        }
+        dev: (gulp.info == "dev"),
+        
       };
     }))
     .pipe($.plumber())

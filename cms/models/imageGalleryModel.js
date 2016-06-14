@@ -1,34 +1,34 @@
-module.exports = function () {
+module.exports = function (content) {
   return [
   {
     "key":  '{id}',
     "cms":  '@{contextItem}.tblImageGallery.ImageGalleryID',
-    "html": staticData.imageGallery.id
+    "html": content.imageGallery.id
   },
   {
     "key":  '{title}',
     "cms":  '@{contextItem}.tblImageGallery.Title',
-    "html": staticData.imageGallery.title
+    "html": content.imageGallery.title
   },
   {
     "key":  '{fileName}',
     "cms":  '@{contextItem}.tblImageGallery.FileName',
-    "html": staticData.imageGallery.fileName
+    "html": content.imageGallery.fileName
   },
   {
     "key":  '{description}',
     "cms":  '@{contextItem}.tblImageGallery.Description',
-    "html": staticData.imageGallery.description
+    "html": content.imageGallery.description
   },
   {
     "key":  '{createDate}',
     "cms":  '@{contextItem}.tblImageGallery.Createdate',
-    "html": staticData.imageGallery.createDate
+    "html": content.imageGallery.createDate
   },
   {
     "key":  '{updateDate}',
     "cms":  '@{contextItem}.tblImageGallery.UpdateDate',
-    "html": staticData.imageGallery.updateDate
+    "html": content.imageGallery.updateDate
   }
 ];
 };

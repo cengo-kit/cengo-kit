@@ -1,54 +1,54 @@
-module.exports = function () {
+module.exports = function (content) {
   return [
   {
     "key":  '{id}',
     "cms":  '@CurrentPage.PageID',
-    "html": staticData.page.id
+    "html": content.page.id
   },
   {
     "key":  '{title}',
     "cms":  '@CurrentPage.Page',
-    "html": staticData.page.title
+    "html": content.page.title
   },
   {
     "key":  '{url}',
     "cms":  '@CurrentPage.Url',
-    "html": staticData.page.url
+    "html": content.page.url
   },
   {
     "key":  '{userId}',
     "cms":  '@CurrentPage.UserId',
-    "html": staticData.page.userId
+    "html": content.page.userId
   },
   {
     "key":  '{template}',
     "cms":  '@CurrentPage.Template',
-    "html": staticData.page.template
+    "html": content.page.template
   },
   {
     "key":  '{order}',
     "cms":  '@CurrentPage.PageOrder',
-    "html": staticData.page.pageOrder
+    "html": content.page.pageOrder
   },
   {
     "key":  '{updateDate}',
     "cms":  '@CurrentPage.UpdateDate',
-    "html": staticData.page.updateDate
+    "html": content.page.updateDate
   },
   {
     "key":  '{createDate}',
     "cms":  '@CurrentPage.CreateDate',
-    "html": staticData.page.createDate
+    "html": content.page.createDate
   },
   {
     "key":  '{spot}',
     "cms":  '@CurrentPage.PageSpot',
-    "html": staticData.page.createDate
+    "html": content.page.createDate
   },
   {
     "key":  '{content}',
     "cms":  '@CurrentPage.PageContent',
-    "html": staticData.page.pageContent
+    "html": content.page.pageContent
   }
 ];
 };
