@@ -1,11 +1,3 @@
-(function () {
-  'use strict';
+var cms = require('../../cms/cms');
 
-  describe('Give it some context', function () {
-    describe('maybe a bit more context here', function () {
-      it('should run here few assertions', function () {
-
-      });
-    });
-  });
-})();
+cms.fn.render()

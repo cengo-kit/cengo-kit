@@ -4,7 +4,7 @@ const gulpLoadPlugins = require('gulp-load-plugins');
 const browserSync = require('browser-sync');
 const del = require('del');
 const wiredep = require('wiredep').stream;
-global.staticData = require('./data/content.js');
+const cms = require('./cms/cms');
 const $ = gulpLoadPlugins();
 const reload = browserSync.reload;
 
@@ -22,6 +22,22 @@ gulp.task('styles', () => {
     .pipe(gulp.dest('.tmp/styles'))
     .pipe(reload({stream: true}));
 });
+
+gulp.task('iconfont', () => {
+  return gulp.src('app/svg/*.svg')
+    .pipe($.iconfontCss({
+      fontName: 'icons',
+      path: 'scss',
+      targetPath: '../../styles/_icons.scss',
+      fontPath: '../fonts/icons/'
+    }))
+    .pipe($.iconfont({
+      fontName: 'icons',
+      formats: ['ttf', 'eot', 'woff','woff2','svg']
+    }))
+    .pipe(gulp.dest('app/fonts/icons/'));
+});
+
 
 gulp.task('scripts', () => {
   return gulp.src('app/scripts/**/*.js')
@@ -79,7 +95,8 @@ gulp.task('images', () => {
 });
 
 gulp.task('fonts', () => {
-  return gulp.src(require('main-bower-files')('**/*.{eot,svg,ttf,woff,woff2}', function (err) {})
+  return gulp.src(require('main-bower-files')('**/*.{eot,svg,ttf,woff,woff2}', function (err) {
+  })
     .concat('app/fonts/**/*'))
     .pipe(gulp.dest('.tmp/fonts'))
     .pipe(gulp.dest('dist/fonts'));
@@ -97,7 +114,9 @@ gulp.task('extras', () => {
 
 gulp.task('clean', del.bind(null, ['.tmp', 'dist']));
 
-gulp.task('devGulpInfo', () => {gulp.info = "cms"});
+gulp.task('devGulpInfo', () => {
+  gulp.info = "dev"
+});
 gulp.task('serve', ['devGulpInfo', 'views', 'styles', 'scripts', 'fonts'], () => {
   gulp.info = "dev"
   browserSync({
@@ -123,7 +142,9 @@ gulp.task('serve', ['devGulpInfo', 'views', 'styles', 'scripts', 'fonts'], () =>
   gulp.watch('bower.json', ['wiredep', 'fonts']);
 });
 
-gulp.task('cmsGulpInfo', () => {gulp.info = "cms"});
+gulp.task('cmsGulpInfo', () => {
+  gulp.info = "cms"
+});
 gulp.task('cms', ['cmsGulpInfo', 'views', 'styles', 'scripts', 'fonts'], () => {
 
   browserSync({
@@ -152,21 +173,16 @@ gulp.task('cms', ['cmsGulpInfo', 'views', 'styles', 'scripts', 'fonts'], () => {
 
 gulp.task('views', () => {
   return gulp.src('app/jade/*.jade')
-    .pipe($.data( (file) => {
-        return {
-          dev: (gulp.info == "dev") ? true : false,
-          cms:{
-            image: require('./data/image.js'),
-            page: require('./data/page.js'),
-            imageGallery: require('./data/imageGallery.js'),
-            subPage: require('./data/subPage.js')
-          }
-        };
-}))
-.pipe($.plumber())
-  .pipe($.jade({pretty: true}))
-  .pipe(gulp.dest('.tmp'))
-  .pipe(reload({stream: true}));
+    .pipe($.data((file) => {
+      return {
+        dev: (gulp.info == "dev"),
+        cms: cms
+      };
+    }))
+    .pipe($.plumber())
+    .pipe($.jade({pretty: true}))
+    .pipe(gulp.dest('.tmp'))
+    .pipe(reload({stream: true}));
 });
 
 
@@ -214,7 +230,6 @@ gulp.task('wiredep', () => {
     }))
     .pipe(gulp.dest('app'));
 });
-
 
 
 gulp.task('build', ['lint', 'html', 'images', 'fonts', 'extras'], () => {
