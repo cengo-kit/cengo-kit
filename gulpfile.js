@@ -23,6 +23,22 @@ gulp.task('styles', () => {
     .pipe(reload({stream: true}));
 });
 
+gulp.task('iconfont', () => {
+  return gulp.src('app/svg/*.svg')
+    .pipe($.iconfontCss({
+      fontName: 'icons',
+      path: 'scss',
+      targetPath: '../../styles/_icons.scss',
+      fontPath: '../fonts/icons/'
+    }))
+    .pipe($.iconfont({
+      fontName: 'icons',
+      formats: ['ttf', 'eot', 'woff','woff2','svg']
+    }))
+    .pipe(gulp.dest('app/fonts/icons/'));
+});
+
+
 gulp.task('scripts', () => {
   return gulp.src('app/scripts/**/*.js')
     .pipe($.plumber())
@@ -160,7 +176,7 @@ gulp.task('views', () => {
     .pipe($.data((file) => {
       return {
         dev: (gulp.info == "dev"),
-        
+        cms: cms
       };
     }))
     .pipe($.plumber())

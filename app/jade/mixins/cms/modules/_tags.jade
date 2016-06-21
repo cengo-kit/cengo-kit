@@ -1,20 +1,3 @@
 mixin tags(id)
     - var html = raw(block)
 
-    if dev
-        each tag in staticData.tags
-            - var _html = html.replace(/{title}/g,tag.tagTitle).replace(/{url}/g,tag.tagUrl)
-            = "\n"
-            | !{_html}
-    else
-        - var itemVar = "item" + ID();
-        = "\n"
-        - var pageId = "@CurrentPage.PageID";
-        if id
-             - pageId = id
-        = "@foreach (var " + itemVar + " in pages.Tags(" + pageId + ")){"
-        - var _html = html.replace(/{title}/g,"@" + itemVar + ".Title").replace(/{url}/g,"@" + itemVar + ".Url")
-        = "\n"
-        | !{_html}
-        = "\n"
-        = "}"

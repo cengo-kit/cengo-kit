@@ -4,4 +4,3 @@ module.exports = function(cms){
   };
 };
 
-cms.render(html ,'page')

@@ -11,8 +11,11 @@ module.exports =  function(gulpInfo){
     gulpInfo:gulpInfo
   };
 
-  models.fn = require('./controllers/genericController.js')(models);
-  
-  return models;
-  
+  var fn = require('./controllers/genericController.js')(models);
+
+  return {
+    models:models,
+    fn:fn
+  };
+
 };

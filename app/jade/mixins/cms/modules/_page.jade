@@ -1,22 +1,5 @@
 mixin page(variable)
     - var html = raw(block)
     - var _html
-
-    !{cms.fn.render(_html,'page')}
-
-- var page = function(id){
--       if(id == "current"){
--           if( dev ){
--               return staticData.page.id
--           }else{
--               return "@CurrentPage.PageID"
--           }
--       }
--       if(id == "parent"){
--           if( dev ){
--               return staticData.page.id
--           }else{
--               return "@ParentPage.PageID"
--           }
--       }
-- }
+      //TODO: Burada render tanimlanamamaktadir.
+    //| !{cms.fn.render(_html,'page')}
