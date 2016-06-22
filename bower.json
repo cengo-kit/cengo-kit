@@ -1,9 +1,11 @@
 {
-  "name": "yoaman",
+  "name": "GriCengoKit",
   "private": true,
   "dependencies": {
     "bootstrap-sass": "~3.3.5",
-    "modernizr": "~2.8.1"
+    "modernizr": "~2.8.1",
+    "is_js": "^0.7.6",
+    "js-cookie": "^2.1.2"
   },
   "overrides": {
     "bootstrap-sass": {

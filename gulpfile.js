@@ -5,8 +5,10 @@ const browserSync = require('browser-sync');
 const del = require('del');
 const wiredep = require('wiredep').stream;
 const cms = require('./cms/cms');
+const series = require('stream-series');
 const $ = gulpLoadPlugins();
 const reload = browserSync.reload;
+const rename = require('gulp-rename')
 
 gulp.task('styles', () => {
   return gulp.src('app/styles/*.scss')
@@ -33,9 +35,43 @@ gulp.task('iconfont', () => {
     }))
     .pipe($.iconfont({
       fontName: 'icons',
-      formats: ['ttf', 'eot', 'woff','woff2','svg']
+      formats: ['ttf', 'eot', 'woff', 'woff2', 'svg']
     }))
     .pipe(gulp.dest('app/fonts/icons/'));
+});
+
+gulp.task('cengo', ()=> {
+  var type = process.argv[3];
+  var name = process.argv[4];
+
+  if (type == "--module" || type == "-m") {
+
+    gulp.src(
+      'cms/templates/module/**/*'
+    )
+      .pipe($.replace(/{{module_name}}/g, name))
+      .pipe($.replaceName(/template/g, name))
+      .pipe(gulp.dest('app/modules/' + name + "/"));
+  }
+
+  if (type == "--page" || type == "-p") {
+    gulp.src(
+      'cms/templates/page.jade'
+    )
+      .pipe($.replaceName(/page/g, name))
+      .pipe(gulp.dest('app/'));
+  }
+
+});
+
+
+gulp.task('injectJs', () => {
+  return gulp.src('app/layouts/layouts/*.jade')
+    .pipe($.inject(series(gulp.src('app/scripts/app.js', {read: false}), gulp.src(['app/scripts/**/*.js', '!./app/scripts/app.js'], {read: false}))), {
+      ignorePath: ['app'],
+      relative: true
+    })
+    .pipe(gulp.dest('app/layouts/layouts/'));
 });
 
 
@@ -106,7 +142,7 @@ gulp.task('extras', () => {
   return gulp.src([
     'app/*.*',
     '!app/*.html',
-    '!app/jade/*.jade'
+    '!app/**/*.jade'
   ], {
     dot: true
   }).pipe(gulp.dest('dist'));
@@ -117,7 +153,7 @@ gulp.task('clean', del.bind(null, ['.tmp', 'dist']));
 gulp.task('devGulpInfo', () => {
   gulp.info = "dev"
 });
-gulp.task('serve', ['devGulpInfo', 'views', 'styles', 'scripts', 'fonts'], () => {
+gulp.task('serve', ['devGulpInfo', 'injectJs', 'iconfont', 'views', 'styles', 'scripts', 'fonts'], () => {
   gulp.info = "dev"
   browserSync({
     notify: false,
@@ -135,7 +171,7 @@ gulp.task('serve', ['devGulpInfo', 'views', 'styles', 'scripts', 'fonts'], () =>
     'app/images/**/*',
     '.tmp/fonts/**/*'
   ]).on('change', reload);
-  gulp.watch('app/jade/**/*.jade', ['views']);
+  gulp.watch('app/**/*.jade', ['views']);
   gulp.watch('app/styles/**/*.scss', ['styles']);
   gulp.watch('app/scripts/**/*.js', ['scripts']);
   gulp.watch('app/fonts/**/*', ['fonts']);
@@ -163,7 +199,7 @@ gulp.task('cms', ['cmsGulpInfo', 'views', 'styles', 'scripts', 'fonts'], () => {
     'app/images/**/*',
     '.tmp/fonts/**/*'
   ]).on('change', reload);
-  gulp.watch('app/jade/**/*.jade', ['views']);
+  gulp.watch('app/**/*.jade', ['views']);
   gulp.watch('app/styles/**/*.scss', ['styles']);
   gulp.watch('app/scripts/**/*.js', ['scripts']);
   gulp.watch('app/fonts/**/*', ['fonts']);
@@ -172,7 +208,7 @@ gulp.task('cms', ['cmsGulpInfo', 'views', 'styles', 'scripts', 'fonts'], () => {
 
 
 gulp.task('views', () => {
-  return gulp.src('app/jade/*.jade')
+  return gulp.src('app/*.jade')
     .pipe($.data((file) => {
       return {
         dev: (gulp.info == "dev"),
@@ -181,6 +217,11 @@ gulp.task('views', () => {
     }))
     .pipe($.plumber())
     .pipe($.jade({pretty: true}))
+    .pipe(rename(function (path) {
+      var paths = path.basename.split('/');
+      path.dirname = "";
+      path.basename = paths[paths.length - 1];
+    }))
     .pipe(gulp.dest('.tmp'))
     .pipe(reload({stream: true}));
 });
@@ -223,7 +264,7 @@ gulp.task('wiredep', () => {
     }))
     .pipe(gulp.dest('app/styles'));
 
-  gulp.src('app/jade/layouts/*.jade')
+  gulp.src('app/layouts/layouts/*.jade')
     .pipe(wiredep({
       exclude: ['bootstrap-sass'],
       ignorePath: /^(\.\.\/)*\.\./
