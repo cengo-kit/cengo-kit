@@ -53,6 +53,9 @@ html.no-js
     script(src='../bower_components/bootstrap-sass/assets/javascripts/bootstrap/tab.js')
     // endbuild
 
-    // build:js scripts/main.js
-    script(src='scripts/main.js')
-    // endbuild
+    //- inject:js
+    script(src="/app/scripts/app.js")
+    script(src="/app/scripts/main.js")
+    script(src="/app/scripts/second.js")
+    //- endinject
+
