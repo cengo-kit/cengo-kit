@@ -12,6 +12,9 @@ var Gri = {
  Module icin ie kontrolu yapar.
  */
 Gri.checkIEVersion = function () {
+  if(is.null(this._module.ieVersion) || is.undefined(this._module.ieVersion)){
+    return this;
+  }
   var _moduleIeVersion = this._module.ieVersion;
   var moduleIeVersion = Number(ieV.replace('<', '').replace('>', ''));
   var uA = navigator.userAgent;
@@ -80,7 +83,7 @@ Gri.debug = function (parameter) {
     this._debug = parameter;
     Cookies.set('debug', parameter);
   } else if(is.string(parameter) && this._debug){
-    console.log(parameter, 'background: #222; color: #bada55','background: #222; color: #FFF');
+    console.log(parameter, 'background: #222; color: #bada55','background: #222; color: #FFF', 'background: #222; color: #bada55');
   }else{
     return this._debug;
   }
@@ -91,24 +94,27 @@ Gri.debug = function (parameter) {
  */
 Gri.module = function (module) {
   this.modules.push(module);
+  this.moduleQueueChecker()
 };
 
 /*
  Framework icin baslatici fonksiyondur.
  */
 Gri.init = function () {
-
   var gri = this;
+  console.log(this.modules);
   //Tum modulleri document ready de calistirir.
   $.each(this.modules, function (index, module) {
-    this._module = module;
-    Gri.debug('Modul %c' + name + '%c baslatiliyor.');
+    gri._module = module;
+    Gri.debug('%cModul %c' + module.name + ' %cBaslatildi');
+    console.log(this._module);
     //Gerekli oncelik siralariyla filitreleri calistiyoruz.
     gri.checkIEVersion()
       .setEvent()
       .run();
   });
-
+  //Remove modules to prevent global injection
+  delete this.modules;
   if(eval(Cookies.get('debug'))){console.timeEnd("document load time");}
 };
 
@@ -121,14 +127,18 @@ Gri.run = function () {
   fn();
 
   if (this.debug()) {
-    Gri.debug('Modul %c' + name + '%c yuklendi.');
+    Gri.debug('%cModul %c' + name + ' %c yuklendi.');
   }
 
   return this;
 };
 
-/*
- Document ready de moduller baslatilir.
- */
-$(Gri.init);
-Gri.debug("%c Gri Cengo Kit %c v0.1");
+Gri.moduleQueueChecker = function(){
+  var gri = this;
+  clearTimeout(this._moduleQueueChecker);
+  this._moduleQueueChecker = setTimeout(function(){
+    gri.init();
+  },1);
+};
+
+Gri.debug("%c Gri Cengo Kit %c v0.1%c");
