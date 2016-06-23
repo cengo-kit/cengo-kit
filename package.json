@@ -50,5 +50,8 @@
       ]
     }
   },
-  "test": "mocha ./test/spec/test.js"
+  "test": "mocha ./test/spec/test.js",
+  "dependencies": {
+    "bourbon": "^4.2.7"
+  }
 }
