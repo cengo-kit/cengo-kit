@@ -34,7 +34,10 @@ html.no-js
 
     // build:js scripts/vendor.js
     // bower:js
-    script(src='../bower_components/jquery/dist/jquery.js')
+    script(src='/bower_components/modernizr/modernizr.js')
+    script(src='/bower_components/jquery/dist/jquery.js')
+    script(src='/bower_components/is_js/is.js')
+    script(src='/bower_components/js-cookie/src/js.cookie.js')
     // endbower
     // endbuild
 
@@ -54,8 +57,9 @@ html.no-js
     // endbuild
 
     //- inject:js
-    script(src="/app/scripts/app.js")
-    script(src="/app/scripts/main.js")
-    script(src="/app/scripts/second.js")
+    script(src="scripts/app.js")
+    script(src="scripts/main.js")
+    script(src="scripts/sidebar.js")
+    script(src="scripts/homepageSlider.js")
     //- endinject
 

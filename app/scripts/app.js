@@ -74,12 +74,15 @@ Gri.setEvent = function () {
 /*
  Debug modu kontrolu yapar.
  */
-Gri.debug = function (bool) {
-  if (is.boolean(bool)) {
-    this._debug = bool;
-    Cookies.set('debug', bool);
+Gri.debug = function (parameter) {
+  if (is.boolean(parameter)) {
+    this._debug = parameter;
+    Cookies.set('debug', parameter);
   } else {
     return this._debug;
+  }
+  if(is.string(parameter)){
+    console.log(parameter);
   }
 };
 
@@ -98,7 +101,7 @@ Gri.init = function () {
   //Tum modulleri document ready de calistirir.
   $.each(this.modules, function (index, module) {
     this._module = module;
-
+    Gri.debug('Modul %c' + name + '%c baslatiliyor.');
     //Gerekli oncelik siralariyla filitreleri calistiyoruz.
     gri.checkIEVersion()
       .setEvent()
@@ -116,8 +119,13 @@ Gri.run = function () {
   fn();
 
   if (this.debug()) {
-    KE.debug('Modul %c' + name + '%c yuklendi.');
+    Gri.debug('Modul %c' + name + '%c yuklendi.');
   }
 
   return this;
 };
+
+/*
+ Document ready de moduller baslatilir.
+ */
+$(Gri.init);

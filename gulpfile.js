@@ -64,23 +64,33 @@ gulp.task('cengo', ()=> {
 
 });
 
-
 gulp.task('injectJs', () => {
   return gulp.src('app/layouts/layouts/*.jade')
-    .pipe($.inject(series(gulp.src('app/scripts/app.js', {read: false}), gulp.src(['app/scripts/**/*.js', '!./app/scripts/app.js'], {read: false}))), {
-      ignorePath: ['app'],
-      relative: true
-    })
+    .pipe($.inject(series(gulp.src('./app/scripts/app.js', {read: false}), gulp.src(['./app/**/*.js', '!./app/scripts/app.js'], {
+      read: false
+    }).pipe(rename(function (path) {
+      var paths = path.basename.split('/');
+      path.dirname = "scripts/";
+    }))), {
+      relative: false,
+      ignorePath: 'app',
+      addRootSlash: false
+    }))
     .pipe(gulp.dest('app/layouts/layouts/'));
 });
 
 
 gulp.task('scripts', () => {
-  return gulp.src('app/scripts/**/*.js')
+  return gulp.src('app/**/*.js')
     .pipe($.plumber())
     .pipe($.sourcemaps.init())
     .pipe($.babel())
     .pipe($.sourcemaps.write('.'))
+    .pipe(rename(function (path) {
+      var paths = path.basename.split('/');
+      path.dirname = "";
+      path.basename = paths[paths.length - 1];
+    }))
     .pipe(gulp.dest('.tmp/scripts'))
     .pipe(reload({stream: true}));
 });
@@ -251,7 +261,7 @@ gulp.task('serve:test', ['scripts'], () => {
     }
   });
 
-  gulp.watch('app/scripts/**/*.js', ['scripts']);
+  gulp.watch('app/**/*.js', ['scripts']);
   gulp.watch('test/spec/**/*.js').on('change', reload);
   gulp.watch('test/spec/**/*.js', ['lint:test']);
 });
@@ -269,7 +279,7 @@ gulp.task('wiredep', () => {
       exclude: ['bootstrap-sass'],
       ignorePath: /^(\.\.\/)*\.\./
     }))
-    .pipe(gulp.dest('app'));
+    .pipe(gulp.dest('app/layouts/layouts/'));
 });
 
 
