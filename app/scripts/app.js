@@ -4,7 +4,8 @@ var Gri = {
   modules: [],
   _module: null,
   valid: true,
-  _debug: Cookies.get('debug')
+  _debug: eval(Cookies.get('debug')),
+  time:console.time("document load time")
 };
 
 /*
@@ -78,11 +79,10 @@ Gri.debug = function (parameter) {
   if (is.boolean(parameter)) {
     this._debug = parameter;
     Cookies.set('debug', parameter);
-  } else {
+  } else if(is.string(parameter) && this._debug){
+    console.log(parameter, 'background: #222; color: #bada55','background: #222; color: #FFF');
+  }else{
     return this._debug;
-  }
-  if(is.string(parameter)){
-    console.log(parameter);
   }
 };
 
@@ -97,6 +97,7 @@ Gri.module = function (module) {
  Framework icin baslatici fonksiyondur.
  */
 Gri.init = function () {
+
   var gri = this;
   //Tum modulleri document ready de calistirir.
   $.each(this.modules, function (index, module) {
@@ -106,8 +107,9 @@ Gri.init = function () {
     gri.checkIEVersion()
       .setEvent()
       .run();
-
   });
+
+  if(eval(Cookies.get('debug'))){console.timeEnd("document load time");}
 };
 
 /*
@@ -129,3 +131,4 @@ Gri.run = function () {
  Document ready de moduller baslatilir.
  */
 $(Gri.init);
+Gri.debug("%c Gri Cengo Kit %c v0.1");
