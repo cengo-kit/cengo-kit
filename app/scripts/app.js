@@ -66,14 +66,16 @@ Gri.setEvent = function () {
 
   //State atanmis ise event olarak tanimliyoruz.
   if (is.string(state)) {
-    if (is.string(container)) {
-      $(container).on(state, fn);
+    if (is.string(container) || is.object(container)) {
+      console.log($(container))
+      $(container).bind(state, fn.bind(this._module));
     } else {
-      $($el).on(state, fn);
+      $($el).bind(state, fn.bind(this._module));
     }
   }
   return this;
 };
+
 
 /*
  Debug modu kontrolu yapar.
@@ -123,7 +125,7 @@ Gri.run = function () {
   var name = this._module.name;
   var fn = this._module.fn;
   var state = this._module.state;
-  if (!is.string(state)) {
+  if (!is.string(state) || state.indexOf('ready') > -1) {
     fn.call(this._module);
   }
 
