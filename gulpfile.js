@@ -14,6 +14,7 @@ gulp.task('styles', () => {
   return gulp.src('app/styles/*.scss')
     .pipe($.plumber())
     .pipe($.sourcemaps.init())
+    .pipe(sassGlob())
     .pipe($.sass.sync({
       outputStyle: 'expanded',
       precision: 10,
