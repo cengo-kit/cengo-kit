@@ -102,12 +102,10 @@ Gri.module = function (module) {
  */
 Gri.init = function () {
   var gri = this;
-  console.log(this.modules);
   //Tum modulleri document ready de calistirir.
   $.each(this.modules, function (index, module) {
     gri._module = module;
     Gri.debug('%cModul %c' + module.name + ' %cBaslatildi');
-    console.log(this._module);
     //Gerekli oncelik siralariyla filitreleri calistiyoruz.
     gri.checkIEVersion()
       .setEvent()
@@ -124,7 +122,10 @@ Gri.init = function () {
 Gri.run = function () {
   var name = this._module.name;
   var fn = this._module.fn;
-  fn();
+  var state = this._module.state;
+  if (!is.string(state)) {
+    fn.call(this._module);
+  }
 
   if (this.debug()) {
     Gri.debug('%cModul %c' + name + ' %c yuklendi.');
