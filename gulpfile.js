@@ -163,7 +163,7 @@ gulp.task('clean', del.bind(null, ['.tmp', 'dist']));
 gulp.task('devGulpInfo', () => {
   gulp.info = "dev"
 });
-gulp.task('serve', ['devGulpInfo', 'injectJs', 'iconfont', 'views', 'styles', 'scripts', 'fonts'], () => {
+gulp.task('serve', ['devGulpInfo','wiredep', 'injectJs', 'iconfont', 'views', 'styles', 'scripts', 'fonts'], () => {
   gulp.info = "dev"
   browserSync({
     notify: false,
