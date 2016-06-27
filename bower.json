@@ -5,7 +5,10 @@
     "bootstrap-sass": "~3.3.5",
     "modernizr": "~2.8.1",
     "is_js": "^0.7.6",
-    "js-cookie": "^2.1.2"
+    "js-cookie": "^2.1.2",
+    "bootstrap-select": "^1.10.0",
+    "moment": "^2.13.0",
+    "bootstrap-datepicker": "^1.6.1"
   },
   "overrides": {
     "bootstrap-sass": {

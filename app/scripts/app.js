@@ -67,7 +67,6 @@ Gri.setEvent = function () {
   //State atanmis ise event olarak tanimliyoruz.
   if (is.string(state)) {
     if (is.string(container) || is.object(container)) {
-      console.log($(container))
       $(container).bind(state, fn.bind(this._module));
     } else {
       $($el).bind(state, fn.bind(this._module));
