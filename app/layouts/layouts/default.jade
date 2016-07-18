@@ -33,15 +33,15 @@ html.no-js
 
 
     // build:js scripts/vendor.js
-    // bower:js
+        // bower:js
     script(src='/bower_components/modernizr/modernizr.js')
     script(src='/bower_components/jquery/dist/jquery.js')
     script(src='/bower_components/is_js/is.js')
     script(src='/bower_components/js-cookie/src/js.cookie.js')
     // endbower
-    // endbuild
 
-    // build:js scripts/plugins.js
+
+    //- inject:js
     script(src='../bower_components/bootstrap-sass/assets/javascripts/bootstrap/affix.js')
     script(src='../bower_components/bootstrap-sass/assets/javascripts/bootstrap/alert.js')
     script(src='../bower_components/bootstrap-sass/assets/javascripts/bootstrap/dropdown.js')
@@ -54,9 +54,6 @@ html.no-js
     script(src='../bower_components/bootstrap-sass/assets/javascripts/bootstrap/scrollspy.js')
     script(src='../bower_components/bootstrap-sass/assets/javascripts/bootstrap/collapse.js')
     script(src='../bower_components/bootstrap-sass/assets/javascripts/bootstrap/tab.js')
-    // endbuild
-
-    //- inject:js
-    script(src="scripts/app.js")
     //- endinject
+    // endbuild
 

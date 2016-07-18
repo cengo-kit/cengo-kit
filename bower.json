@@ -2,26 +2,25 @@
   "name": "GriCengoKit",
   "private": true,
   "dependencies": {
+    "bootstrap": "^3.3.6",
     "bootstrap-sass": "~3.3.5",
     "modernizr": "~2.8.1",
     "is_js": "^0.7.6",
     "js-cookie": "^2.1.2",
     "bootstrap-select": "^1.10.0",
     "moment": "^2.13.0",
-    "bootstrap-datepicker": "^1.6.1"
+    "highcharts": "^4.2.5",
+    "bootstrap-datepicker": "^1.6.1",
+    "owl.carousel": "^2.1.6",
+    "underscore": "^1.8.3",
+    "validationengine": "validationEngine#master",
+    "jquery-mask-plugin": "^1.14.0"
   },
-  "overrides": {
-    "bootstrap-sass": {
-      "main": [
-        "assets/stylesheets/_bootstrap.scss",
-        "assets/fonts/bootstrap/*",
-        "assets/javascripts/bootstrap.js"
-      ]
-    }
-  },
+  "overrides": {},
   "devDependencies": {
     "chai": "^3.5.0",
     "mocha": "^2.5.3",
-    "underscore": "^1.8.3"
+    "underscore": "^1.8.3",
+    "validationEngine": "^2.6.4"
   }
 }

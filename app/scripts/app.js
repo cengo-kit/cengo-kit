@@ -5,9 +5,11 @@ var Gri = {
   _module: null,
   valid: true,
   _debug: eval(Cookies.get('debug')),
-  time:console.time("document load time")
+  time:console.time('document load time')
 };
+var V = {
 
+};
 /*
  Module icin ie kontrolu yapar.
  */
@@ -104,17 +106,38 @@ Gri.module = function (module) {
 Gri.init = function () {
   var gri = this;
   //Tum modulleri document ready de calistirir.
-  $.each(this.modules, function (index, module) {
-    gri._module = module;
-    Gri.debug('%cModul %c' + module.name + ' %cBaslatildi');
+  var moduleSize = this.modules.length;
+  for(var i = moduleSize; i > -1;i--){
+    //Set _module
+    this._module = this.modules[0];
+
+    //Element sayfada yoksa modul run edilmez
+
     //Gerekli oncelik siralariyla filitreleri calistiyoruz.
-    gri.checkIEVersion()
-      .setEvent()
-      .run();
-  });
+    if(this.checkIEVersion().chain() && this._module.$el.length != 0){
+      this.debug('%cModul %c' + this._module.name + ' %cBaslatildi');
+      this.setEvent()
+        .run();
+    }
+
+    //Gerekli islemlerden gecen 0'inci modulu siliyoruz
+    delete this.modules[0];
+
+    //Clone array witouth undefined
+    var tmpArr = [];
+    for(var x = 0; x < this.modules.length; x++){
+      if(!is.undefined(this.modules[x]) && !is.null(this.modules[x])){
+        tmpArr.push(this.modules[x]);
+      }
+    }
+    this.modules = tmpArr;
+    //Re-set loop size
+    moduleSize = this.modules.length;
+  }
+
   //Remove modules to prevent global injection
   delete this.modules;
-  if(eval(Cookies.get('debug'))){console.timeEnd("document load time");}
+  if(eval(Cookies.get('debug'))){console.timeEnd('document load time');}
 };
 
 /*
@@ -124,6 +147,8 @@ Gri.run = function () {
   var name = this._module.name;
   var fn = this._module.fn;
   var state = this._module.state;
+
+
   if (!is.string(state) || state.indexOf('ready') > -1) {
     fn.call(this._module);
   }
@@ -135,6 +160,33 @@ Gri.run = function () {
   return this;
 };
 
+/*
+ Birbirine bagli modulleri zincirler
+ */
+Gri.chain = function(){
+  var bool = false;
+  //Check if module has chains
+
+  if(!is.string(this._module.chain) || this._module.chain == ''){
+    return this;
+  }
+
+  var chains = this._module.chain.split(',');
+  //Loop chains
+  for( var i  in chains){
+    //if they exist in queue break and add this module on tail
+    if(_.where(this.modules, {'name': chains[i]}).length != 0){
+      this.modules.push(this._module);
+      bool = true;
+      break;
+    }
+  }
+  return bool;
+};
+
+/*
+ Modullerin yuklenmesini bekler
+ */
 Gri.moduleQueueChecker = function(){
   var gri = this;
   clearTimeout(this._moduleQueueChecker);
@@ -143,4 +195,4 @@ Gri.moduleQueueChecker = function(){
   },1);
 };
 
-Gri.debug("%c Gri Cengo Kit %c v0.1%c");
+Gri.debug('%c Gri Cengo Kit %c v0.2%c');
