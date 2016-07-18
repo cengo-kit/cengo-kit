@@ -107,7 +107,7 @@ Gri.init = function () {
   var gri = this;
   //Tum modulleri document ready de calistirir.
   var moduleSize = this.modules.length;
-  for(var i = moduleSize; i > -1;i--){
+  for(var i = moduleSize; i > 0;i--){
     //Set _module
     this._module = this.modules[0];
 
