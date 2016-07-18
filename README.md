@@ -34,4 +34,4 @@ Generatorlar
     
   Projeniz icin otomatik gerekli sablonda sayfa (jade) dosyasi olusturur.
 
-    gulp cengo -m modul-ismi
+    gulp cengo -p sayfa-ismi
