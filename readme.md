@@ -24,6 +24,10 @@ Taskler
 
     gulp serve
 
+  Proje assetlerini cms pathine otomatik atar.
+
+    gulp serve:cms
+
   
 Generatorlar
 -------------
