@@ -5,6 +5,10 @@ Gri.module({
   container: 'form',
   fn: function () {
 
+    //Defaults
+    var GRECAPTCHA_SECRET_KEY = "6LfYVicTAAAAAJm7GnR6Z2EhCMPIPCNbDPmmUiX3";
+
+
     $.validationEngineLanguage.allRules["tcNo"] = {
       // UK zip codes
       "func": function(field, rules, i, options){
@@ -35,10 +39,42 @@ Gri.module({
       "alertText": "* Yanlış telefon numarası"
     };
 
+    //Mask Phone
+    $('input[name="phone"]').mask('(000) 000 0000');
 
     //Validations
     this.$el.each(function(index,item){
-      $(item).validationEngine();
-    })
+      //Set ReCaptcha
+      $(item).find('.g-recaptcha').attr('data-sitekey',GRECAPTCHA_SECRET_KEY);
+
+      $(item).validationEngine('attach', {
+        autoHidePrompt: true,
+        autoHideDelay: 3000,
+        validationEventTrigger: 'submit',// Validate on Submit
+        onValidationComplete: function(form, status){
+          if(status) {
+            var _data = $(item).serialize();
+            $.ajax({type: 'post',
+              url: '/form/',
+              data: _data,
+              success: function (msg) {
+                $('.bs-example-modal-sm .modal-content').text(msg.toString());
+                $('.bs-example-modal-sm').modal('show');
+                grecaptcha.reset();
+              },error: function (msg) {
+                $('.bs-example-modal-sm .modal-content').text(msg.toString());
+                $('.bs-example-modal-sm').modal('show');
+                grecaptcha.reset();
+              }
+            });
+          }
+        }
+      });
+
+    });
+
+    //Initialize Google ReCaptcha
+    $.getScript( "https://www.google.com/recaptcha/api.js");
+
   }
 });

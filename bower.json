@@ -19,8 +19,6 @@
   "overrides": {},
   "devDependencies": {
     "chai": "^3.5.0",
-    "mocha": "^2.5.3",
-    "underscore": "^1.8.3",
-    "validationEngine": "^2.6.4"
+    "mocha": "^2.5.3"
   }
 }

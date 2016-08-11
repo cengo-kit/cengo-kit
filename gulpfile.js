@@ -38,7 +38,9 @@ gulp.task('iconfont', () => {
     .pipe($.iconfont({
       fontName: 'icons',
       formats: ['ttf', 'eot', 'woff', 'woff2', 'svg'],
+      prependUnicode: true,
       normalize: false,
+      appendCodepoints: true,
       fontHeight: 30
     }))
     .pipe(gulp.dest('app/fonts/icons/'));
@@ -132,6 +134,13 @@ gulp.task('html', ['styles', 'scripts'], () => {
     .pipe(gulp.dest('dist'));
 });
 
+gulp.task('html:cms', () => {
+  return gulp.src(['.tmp/*.html'])
+    .pipe($.useref({searchPath: ['.tmp', '.'], noconcat:false}))
+    .pipe($.if('*.css', $.cssnano({safe: true, autoprefixer: false})))
+    .pipe($.if('*.html', $.htmlmin({collapseWhitespace: true})))
+    .pipe(gulp.dest('\\\\192.168.1.105\\WWWroot\\xProject_Namex\\Website'));
+});
 
 gulp.task('images', () => {
   return gulp.src('app/images/**/*')
@@ -272,6 +281,10 @@ gulp.task('serve:test', ['scripts'], () => {
   gulp.watch('app/**/*.js', ['scripts']);
   gulp.watch('test/spec/**/*.js').on('change', reload);
   gulp.watch('test/spec/**/*.js', ['lint:test']);
+});
+
+gulp.task('serve:cms',['html:cms'], () => {
+  gulp.watch(['app/**/*.scss','app/modules/**/*.js'], ['html:cms']);
 });
 
 // inject bower components

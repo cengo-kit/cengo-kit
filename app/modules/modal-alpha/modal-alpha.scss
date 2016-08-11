@@ -1,0 +1,35 @@
+/*------------------------------------*\
+    #modal-alpha
+\*------------------------------------*/
+
+/*<-- GLOBAL -->*/
+.modal-alpha{
+  .modal-content{
+    padding: 30px;
+  }
+}
+// Usage
+/*<-- XS -->*/
+@media (max-width: $screen-xs-max) {
+  .modal-alpha{
+
+  }
+}
+/*<-- SM -->*/
+@media (min-width: $screen-sm-min) {
+  .modal-alpha{
+
+  }
+}
+/*<-- MD -->*/
+@media (min-width: $screen-md-min) {
+  .modal-alpha{
+
+  }
+}
+/*<-- LG -->*/
+@media (min-width: $screen-lg-min) {
+  .modal-alpha{
+
+  }
+}
