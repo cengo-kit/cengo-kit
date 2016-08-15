@@ -27,12 +27,7 @@
 @function icon-char($filename) {
 	$char: "";
 
-	@if $filename == certificate-1 {
-		$char: "\E001";
-	}
-	@if $filename == select-alpha-arrow {
-		$char: "\E002";
-	}
+
 
 	@return $char;
 }
@@ -46,11 +41,4 @@
 		}
 		content: icon-char($filename);
 	}
-}
-
-.icon-certificate-1 {
-	@include icon(certificate-1);
-}
-.icon-select-alpha-arrow {
-	@include icon(select-alpha-arrow);
 }
