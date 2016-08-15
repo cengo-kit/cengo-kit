@@ -10,7 +10,7 @@ const $ = gulpLoadPlugins();
 const reload = browserSync.reload;
 const rename = require('gulp-rename');
 
-gulp.task('styles', () => {
+gulp.task('styles',['iconfont'], () => {
   return gulp.src('app/styles/*.scss')
     .pipe($.plumber())
     .pipe($.sourcemaps.init())
@@ -39,9 +39,9 @@ gulp.task('iconfont', () => {
       fontName: 'icons',
       formats: ['ttf', 'eot', 'woff', 'woff2', 'svg'],
       prependUnicode: true,
-      normalize: false,
+      normalize: true,
       appendCodepoints: true,
-      fontHeight: 30
+      fontHeight:30
     }))
     .pipe(gulp.dest('app/fonts/icons/'));
 });
@@ -68,9 +68,11 @@ gulp.task('cengo', ()=> {
       .pipe(gulp.dest('app/'));
   }
 
+  gulp.start('inject:js');
+
 });
 
-gulp.task('injectJs', () => {
+gulp.task('inject:js',['wiredep'], () => {
   return gulp.src('app/layouts/layouts/*.jade')
     .pipe($.inject(series(gulp.src('./app/scripts/app.js', {read: false}), gulp.src(['./app/**/*.js', '!./app/scripts/app.js'], {
       read: false
@@ -84,7 +86,6 @@ gulp.task('injectJs', () => {
     }))
     .pipe(gulp.dest('app/layouts/layouts/'));
 });
-
 
 gulp.task('scripts', () => {
   return gulp.src('app/**/*.js')
@@ -174,10 +175,7 @@ gulp.task('extras', () => {
 
 gulp.task('clean', del.bind(null, ['.tmp', 'dist']));
 
-gulp.task('devGulpInfo', () => {
-  gulp.info = "dev"
-});
-gulp.task('serve', ['devGulpInfo', 'wiredep', 'injectJs', 'iconfont', 'views', 'styles', 'scripts', 'fonts'], () => {
+gulp.task('serve', ['info:dev', 'inject:js', 'views', 'styles', 'scripts', 'fonts'], () => {
   gulp.info = "dev";
   browserSync({
     notify: false,
@@ -190,6 +188,8 @@ gulp.task('serve', ['devGulpInfo', 'wiredep', 'injectJs', 'iconfont', 'views', '
       }
     }
   });
+  gulp.watch('gulpfile.js', ['serve']);
+  gulp.watch('app/layouts/layouts/default.jade', ['serve']);
 
   gulp.watch([
     'app/*.html',
@@ -202,13 +202,18 @@ gulp.task('serve', ['devGulpInfo', 'wiredep', 'injectJs', 'iconfont', 'views', '
   gulp.watch('app/fonts/**/*', ['fonts']);
   gulp.watch('bower.json', ['wiredep', 'fonts']);
   gulp.watch('app/svg/*.svg', ['iconfont']);
-  gulp.watch('app/modules/**/*.js', ['injectJs']);
+  gulp.watch('app/modules/**/*.js', ['inject:js']);
 });
 
-gulp.task('cmsGulpInfo', () => {
+gulp.task('info', () => {
   gulp.info = "cms"
 });
-gulp.task('cms', ['cmsGulpInfo', 'views', 'styles', 'scripts', 'fonts'], () => {
+
+gulp.task('info:dev', () => {
+  gulp.info = "dev"
+});
+
+gulp.task('cms', ['info', 'views', 'styles', 'scripts', 'fonts'], () => {
 
   browserSync({
     notify: false,
@@ -233,7 +238,6 @@ gulp.task('cms', ['cmsGulpInfo', 'views', 'styles', 'scripts', 'fonts'], () => {
   gulp.watch('bower.json', ['wiredep', 'fonts']);
 });
 
-
 gulp.task('views', () => {
   return gulp.src('app/*.jade')
     .pipe($.data((file) => {
@@ -252,7 +256,6 @@ gulp.task('views', () => {
     .pipe(gulp.dest('.tmp'))
     .pipe(reload({stream: true}));
 });
-
 
 gulp.task('serve:dist', ['build'], () => {
   browserSync({
@@ -302,7 +305,6 @@ gulp.task('wiredep', () => {
     }))
     .pipe(gulp.dest('app/layouts/layouts/'));
 });
-
 
 gulp.task('build', ['lint','views', 'html', 'images', 'fonts', 'extras'], () => {
   return gulp.src('dist/**/*').pipe($.size({title: 'build', gzip: true}));
