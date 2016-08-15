@@ -28,12 +28,11 @@ html.no-js
     |   <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     | <![endif]-->
 
-    .container
-      block content
+    block content
 
 
     // build:js scripts/vendor.js
-        // bower:js
+    // bower:js
     script(src='/bower_components/modernizr/modernizr.js')
     script(src='/bower_components/jquery/dist/jquery.js')
     script(src='/bower_components/is_js/is.js')
@@ -42,18 +41,11 @@ html.no-js
 
 
     //- inject:js
-    script(src='../bower_components/bootstrap-sass/assets/javascripts/bootstrap/affix.js')
-    script(src='../bower_components/bootstrap-sass/assets/javascripts/bootstrap/alert.js')
-    script(src='../bower_components/bootstrap-sass/assets/javascripts/bootstrap/dropdown.js')
-    script(src='../bower_components/bootstrap-sass/assets/javascripts/bootstrap/tooltip.js')
-    script(src='../bower_components/bootstrap-sass/assets/javascripts/bootstrap/modal.js')
-    script(src='../bower_components/bootstrap-sass/assets/javascripts/bootstrap/transition.js')
-    script(src='../bower_components/bootstrap-sass/assets/javascripts/bootstrap/button.js')
-    script(src='../bower_components/bootstrap-sass/assets/javascripts/bootstrap/popover.js')
-    script(src='../bower_components/bootstrap-sass/assets/javascripts/bootstrap/carousel.js')
-    script(src='../bower_components/bootstrap-sass/assets/javascripts/bootstrap/scrollspy.js')
-    script(src='../bower_components/bootstrap-sass/assets/javascripts/bootstrap/collapse.js')
-    script(src='../bower_components/bootstrap-sass/assets/javascripts/bootstrap/tab.js')
+    script(src="scripts/app.js")
+    script(src="scripts/form.js")
+    script(src="scripts/modal-alpha.js")
+    script(src="scripts/test.js")
     //- endinject
     // endbuild
+
 
