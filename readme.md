@@ -7,7 +7,6 @@ Baslangic
 
     git clone https://github.com/gricreative/gri-cengo-kit project-name
     npm install
-    bower install
   
 Taskler
 -------------
@@ -19,10 +18,6 @@ Taskler
    Projeyi production olarak ayaga kaldirir ve tarayicinizda acar.
 
     gulp serve:dist
-    
-  Projeyi development olarak ayaga kaldirir ve tarayicinizda acar.
-
-    gulp serve
 
   Proje assetlerini cms pathine otomatik atar.
 
