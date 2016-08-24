@@ -47,12 +47,19 @@ Gri.module({
       //Set ReCaptcha
       $(item).find('.g-recaptcha').attr('data-sitekey',GRECAPTCHA_SECRET_KEY);
 
+      //Check file upload
+      var sendByAjax = $(item).find('input[type=file]').length > 0;
+
       $(item).validationEngine('attach', {
         autoHidePrompt: true,
         autoHideDelay: 3000,
         validationEventTrigger: 'submit',// Validate on Submit
         onValidationComplete: function(form, status){
           if(status) {
+            if(sendByAjax){
+              form.submit();
+            }
+
             var _data = $(item).serialize();
             $.ajax({type: 'post',
               url: '/form/',
