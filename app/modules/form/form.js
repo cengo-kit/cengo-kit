@@ -58,6 +58,7 @@ Gri.module({
           if(status) {
             if(sendByAjax){
               form.submit();
+              return false;
             }
 
             var _data = $(item).serialize();
