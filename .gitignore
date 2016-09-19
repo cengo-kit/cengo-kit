@@ -4,4 +4,3 @@ dist
 bower_components
 test/bower_components
 .idea
-/gulpfile.js
