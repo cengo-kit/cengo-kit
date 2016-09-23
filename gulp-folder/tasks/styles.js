@@ -1,4 +1,4 @@
-gulp.task('styles',['iconfont'], () => {
+gulp.task('styles', () => {
   return gulp.src('app/styles/*.scss')
     .pipe($.plumber())
     .pipe($.sourcemaps.init())

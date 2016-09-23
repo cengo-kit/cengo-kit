@@ -1,5 +1,5 @@
 
-gulp.task('serve', ['info:dev', 'inject:js', 'views', 'styles', 'scripts', 'fonts'], () => {
+gulp.task('serve', ['info:dev', 'inject:js', 'views', 'iconfont', 'styles', 'scripts', 'fonts'], () => {
   gulp.info = "dev";
   browserSync({
     notify: false,
