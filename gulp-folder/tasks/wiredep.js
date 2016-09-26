@@ -22,14 +22,18 @@ gulp.task('wiredep:cms', () => {
 
   gulp.src('./../Website/Sites/1/templates/shared/*.cshtml')
     .pipe(wiredep({
-      relativePath:false,
+      relativePath: true,
       ignorePath:  /^(\.\.\/)+/,
       exclude: ['bootstrap-sass'],
       fileTypes: {
         html: {
           replace: {
-            js: '<script src="/{{filePath}}"></script>',
-            css: '<link rel="stylesheet" href="/{{filePath}}" />'
+            js: function (filePath) {
+              return '<script src="/'+filePath.replace('/HTML','')+'"></script>';
+            },
+            css: function (filePath) {
+              return '<link rel="stylesheet" href="/'+filePath.replace('/HTML','')+'" />';
+            }
           }
         }
       }
