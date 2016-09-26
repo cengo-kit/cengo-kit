@@ -14,7 +14,8 @@
     "owl.carousel": "^2.1.6",
     "underscore": "^1.8.3",
     "validationengine": "validationEngine#master",
-    "jquery-mask-plugin": "^1.14.0"
+    "jquery-mask-plugin": "^1.14.0",
+    "seiyria-bootstrap-slider": "^9.2.0"
   },
   "overrides": {},
   "devDependencies": {

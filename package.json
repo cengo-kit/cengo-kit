@@ -56,7 +56,6 @@
     "bourbon": "^4.2.7"
   },
   "scripts": {
-    "createGulp": "node gulp-folder",
-    "postinstall": "bower cache clean && bower install"
+    "postinstall": "bower cache clean && bower install && node gulp-folder && gulp wiredep"
   }
 }
