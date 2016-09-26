@@ -1,9 +1,9 @@
 gulp.task('info', () => {
-  gulp.info = "cms"
+  gulp.info = "dev"
 });
 
-gulp.task('info:dev', () => {
-  gulp.info = "dev"
+gulp.task('info:cms', () => {
+  gulp.info = "cms"
 });
 
 
