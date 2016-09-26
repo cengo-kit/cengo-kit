@@ -4,6 +4,6 @@ Gri.module({
   $el: $('.modal-alpha'),
   container: '.modal-alpha',
   fn: function () {
-    
+    console.log('test');
   }
 });
