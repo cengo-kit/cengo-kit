@@ -1,4 +1,4 @@
-gulp.task('info', () => {
+gulp.task('info:dev', () => {
   gulp.info = "dev"
 });
 
