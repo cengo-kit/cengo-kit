@@ -29,10 +29,10 @@ gulp.task('wiredep:cms', () => {
         html: {
           replace: {
             js: function (filePath) {
-              return '<script src="/'+filePath.replace('/HTML','')+'"></script>';
+              return '<script src="'+filePath.replace('HTML','')+'"></script>';
             },
             css: function (filePath) {
-              return '<link rel="stylesheet" href="/'+filePath.replace('/HTML','')+'" />';
+              return '<link rel="stylesheet" href="'+filePath.replace('HTML','')+'" />';
             }
           }
         }
