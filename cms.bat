@@ -1,1 +1,1 @@
-echo "All" | xcopy "bower.json" "..\Website" && xcopy ".gitignore" "..\" && del /F /S /Q /A .git && cd "..\" && git init && git add . && git commit -m "FIRST" && cd "Website" && bower install
+xcopy /Y "bower.json" "..\Website" && xcopy /Y ".gitignore" "..\" && del /F /S /Q /A .git && cd "..\" && git init && git add . && git commit -m "FIRST" && cd "Website" && bower install
