@@ -3,7 +3,7 @@ xcopy /Y ".gitignore" "..\"
 
 cd "..\"
 test&cls
-type sign.txt
+type HTML\sign.txt
 
 timeout 3 >nul
 
