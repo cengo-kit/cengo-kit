@@ -2,8 +2,7 @@ xcopy /Y "bower.json" "..\Website"
 xcopy /Y ".gitignore" "..\"
 
 cd "..\"
-test&cls
-type HTML\sign.txt
+
 
 timeout 3 >nul
 
@@ -27,3 +26,8 @@ git commit -m "Utils"
 timeout 3 >nul
 cd "Website"
 bower install
+timeout 3 >nul
+
+test&cls
+type HTML\sign.txt
+
