@@ -1,7 +1,4 @@
 {
   "cwd": "./",
-  "directory": "bower_components",
-  "scripts": {
-    "postinstall": "cms.bat"
-  }
+  "directory": "bower_components"
 }
