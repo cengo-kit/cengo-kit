@@ -5,14 +5,7 @@ bower_components
 test/bower_components
 .idea
 gulpfile.js/
-Website/assets/
-Website/fonts/
-Website/images/
-Website/scripts/
-Website/styles/
-Website/Sites/1/upload
-Website/bower_components
-Website/*.html
-!Error.html
+Website
+!Website/Sites/1/templates
 robots.txt
 /gulpfile.js
