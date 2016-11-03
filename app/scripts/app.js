@@ -1,4 +1,34 @@
 'use strict';
+
+//Utils
+if(window.console && typeof(window.console.time) == "undefined") {
+  console.time = function(name, reset){
+    if(!name) { return; }
+    var time = new Date().getTime();
+    if(!console.timeCounters) { console.timeCounters = {}; }
+    var key = "KEY" + name.toString();
+    if(!reset && console.timeCounters[key]) { return; }
+    console.timeCounters[key] = time;
+  };
+
+  console.timeEnd = function(name){
+    var time = new Date().getTime();
+    if(!console.timeCounters) { return; }
+    var key = "KEY" + name.toString();
+    var timeCounter = console.timeCounters[key];
+    var diff;
+    if(timeCounter) {
+      diff = time - timeCounter;
+      var label = name + ": " + diff + "ms";
+      console.info(label);
+      delete console.timeCounters[key];
+    }
+    return diff;
+  };
+}
+
+
+
 var Gri = {
   // Runtime da tum moduller buraya atanir.
   modules: [],
@@ -7,6 +37,7 @@ var Gri = {
   _debug: eval(Cookies.get('debug')),
   time:console.time('document load time')
 };
+
 var V = {
 
 };
@@ -14,10 +45,10 @@ var V = {
  Module icin ie kontrolu yapar.
  */
 Gri.checkIEVersion = function () {
-  if(is.null(this._module.ieVersion) || is.undefined(this._module.ieVersion)){
+  if(is[null](this._module.ieVersion) || is.undefined(this._module.ieVersion)){
     return this;
   }
-  var _moduleIeVersion = this._module.ieVersion;
+  var ieV = this._module.ieVersion;
   var moduleIeVersion = Number(ieV.replace('<', '').replace('>', ''));
   var uA = navigator.userAgent;
   var ieVersion = null;
@@ -39,17 +70,19 @@ Gri.checkIEVersion = function () {
   }
 
   //Versiyon buyukse degilse valid keyini false eder
-  if (!(ieV.indexOf('>') && moduleIeVersion > ieVersion)) {
+  if (!($.inArray('>',ieVersion) && moduleIeVersion > ieVersion)) {
     this.valid = false
   }
 
   //Versiyon kucukse degilse valid keyini false eder
-  if (!(ieV.indexOf('<') && moduleIeVersion < ieVersion)) {
+  if (!($.inArray('<',ieVersion) && moduleIeVersion < ieVersion)) {
     this.valid = false
   }
 
   //Versiyon esit degilse valid keyini false eder
-  if (!(ieV.indexOf('=') && moduleIeVersion == ieVersion)) {
+  if (!($.inArray('=',ieVersion) && moduleIeVersion == ieVersion)) {
+    this.valid = true
+  }else{
     this.valid = false
   }
 
@@ -96,8 +129,8 @@ Gri.debug = function (parameter) {
  Runtimeda tum moduller bu methodu calistirir
  */
 Gri.module = function (module) {
-  this.modules.push(module);
-  this.moduleQueueChecker()
+  Gri.modules.push(module);
+  Gri.moduleQueueChecker()
 };
 
 /*
@@ -106,37 +139,39 @@ Gri.module = function (module) {
 Gri.init = function () {
   var gri = this;
   //Tum modulleri document ready de calistirir.
-  var moduleSize = this.modules.length;
+  var moduleSize = Gri.modules.length;
   for(var i = moduleSize; i > 0;i--){
     //Set _module
-    this._module = this.modules[0];
-
-    //Element sayfada yoksa modul run edilmez
+    this._module = Gri.modules[0];
+    this.valid = true;
 
     //Gerekli oncelik siralariyla filitreleri calistiyoruz.
-    if(this.checkIEVersion().chain() && this._module.$el.length != 0){
+    this.checkIEVersion().chain();
+
+    //Element sayfada yoksa modul run edilmez
+    if(this._module.$el.length != 0){
       this.debug('%cModul %c' + this._module.name + ' %cBaslatildi');
       this.setEvent()
         .run();
     }
 
     //Gerekli islemlerden gecen 0'inci modulu siliyoruz
-    delete this.modules[0];
+    delete Gri.modules[0];
 
     //Clone array witouth undefined
     var tmpArr = [];
-    for(var x = 0; x < this.modules.length; x++){
-      if(!is.undefined(this.modules[x]) && !is.null(this.modules[x])){
-        tmpArr.push(this.modules[x]);
+    for(var x = 0; x < Gri.modules.length; x++){
+      if(!is.undefined(Gri.modules[x]) && !is[null](Gri.modules[x])){
+        tmpArr.push(Gri.modules[x]);
       }
     }
-    this.modules = tmpArr;
+    Gri.modules = tmpArr;
     //Re-set loop size
-    moduleSize = this.modules.length;
+    moduleSize = Gri.modules.length;
   }
 
   //Remove modules to prevent global injection
-  delete this.modules;
+  // delete Gri.modules;
   if(eval(Cookies.get('debug'))){console.timeEnd('document load time');}
 };
 
@@ -149,8 +184,14 @@ Gri.run = function () {
   var state = this._module.state;
 
 
-  if (!is.string(state) || state.indexOf('ready') > -1) {
-    fn.call(this._module);
+  if ((!is.string(state) || state.indexOf('ready') > -1) && this.valid) {
+    try{
+      fn.call(this._module);
+    }catch (e){
+      console.log(name)
+      console.log(e)
+    }
+
   }
 
   if (this.debug()) {
@@ -175,8 +216,12 @@ Gri.chain = function(){
   //Loop chains
   for( var i  in chains){
     //if they exist in queue break and add this module on tail
-    if(_.where(this.modules, {'name': chains[i]}).length != 0){
-      this.modules.push(this._module);
+    if(_.where(Gri.modules, {'name': chains[i]}).length != 0){
+      Gri.modules = _(Gri.modules).filter(function(item) {
+        return item.name !== Gri._module.name;
+      });
+      Gri.modules.push(this._module);
+      this._module = Gri.modules[0];
       bool = true;
       break;
     }

@@ -1,0 +1,42 @@
+/*------------------------------------*\
+    #welcome
+\*------------------------------------*/
+
+/*<-- GLOBAL -->*/
+.welcome{
+  h1{
+    text-align: center;
+  }
+  h2{
+    text-align: center;
+  }
+  h3{
+    display: inline-block;
+  }
+}
+// Usage
+/*<-- XS -->*/
+@media (max-width: $screen-xs-max) {
+  .welcome{
+
+  }
+}
+
+/*<-- SM -->*/
+@media (min-width: $screen-sm-min) {
+  .welcome{
+
+  }
+}
+/*<-- MD -->*/
+@media (min-width: $screen-md-min) {
+  .welcome{
+
+  }
+}
+/*<-- LG -->*/
+@media (min-width: $screen-lg-min) {
+  .welcome{
+
+  }
+}
