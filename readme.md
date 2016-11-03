@@ -63,5 +63,10 @@ Modulun state'inin atilmasi gereken elementi belirtir. container atanmamis ise $
 
     container:'.homepage-container'
 
+####chain
+Modulleri birbirlerine baglar ve yazilan modulun once calismasini bekler
+
+    chain:'homepage-container'
+
 
 
