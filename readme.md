@@ -72,5 +72,12 @@ Css Mimarisi
 -------------
 
 ####mixin
+_mixins.scss dosyasının içine bourbon harici custom mixinlerinizi yazabilirisiniz.
 
-    _mixins.scss dosyasının içine bourbon harici custom mixinlerinizi yazabilirisiniz.
+    @mixin cover-background($img-uri) {
+      background: url($img-uri) no-repeat center center fixed; 
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+} 
