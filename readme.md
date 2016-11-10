@@ -70,4 +70,7 @@ Modulleri birbirlerine baglar ve yazilan modulun once calismasini bekler
 
 Css Mimarisi
 -------------
-_mixins.scss dosyasının içine bourbon harici custom mixinlerinizi yazabilirisiniz.
+
+####mixin
+
+    _mixins.scss dosyasının içine bourbon harici custom mixinlerinizi yazabilirisiniz.
