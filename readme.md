@@ -68,5 +68,6 @@ Modulleri birbirlerine baglar ve yazilan modulun once calismasini bekler
 
     chain:'homepage-container'
 
-
-
+Css Mimarisi
+-------------
+_mixins.scss dosyasının içine bourbon harici custom mixinlerinizi yazabilirisiniz.
