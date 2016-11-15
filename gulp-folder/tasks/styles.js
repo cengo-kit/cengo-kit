@@ -26,6 +26,7 @@ gulp.task('styles:cms', () => {
     }).on('error', $.sass.logError))
     .pipe($.autoprefixer({browsers: ['> 1%', 'last 2 versions', 'Firefox ESR']}))
     .pipe($.sourcemaps.write())
+    .pipe(gulp.dest('.tmp/styles'))
     .pipe(gulp.dest('../Website/styles'))
     .pipe(reload({stream: true}));
 });

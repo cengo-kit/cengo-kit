@@ -69,7 +69,7 @@ gulp.task('serve:cms', ['info:cms', 'scripts:cms', 'inject:js:cms', 'views', 'ic
       }
     }
   });
-  gulp.watch('gulpfile.js', ['serve']);
+  gulp.watch('gulpfile.js', ['serve:cms']);
 
   gulp.watch([
     'app/*.html',
@@ -77,9 +77,9 @@ gulp.task('serve:cms', ['info:cms', 'scripts:cms', 'inject:js:cms', 'views', 'ic
     '.tmp/fonts/**/*'
   ]).on('change', reload);
   gulp.watch('app/**/*.jade', ['views']);
-  gulp.watch(['app/**/*.scss'], ['styles']);
-  gulp.watch(['app/scripts/**/*.js', 'app/modules/**/*.js'], ['scripts']);
-  gulp.watch('app/fonts/**/*', ['fonts']);
-  gulp.watch('bower.json', ['wiredep', 'fonts']);
+  gulp.watch(['app/**/*.scss'], ['styles:cms']);
+  gulp.watch(['app/scripts/**/*.js', 'app/modules/**/*.js'], ['scripts:cms']);
+  gulp.watch('app/fonts/**/*', ['fonts:cms']);
+  gulp.watch('bower.json', ['wiredep', 'fonts:cms']);
   gulp.watch('app/svg/*.svg', ['iconfont']);
 });
