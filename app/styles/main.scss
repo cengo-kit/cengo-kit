@@ -7,9 +7,10 @@ $icon-font-path: '../fonts/';
 @import "bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
 // endbower
 @import "bourbon";
+//custom mixins
+@import "mixins";
 
 
 
 //Importing All Modules
 @import "../modules/**/*";
-

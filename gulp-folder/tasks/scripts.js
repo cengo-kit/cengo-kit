@@ -1,5 +1,5 @@
 gulp.task('scripts', () => {
-  return gulp.src(['app/**/*.js'])
+  return gulp.src('app/**/*.js')
     .pipe($.plumber())
     .pipe($.sourcemaps.init())
     .pipe($.babel())
@@ -14,7 +14,7 @@ gulp.task('scripts', () => {
 });
 
 gulp.task('scripts:cms', () => {
-  return gulp.src(['app/**/*.js'])
+  return gulp.src('app/**/*.js')
     .pipe($.plumber())
     .pipe($.sourcemaps.init())
     .pipe($.babel())
@@ -24,6 +24,7 @@ gulp.task('scripts:cms', () => {
       path.dirname = "";
       path.basename = paths[paths.length - 1];
     }))
+    .pipe(gulp.dest('.tmp/scripts'))
     .pipe(gulp.dest('../Website/scripts'))
     .pipe(reload({stream: true}));
 });
