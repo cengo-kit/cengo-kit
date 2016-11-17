@@ -81,3 +81,15 @@ _mixins.scss dosyasının içine bourbon harici custom mixinlerinizi yazabiliris
         -o-background-size: cover;
         background-size: cover;
     } 
+
+####_hacks
+_hacks.scss dosyası her tarayıcıya ayrı kod yazmak için oluşturuldu.
+
+    @include [Mixin_Name]( 'selector', (property: value) )
+    Example:
+    @include only_ie9( '.my_element', (color: red) )
+    @include only_ff28_above( '.my_element', (
+        background-color: green,
+        display: flex,
+        margin: 2em,
+    )) 
