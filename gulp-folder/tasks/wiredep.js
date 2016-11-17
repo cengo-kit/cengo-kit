@@ -20,7 +20,7 @@ gulp.task('wiredep:cms', () => {
     }))
     .pipe(gulp.dest('app/styles'));
 
-  gulp.src('./../Website/Sites/1/templates/shared/*.cshtml')
+  gulp.src('./../Cms13/Sites/1/templates/shared/*.cshtml')
     .pipe(wiredep({
       relativePath: true,
       ignorePath:  /^(\.\.\/)+/,
@@ -38,5 +38,5 @@ gulp.task('wiredep:cms', () => {
         }
       }
     }))
-    .pipe(gulp.dest('./../Website/Sites/1/templates/shared/'));
+    .pipe(gulp.dest('./../Cms13/Sites/1/templates/shared/'));
 });

@@ -13,6 +13,6 @@ gulp.task('html:cms', () => {
     .pipe($.useref({searchPath: ['.tmp', '.'], noconcat:false}))
     .pipe($.if('*.css', $.cssnano({safe: true, autoprefixer: false})))
     .pipe($.if('*.html', $.htmlmin({collapseWhitespace: true})))
-    .pipe(gulp.dest('../Website/'));
+    .pipe(gulp.dest('../Cms13/'));
 });
 

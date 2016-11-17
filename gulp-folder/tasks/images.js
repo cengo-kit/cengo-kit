@@ -21,5 +21,5 @@ gulp.task('images:cms', () => {
       // as hooks for embedding and styling
       svgoPlugins: [{cleanupIDs: false}]
     })))
-    .pipe(gulp.dest('../Website/images'));
+    .pipe(gulp.dest('../Cms13/images'));
 });

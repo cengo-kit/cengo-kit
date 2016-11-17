@@ -25,6 +25,6 @@ gulp.task('scripts:cms', () => {
       path.basename = paths[paths.length - 1];
     }))
     .pipe(gulp.dest('.tmp/scripts'))
-    .pipe(gulp.dest('../Website/scripts'))
+    .pipe(gulp.dest('../Cms13/scripts'))
     .pipe(reload({stream: true}));
 });

@@ -13,5 +13,5 @@ gulp.task('fonts:cms', () => {
     .concat('app/fonts/**/*'))
     .pipe(gulp.dest('.tmp/fonts'))
     .pipe(gulp.dest('dist/fonts'))
-    .pipe(gulp.dest('../Website/fonts'));
+    .pipe(gulp.dest('../Cms13/fonts'));
 });

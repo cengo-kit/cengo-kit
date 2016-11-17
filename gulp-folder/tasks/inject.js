@@ -14,7 +14,7 @@ gulp.task('inject:js',['wiredep'], () => {
 });
 
 gulp.task('inject:js:cms',['wiredep:cms'], () => {
-  return gulp.src('../Website/Sites/1/templates/shared/*.cshtml')
+  return gulp.src('../Cms13/Sites/1/templates/shared/*.cshtml')
     .pipe($.inject(series(gulp.src('./app/scripts/app.js', {read: false}), gulp.src(['./app/**/*.js', '!./app/scripts/app.js'], {
       read: false
     }).pipe(rename(function (path) {
@@ -25,5 +25,5 @@ gulp.task('inject:js:cms',['wiredep:cms'], () => {
       ignorePath: "app",
       addRootSlash: true
     }))
-    .pipe(gulp.dest('../Website/Sites/1/templates/shared/'));
+    .pipe(gulp.dest('../Cms13/Sites/1/templates/shared/'));
 });
