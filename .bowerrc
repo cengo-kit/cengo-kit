@@ -1,4 +1,7 @@
 {
   "cwd": "./",
-  "directory": "bower_components"
+  "directory": "bower_components",
+  "scripts": {
+    "postinstall": "cd ..\Cms13 && bower install"
+  }
 }
