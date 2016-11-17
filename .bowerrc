@@ -2,6 +2,6 @@
   "cwd": "./",
   "directory": "bower_components",
   "scripts": {
-    "postinstall": "cd .. && cd Cms13 && bower install"
+    "postinstall": "cms.bat"
   }
 }
