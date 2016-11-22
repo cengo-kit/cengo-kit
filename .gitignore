@@ -4,6 +4,7 @@ dist
 bower_components
 test/bower_components
 .idea
+.vs
 gulpfile.js/
 Cms13/bin
 Cms13/cache

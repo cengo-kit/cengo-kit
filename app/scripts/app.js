@@ -65,7 +65,7 @@ Gri.checkIEVersion = function () {
 
 
   //Ie versiyon kontrolu yapilmis mi kontrolu
-  if (is.string(_moduleIeVersion)) {
+  if (is.string(moduleIeVersion)) {
     this._module.ieVersion = null;
   }
 
