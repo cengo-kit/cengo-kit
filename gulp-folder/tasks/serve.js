@@ -1,6 +1,7 @@
 
-gulp.task('serve', ['info:dev', 'scripts', 'inject:js', 'views', 'iconfont', 'styles', 'fonts'], () => {
+gulp.task('serve', ['info:dev', 'scripts', 'inject:js', 'views', 'iconfont', 'fonts'], () => {
   gulp.info = "dev";
+  gulp.start('styles');
   browserSync({
     notify: false,
     port: 9000,
@@ -56,8 +57,9 @@ gulp.task('serve:test', ['scripts'], () => {
   gulp.watch('test/spec/**/*.js', ['lint:test']);
 });
 
-gulp.task('serve:cms', ['info:cms', 'scripts:cms', 'inject:js:cms', 'views', 'iconfont', 'styles:cms', 'fonts:cms'], () => {
+gulp.task('serve:cms', ['info:cms', 'scripts:cms', 'inject:js:cms', 'views', 'iconfont', 'fonts:cms'], () => {
   gulp.info = "cms";
+  gulp.start('styles:cms');
   browserSync({
     notify: false,
     port: 9000,
