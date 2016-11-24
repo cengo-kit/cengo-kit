@@ -11,9 +11,8 @@ gulp.task('iconfont', () => {
       fontName: 'icons',
       formats: ['ttf', 'eot', 'woff', 'woff2', 'svg'],
       prependUnicode: true,
-      normalize: true,
-      appendCodepoints: true,
-      fontHeight:30
+      normalize: false,
+      appendCodepoints: true
     }))
     .pipe(gulp.dest('app/fonts/icons/'));
 });
