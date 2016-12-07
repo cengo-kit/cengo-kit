@@ -1,8 +1,10 @@
-gulp.task('build', ['lint','views', 'html', 'images', 'fonts', 'extras'], () => {
-  return gulp.src('dist/**/*').pipe($.size({title: 'build', gzip: true}));
+const m = require('../gulp-modules');
+
+m.gulp.task('build', ['lint','views', 'html', 'images', 'fonts', 'extras'], () => {
+  return m.gulp.src('dist/**/*').pipe(m.$.size({title: 'build', gzip: true}));
 });
 
-gulp.task('build:cms', ['info:cms', 'scripts:cms','images:cms', 'inject:js:cms', 'views', 'iconfont', 'fonts:cms'], () => {
-    gulp.start('styles:cms');
-  gulp.info = "cms";
+m.gulp.task('build:cms', ['info:cms', 'scripts:cms','images:cms', 'inject:js:cms', 'views', 'iconfont', 'fonts:cms'], () => {
+  m.gulp.start('styles:cms');
+  m.gulp.info = "cms";
 });

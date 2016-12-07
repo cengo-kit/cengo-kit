@@ -1,18 +1,19 @@
+const m = require('../gulp-modules');
 
-gulp.task('html', ['styles', 'scripts'], () => {
-  return gulp.src(['app/*.html', '.tmp/*.html'])
-    .pipe($.useref({searchPath: ['.tmp', 'app', '.']}))
-    .pipe($.if('*.js', $.uglify()))
-    .pipe($.if('*.css', $.cssnano({safe: true, autoprefixer: false})))
-    .pipe($.if('*.html', $.htmlmin({collapseWhitespace: true})))
-    .pipe(gulp.dest('dist'));
+m.gulp.task('html', ['styles', 'scripts'], () => {
+  return m.gulp.src(['app/*.html', '.tmp/*.html'])
+    .pipe(m.$.useref({searchPath: ['.tmp', 'app', '.']}))
+    .pipe(m.$.if('*.js', m.$.uglify()))
+    .pipe(m.$.if('*.css', m.$.cssnano({safe: true, autoprefixer: false})))
+    .pipe(m.$.if('*.html', m.$.htmlmin({collapseWhitespace: true})))
+    .pipe(m.gulp.dest('dist'));
 });
 
-gulp.task('html:cms', () => {
-  return gulp.src(['.tmp/*.html'])
-    .pipe($.useref({searchPath: ['.tmp', '.'], noconcat:false}))
-    .pipe($.if('*.css', $.cssnano({safe: true, autoprefixer: false})))
-    .pipe($.if('*.html', $.htmlmin({collapseWhitespace: true})))
-    .pipe(gulp.dest('../Cms13/'));
+m.gulp.task('html:cms', () => {
+  return m.gulp.src(['.tmp/*.html'])
+    .pipe(m.$.useref({searchPath: ['.tmp', '.'], noconcat:false}))
+    .pipe(m.$.if('*.css', m.$.cssnano({safe: true, autoprefixer: false})))
+    .pipe(m.$.if('*.html', m.$.htmlmin({collapseWhitespace: true})))
+    .pipe(m.gulp.dest('../Cms13/'));
 });
 

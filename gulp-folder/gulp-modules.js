@@ -1,10 +1,14 @@
-const gulp = require('gulp');
-const gulpLoadPlugins = require('gulp-load-plugins');
-const browserSync = require('browser-sync');
-const del = require('del');
-const wiredep = require('wiredep').stream;
-const cms = require('./cms/cms');
-const series = require('stream-series');
-const $ = gulpLoadPlugins();
-const reload = browserSync.reload;
-const rename = require('gulp-rename');
+const m = {};
+
+m.gulp = require('gulp');
+m.gulpLoadPlugins = require('gulp-load-plugins');
+m.browserSync = require('browser-sync');
+m.del = require('del');
+m.wiredep = require('wiredep').stream;
+m.cms = require('../cms/cms');
+m.series = require('stream-series');
+m.$ = m.gulpLoadPlugins();
+m.reload = m.browserSync.reload;
+m.rename = require('gulp-rename');
+
+module.exports = m;

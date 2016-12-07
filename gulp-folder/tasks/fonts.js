@@ -1,17 +1,18 @@
+const m = require('../gulp-modules');
 
-gulp.task('fonts', () => {
-  return gulp.src(require('main-bower-files')('**/*.{eot,svg,ttf,woff,woff2}', function (err) {
+m.gulp.task('fonts', () => {
+  return m.gulp.src(require('main-bower-files')('**/*.{eot,svg,ttf,woff,woff2}', function (err) {
   })
     .concat('app/fonts/**/*'))
-    .pipe(gulp.dest('.tmp/fonts'))
-    .pipe(gulp.dest('dist/fonts'));
+    .pipe(m.gulp.dest('.tmp/fonts'))
+    .pipe(m.gulp.dest('dist/fonts'));
 });
 
-gulp.task('fonts:cms', () => {
-  return gulp.src(require('main-bower-files')('**/*.{eot,svg,ttf,woff,woff2}', function (err) {
+m.gulp.task('fonts:cms', () => {
+  return m.gulp.src(require('main-bower-files')('**/*.{eot,svg,ttf,woff,woff2}', function (err) {
   })
     .concat('app/fonts/**/*'))
-    .pipe(gulp.dest('.tmp/fonts'))
-    .pipe(gulp.dest('dist/fonts'))
-    .pipe(gulp.dest('../Cms13/fonts'));
+    .pipe(m.gulp.dest('.tmp/fonts'))
+    .pipe(m.gulp.dest('dist/fonts'))
+    .pipe(m.gulp.dest('../Cms13/fonts'));
 });

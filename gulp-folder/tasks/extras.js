@@ -1,20 +1,21 @@
+const m = require('../gulp-modules');
 
-gulp.task('extras', () => {
-  return gulp.src([
+m.gulp.task('extras', () => {
+  return m.gulp.src([
     'app/*.*',
     '!app/*.html',
     '!app/**/*.jade'
   ], {
     dot: true
-  }).pipe(gulp.dest('dist'));
+  }).pipe(m.gulp.dest('dist'));
 });
 
-gulp.task('extras:cms', () => {
-  return gulp.src([
+m.gulp.task('extras:cms', () => {
+  return m.gulp.src([
     'app/*.*',
     '!app/*.html',
     '!app/**/*.jade'
   ], {
     dot: true
-  }).pipe(gulp.dest('../Cms13'));
+  }).pipe(m.gulp.dest('../Cms13'));
 });

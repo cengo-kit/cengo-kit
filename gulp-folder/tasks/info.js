@@ -1,9 +1,11 @@
-gulp.task('info:dev', () => {
-  gulp.info = "dev"
+const m = require('../gulp-modules');
+
+m.gulp.task('info:dev', () => {
+  m.gulp.info = "dev"
 });
 
-gulp.task('info:cms', () => {
-  gulp.info = "cms"
+m.gulp.task('info:cms', () => {
+  m.gulp.info = "cms"
 });
 
 

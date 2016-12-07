@@ -1,25 +1,25 @@
 'use strict';
 
 //Utils
-if(window.console && typeof(window.console.time) == "undefined") {
+if(window.console && typeof(window.console.time) == 'undefined') {
   console.time = function(name, reset){
     if(!name) { return; }
-    var time = new Date().getTime();
+    const time = new Date().getTime();
     if(!console.timeCounters) { console.timeCounters = {}; }
-    var key = "KEY" + name.toString();
+    const key = 'KEY' + name.toString();
     if(!reset && console.timeCounters[key]) { return; }
     console.timeCounters[key] = time;
   };
 
   console.timeEnd = function(name){
-    var time = new Date().getTime();
+    const time = new Date().getTime();
     if(!console.timeCounters) { return; }
-    var key = "KEY" + name.toString();
-    var timeCounter = console.timeCounters[key];
-    var diff;
+    const key = 'KEY' + name.toString();
+    const timeCounter = console.timeCounters[key];
+    let diff;
     if(timeCounter) {
       diff = time - timeCounter;
-      var label = name + ": " + diff + "ms";
+      const label = name + ': ' + diff + 'ms';
       console.info(label);
       delete console.timeCounters[key];
     }
@@ -29,18 +29,16 @@ if(window.console && typeof(window.console.time) == "undefined") {
 
 
 
-var Gri = {
+const Gri = {
   // Runtime da tum moduller buraya atanir.
   modules: [],
   _module: null,
   valid: true,
   _debug: eval(Cookies.get('debug')),
-  time:console.time('document load time')
+  time: console.time('document load time')
 };
 
-var V = {
-
-};
+let V = {};
 /*
  Module icin ie kontrolu yapar.
  */
@@ -48,10 +46,10 @@ Gri.checkIEVersion = function () {
   if(is[null](this._module.ieVersion) || is.undefined(this._module.ieVersion)){
     return this;
   }
-  var ieV = this._module.ieVersion;
-  var moduleIeVersion = Number(ieV.replace('<', '').replace('>', ''));
-  var uA = navigator.userAgent;
-  var ieVersion = null;
+  const ieV = this._module.ieVersion;
+  const moduleIeVersion = Number(ieV.replace('<', '').replace('>', ''));
+  const uA = navigator.userAgent;
+  let ieVersion = null;
 
   if (uA.indexOf('MSIE 6') >= 0) {
     ieVersion = 6;
@@ -94,10 +92,10 @@ Gri.checkIEVersion = function () {
  Module icin event atamasi yapar.
  */
 Gri.setEvent = function () {
-  var $el = this._module.$el;
-  var container = this._module.container;
-  var state = this._module.state;
-  var fn = this._module.fn;
+  const $el = this._module.$el;
+  const container = this._module.container;
+  const state = this._module.state;
+  const fn = this._module.fn;
 
   //State atanmis ise event olarak tanimliyoruz.
   if (is.string(state)) {
@@ -137,10 +135,14 @@ Gri.module = function (module) {
  Framework icin baslatici fonksiyondur.
  */
 Gri.init = function () {
-  var gri = this;
+  let gri = this;
+
+  //Browser kontrolü yapılır
+  Gri.browser();
+
   //Tum modulleri document ready de calistirir.
-  var moduleSize = Gri.modules.length;
-  for(var i = moduleSize; i > 0;i--){
+  let moduleSize = Gri.modules.length;
+  for(let i = moduleSize; i > 0; i--){
     //Set _module
     this._module = Gri.modules[0];
     this.valid = true;
@@ -159,8 +161,8 @@ Gri.init = function () {
     delete Gri.modules[0];
 
     //Clone array witouth undefined
-    var tmpArr = [];
-    for(var x = 0; x < Gri.modules.length; x++){
+    const tmpArr = [];
+    for(let x = 0; x < Gri.modules.length; x++){
       if(!is.undefined(Gri.modules[x]) && !is[null](Gri.modules[x])){
         tmpArr.push(Gri.modules[x]);
       }
@@ -179,9 +181,9 @@ Gri.init = function () {
  Modulu calistirir.
  */
 Gri.run = function () {
-  var name = this._module.name;
-  var fn = this._module.fn;
-  var state = this._module.state;
+  const name = this._module.name;
+  const fn = this._module.fn;
+  const state = this._module.state;
 
 
   if ((!is.string(state) || state.indexOf('ready') > -1) && this.valid) {
@@ -205,16 +207,16 @@ Gri.run = function () {
  Birbirine bagli modulleri zincirler
  */
 Gri.chain = function(){
-  var bool = false;
+  let bool = false;
   //Check if module has chains
 
   if(!is.string(this._module.chain) || this._module.chain == ''){
     return this;
   }
 
-  var chains = this._module.chain.split(',');
+  const chains = this._module.chain.split(',');
   //Loop chains
-  for( var i  in chains){
+  for( let i  in chains){
     //if they exist in queue break and add this module on tail
     if(_.where(Gri.modules, {'name': chains[i]}).length != 0){
       Gri.modules = _(Gri.modules).filter(function(item) {
@@ -233,11 +235,28 @@ Gri.chain = function(){
  Modullerin yuklenmesini bekler
  */
 Gri.moduleQueueChecker = function(){
-  var gri = this;
+  const gri = this;
   clearTimeout(this._moduleQueueChecker);
   this._moduleQueueChecker = setTimeout(function(){
     gri.init();
   },1);
 };
 
+Gri.browser = function () {
+    const ua = navigator.userAgent.toLowerCase(),
+      is = function (t) {
+        return ua.indexOf(t) > -1
+      },
+      g = 'gecko',
+      w = 'webkit',
+      s = 'safari',
+      o = 'opera',
+      m = 'mobile',
+      h = document.documentElement,
+      b = [(!(/opera|webtv/i.test(ua)) && /msie\s(\d)/.test(ua)) ? ('ie ie' + RegExp.$1) : is('firefox/2') ? g + ' ff2' : is('firefox/3.5') ? g + ' ff3 ff3_5' : is('firefox/3.6') ? g + ' ff3 ff3_6' : is('firefox/3') ? g + ' ff3' : is('gecko/') ? g : is('opera') ? o + (/version\/(\d+)/.test(ua) ? ' ' + o + RegExp.$1 : (/opera(\s|\/)(\d+)/.test(ua) ? ' ' + o + RegExp.$2 : '')) : is('konqueror') ? 'konqueror' : is('blackberry') ? m + ' blackberry' : is('android') ? m + ' android' : is('chrome') ? w + ' chrome' : is('iron') ? w + ' iron' : is('applewebkit/') ? w + ' ' + s + (/version\/(\d+)/.test(ua) ? ' ' + s + RegExp.$1 : '') : is('mozilla/') ? g : '', is('j2me') ? m + ' j2me' : is('iphone') ? m + ' iphone' : is('ipod') ? m + ' ipod' : is('ipad') ? m + ' ipad' : is('mac') ? 'mac' : is('darwin') ? 'mac' : is('webtv') ? 'webtv' : is('win') ? 'win' + (is('windows nt 6.0') ? ' vista' : '') : is('freebsd') ? 'freebsd' : (is('x11') || is('linux')) ? 'linux' : '', 'js'];
+    let c;
+    c = b.join(' ');
+    h.className += ' ' + c;
+    return c;
+};
 Gri.debug('%c Gri Cengo Kit %c v0.2%c');

@@ -1,42 +1,44 @@
-gulp.task('wiredep', () => {
-  gulp.src('app/styles/*.scss')
-    .pipe(wiredep({
+const m = require('../gulp-modules');
+
+m.gulp.task('wiredep', () => {
+  m.gulp.src('app/styles/*.scss')
+    .pipe(m.wiredep({
       ignorePath: /^(\.\.\/)+/
     }))
-    .pipe(gulp.dest('app/styles'));
+    .pipe(m.gulp.dest('app/styles'));
 
-  gulp.src('app/layouts/layouts/*.jade')
-    .pipe(wiredep({
+  m.gulp.src('app/layouts/layouts/*.jade')
+    .pipe(m.wiredep({
       exclude: ['bootstrap-sass'],
       ignorePath: /^(\.\.\/)*\.\./
     }))
-    .pipe(gulp.dest('app/layouts/layouts/'));
+    .pipe(m.gulp.dest('app/layouts/layouts/'));
 });
 
-gulp.task('wiredep:cms', () => {
-  gulp.src('app/styles/*.scss')
-    .pipe(wiredep({
+m.gulp.task('wiredep:cms', () => {
+  m.gulp.src('app/styles/*.scss')
+    .pipe(m.wiredep({
       ignorePath: /^(\.\.\/)+/
     }))
-    .pipe(gulp.dest('app/styles'));
+    .pipe(m.gulp.dest('app/styles'));
 
-  gulp.src('./../Cms13/Sites/1/templates/shared/*.cshtml')
-    .pipe(wiredep({
+  m.gulp.src('./../Cms13/Sites/1/templates/shared/*.cshtml')
+    .pipe(m.wiredep({
       relativePath: true,
-      ignorePath:  /^(\.\.\/)+/,
+      ignorePath: /^(\.\.\/)+/,
       exclude: ['bootstrap-sass'],
       fileTypes: {
         html: {
           replace: {
             js: function (filePath) {
-              return '<script src="'+filePath.replace('HTML','')+'"></script>';
+              return '<script src="' + filePath.replace('HTML', '') + '"></script>';
             },
             css: function (filePath) {
-              return '<link rel="stylesheet" href="'+filePath.replace('HTML','')+'" />';
+              return '<link rel="stylesheet" href="' + filePath.replace('HTML', '') + '" />';
             }
           }
         }
       }
     }))
-    .pipe(gulp.dest('./../Cms13/Sites/1/templates/shared/'));
+    .pipe(m.gulp.dest('./../Cms13/Sites/1/templates/shared/'));
 });

@@ -1,8 +1,9 @@
+const m = require('../gulp-modules');
 
-gulp.task('serve', ['info:dev', 'scripts', 'inject:js', 'views', 'iconfont', 'fonts'], () => {
-  gulp.info = "dev";
-  gulp.start('styles');
-  browserSync({
+m.gulp.task('serve', ['info:dev', 'scripts', 'inject:js', 'views', 'iconfont', 'fonts'], () => {
+  m.gulp.info = "dev";
+  m.gulp.start('styles');
+  m.browserSync({
     notify: false,
     port: 9000,
     server: {
@@ -13,23 +14,23 @@ gulp.task('serve', ['info:dev', 'scripts', 'inject:js', 'views', 'iconfont', 'fo
       }
     }
   });
-  gulp.watch('gulpfile.js', ['serve']);
+  m.gulp.watch('m.gulpfile.js', ['serve']);
 
-  gulp.watch([
+  m.gulp.watch([
     'app/*.html',
     'app/images/**/*',
     '.tmp/fonts/**/*'
-  ]).on('change', reload);
-  gulp.watch('app/**/*.jade', ['views']);
-  gulp.watch(['app/**/*.scss'], ['styles']);
-  gulp.watch(['app/scripts/**/*.js', 'app/modules/**/*.js'], ['scripts']);
-  gulp.watch('app/fonts/**/*', ['fonts']);
-  gulp.watch('bower.json', ['wiredep', 'fonts']);
-  gulp.watch('app/svg/*.svg', ['iconfont']);
+  ]).on('change', m.reload);
+  m.gulp.watch('app/**/*.jade', ['views']);
+  m.gulp.watch(['app/**/*.scss'], ['styles']);
+  m.gulp.watch(['app/scripts/**/*.js', 'app/modules/**/*.js'], ['scripts']);
+  m.gulp.watch('app/fonts/**/*', ['fonts']);
+  m.gulp.watch('bower.json', ['wiredep', 'fonts']);
+  m.gulp.watch('app/svg/*.svg', ['iconfont']);
 });
 
-gulp.task('serve:dist', ['build'], () => {
-  browserSync({
+m.gulp.task('serve:dist', ['build'], () => {
+  m.browserSync({
     notify: false,
     port: 9000,
     server: {
@@ -38,8 +39,8 @@ gulp.task('serve:dist', ['build'], () => {
   });
 });
 
-gulp.task('serve:test', ['scripts'], () => {
-  browserSync({
+m.gulp.task('serve:test', ['scripts'], () => {
+  m.browserSync({
     notify: false,
     port: 9000,
     ui: false,
@@ -52,15 +53,15 @@ gulp.task('serve:test', ['scripts'], () => {
     }
   });
 
-  gulp.watch('app/**/*.js', ['scripts']);
-  gulp.watch('test/spec/**/*.js').on('change', reload);
-  gulp.watch('test/spec/**/*.js', ['lint:test']);
+  m.gulp.watch('app/**/*.js', ['scripts']);
+  m.gulp.watch('test/spec/**/*.js').on('change', m.reload);
+  m.gulp.watch('test/spec/**/*.js', ['lint:test']);
 });
 
-gulp.task('serve:cms', ['info:cms', 'scripts:cms', 'inject:js:cms', 'views', 'iconfont', 'fonts:cms'], () => {
-  gulp.info = "cms";
-  gulp.start('styles:cms');
-  browserSync({
+m.gulp.task('serve:cms', ['info:cms', 'scripts:cms', 'inject:js:cms', 'views', 'iconfont', 'fonts:cms'], () => {
+  m.gulp.info = "cms";
+  m.gulp.start('styles:cms');
+  m.browserSync({
     notify: false,
     port: 9000,
     server: {
@@ -71,17 +72,17 @@ gulp.task('serve:cms', ['info:cms', 'scripts:cms', 'inject:js:cms', 'views', 'ic
       }
     }
   });
-  gulp.watch('gulpfile.js', ['serve:cms']);
+  m.gulp.watch('m.gulpfile.js', ['serve:cms']);
 
-  gulp.watch([
+  m.gulp.watch([
     'app/*.html',
     'app/images/**/*',
     '.tmp/fonts/**/*'
-  ]).on('change', reload);
-  gulp.watch('app/**/*.jade', ['views']);
-  gulp.watch(['app/**/*.scss'], ['styles:cms']);
-  gulp.watch(['app/scripts/**/*.js', 'app/modules/**/*.js'], ['scripts:cms']);
-  gulp.watch('app/fonts/**/*', ['fonts:cms']);
-  gulp.watch('bower.json', ['wiredep', 'fonts:cms']);
-  gulp.watch('app/svg/*.svg', ['iconfont']);
+  ]).on('change', m.reload);
+  m.gulp.watch('app/**/*.jade', ['views']);
+  m.gulp.watch(['app/**/*.scss'], ['styles:cms']);
+  m.gulp.watch(['app/scripts/**/*.js', 'app/modules/**/*.js'], ['scripts:cms']);
+  m.gulp.watch('app/fonts/**/*', ['fonts:cms']);
+  m.gulp.watch('bower.json', ['wiredep', 'fonts:cms']);
+  m.gulp.watch('app/svg/*.svg', ['iconfont']);
 });

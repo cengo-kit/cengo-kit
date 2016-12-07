@@ -1,32 +1,34 @@
-gulp.task('styles', () => {
-  return gulp.src('app/styles/*.scss')
-    .pipe($.plumber())
-    .pipe($.sourcemaps.init())
-    .pipe($.sassGlob())
-    .pipe($.sass.sync({
+const m = require('../gulp-modules');
+
+m.gulp.task('styles', () => {
+  return m.gulp.src('app/styles/*.scss')
+    .pipe(m.$.plumber())
+    .pipe(m.$.sourcemaps.init())
+    .pipe(m.$.sassGlob())
+    .pipe(m.$.sass.sync({
       outputStyle: 'expanded',
       precision: 10,
       includePaths: ['.', 'app/modules/**/*', require("bourbon").includePaths]
-    }).on('error', $.sass.logError))
-    .pipe($.autoprefixer({browsers: ['> 1%', 'last 2 versions', 'Firefox ESR']}))
-    .pipe($.sourcemaps.write())
-    .pipe(gulp.dest('.tmp/styles'))
-    .pipe(reload({stream: true}));
+    }).on('error', m.$.sass.logError))
+    .pipe(m.$.autoprefixer({browsers: ['> 1%', 'last 2 versions', 'Firefox ESR']}))
+    .pipe(m.$.sourcemaps.write())
+    .pipe(m.gulp.dest('.tmp/styles'))
+    .pipe(m.reload({stream: true}));
 });
 
-gulp.task('styles:cms', () => {
-  return gulp.src('app/styles/*.scss')
-    .pipe($.plumber())
-    .pipe($.sourcemaps.init())
-    .pipe($.sassGlob())
-    .pipe($.sass.sync({
+m.gulp.task('styles:cms', () => {
+  return m.gulp.src('app/styles/*.scss')
+    .pipe(m.$.plumber())
+    .pipe(m.$.sourcemaps.init())
+    .pipe(m.$.sassGlob())
+    .pipe(m.$.sass.sync({
       outputStyle: 'expanded',
       precision: 10,
       includePaths: ['.', 'app/modules/**/*', require("bourbon").includePaths]
-    }).on('error', $.sass.logError))
-    .pipe($.autoprefixer({browsers: ['> 1%', 'last 2 versions', 'Firefox ESR']}))
-    .pipe($.sourcemaps.write())
-    .pipe(gulp.dest('.tmp/styles'))
-    .pipe(gulp.dest('../Cms13/styles'))
-    .pipe(reload({stream: true}));
+    }).on('error', m.$.sass.logError))
+    .pipe(m.$.autoprefixer({browsers: ['> 1%', 'last 2 versions', 'Firefox ESR']}))
+    .pipe(m.$.sourcemaps.write())
+    .pipe(m.gulp.dest('.tmp/styles'))
+    .pipe(m.gulp.dest('../Cms13/styles'))
+    .pipe(m.reload({stream: true}));
 });

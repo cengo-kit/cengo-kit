@@ -1,26 +1,28 @@
+const m = require('../gulp-modules');
+
 
 function lint(files, options) {
-  return gulp.src(files)
-    .pipe(reload({stream: true, once: true}))
-    .pipe($.eslint(options))
-    .pipe($.eslint.format())
-    .pipe($.if(!browserSync.active, $.eslint.failAfterError()));
+  return m.gulp.src(files)
+    .pipe(m.reload({stream: true, once: true}))
+    .pipe(m.$.eslint(options))
+    .pipe(m.$.eslint.format())
+    .pipe(m.$.if(!m.browserSync.active, m.$.eslint.failAfterError()));
 }
 
-gulp.task('lint', () => {
+m.gulp.task('lint', () => {
   return lint('app/scripts/**/*.js', {
     fix: true
   })
-    .pipe(gulp.dest('app/scripts'));
+    .pipe(m.gulp.dest('app/scripts'));
 });
 
-gulp.task('lint:test', () => {
+m.gulp.task('lint:test', () => {
   return lint('test/spec/**/*.js', {
     fix: true,
     env: {
       mocha: true
     }
   })
-    .pipe(gulp.dest('test/spec/**/*.js'));
+    .pipe(m.gulp.dest('test/spec/**/*.js'));
 });
 
