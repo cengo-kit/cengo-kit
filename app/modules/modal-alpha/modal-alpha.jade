@@ -1,4 +1,41 @@
 .modal.fade.modal-alpha(tabindex='-1', role='dialog', aria-labelledby='mySmallModalLabel')
-  .modal-dialog.modal-sm
-    .close-l
+  .modal-dialog.modal-md
+    .icon-close
     .modal-content
+
+div(tpl=['modal-success'])
+  .success
+    .head-type
+      i.icon-check
+    .title  Basarili
+    .text Basariyla tamamlandi
+
+div(tpl=['modal-warning'])
+  .warning
+    .head-type
+      .icon-error
+    .title
+      span  Uyari
+    .text
+      span Bir uyari ile karsilasildi.
+
+div(tpl=['modal-error'])
+  .error
+    .head-type
+      i.icon-error
+    .title
+      span  Hata
+    .text
+      span Bir hata ile karsilasildi.
+
+div(tpl=['modal-prompt'])
+  .prompt
+    .text
+      p Duis aliquet egestas purus in blandit. Curabitur vulputate, ligula lacinia scelerisque tempor, lacus lacus ornare ante, ac egestas est urna sit amet arcu. Class aptent taciti sociosqu ad litora ade torquent per conubia nostra, per inceptos himenaeos.
+      p Sed molestie augue sit amet leo consequat posuere. Vestibul ante ipsum primis in faucibus orci luctus et ultrices posuere ile cubilia Curae; Proin vel ante a orci tempus eleifend ut.
+    .mrTop
+      .row
+        .col-sm-6
+          a(href="#").button-alpha.approve  ONAYLIYORUM
+        .col-sm-6
+          a(href="#").button-alpha.reject  ONAYLAMIYORUM

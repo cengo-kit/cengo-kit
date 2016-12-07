@@ -1,1 +1,29 @@
 .form
+  form(action="#" method='get').bottom-side
+    .row(c-helper="mrT:20")
+      .col-xs-12
+        input(placeholder="Adiniz" class="validate[required]").input-alpha
+    .row(c-helper="mrT:20")
+      .col-xs-12
+        input(placeholder="Soyadiniz" class="validate[required]").input-alpha
+
+    h3.title-beta.mrTop30 Tercih ettiginiz iletisim kanali
+    .row(c-helper="mrT:20")
+      .col-xs-12
+        input(type='checkbox', id="iletisimkanali1")
+    .sozlesme-control
+      .row(c-helper="mrT:20")
+        .col-xs-12
+          .select-alpha
+            select(class="validate[required]")
+              option(value="")  Sozlesmeyi Aldigim Sirket
+              option(value="1")  Test
+              option(value="2")  Test
+              option(value="3")  Test
+    .row
+      .col-xs-12
+        .grecaptcha
+
+    .row(c-helper="mrT:20")
+      .col-xs-6
+        input(type="submit",value="Gonder").button-alpha

@@ -2,7 +2,8 @@ Gri.module({
   name: 'form',
   ieVersion: null,
   $el: $('form'),
-  container: 'form',
+  container: window,
+  state:'load',
   fn: function () {
 
 
@@ -41,13 +42,20 @@ Gri.module({
     };
 
     //Mask Phone
-    $('input[name="phone"]').mask('(000) 000 0000');
+    $('input[mask]').each(function (index, item) {
+      $('input[mask]').mask($(item).attr('mask'));
+    });
 
-    
     //Validations
     this.$el.each(function(index,item){
-      //Set ReCaptcha
-      $(item).find('.g-recaptcha').attr('data-sitekey',GRECAPTCHA_SECRET_KEY);
+
+      if($(item).find('.grecaptcha').length>0){
+        //Set ReCaptcha
+        var recaptchaEl = $(item).find('.grecaptcha').attr("data-sitekey", GRECAPTCHA_SECRET_KEY)[0];
+        grecaptcha.render( recaptchaEl, {
+          sitekey: GRECAPTCHA_SECRET_KEY
+        });
+      }
 
       //Check file upload
       var sendByAjax = $(item).find('input[type=file]').length > 0;
@@ -68,23 +76,17 @@ Gri.module({
               url: '/form/',
               data: _data,
               success: function (msg) {
-                $('.bs-example-modal-sm .modal-content').text(msg.toString());
-                $('.bs-example-modal-sm').modal('show');
-                grecaptcha.reset();
+                $(window).trigger('modal-success',{title:"Başarılı",text: msg.toString()})
               },error: function (msg) {
-                $('.bs-example-modal-sm .modal-content').text(msg.toString());
-                $('.bs-example-modal-sm').modal('show');
-                grecaptcha.reset();
+                $(window).trigger('modal-error',{title:"Hata",text: msg.toString()})
               }
             });
+            grecaptcha.reset($(item).find('.grecaptcha')[0])
           }
         }
       });
 
     });
-
-    //Initialize Google ReCaptcha
-    $.getScript( "https://www.google.com/recaptcha/api.js");
 
   }
 });

@@ -1,5 +1,10 @@
 extends layouts/layouts/default
 
 block content
-  include modules/welcome/welcome
+  .container
+    include modules/welcome/welcome
+    div(c-helper="mrT:30")
+      include modules/form/form
+    include modules/modal-alpha/modal-alpha
+
 

@@ -27,7 +27,15 @@
 @function icon-char($filename) {
 	$char: "";
 
-
+	@if $filename == check {
+		$char: "\E001";
+	}
+	@if $filename == close {
+		$char: "\E002";
+	}
+	@if $filename == error {
+		$char: "\E003";
+	}
 
 	@return $char;
 }
@@ -41,4 +49,14 @@
 		}
 		content: icon-char($filename);
 	}
+}
+
+.icon-check {
+	@include icon(check);
+}
+.icon-close {
+	@include icon(close);
+}
+.icon-error {
+	@include icon(error);
 }

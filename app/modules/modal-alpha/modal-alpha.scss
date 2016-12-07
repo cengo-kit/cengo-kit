@@ -5,8 +5,115 @@
 /*<-- GLOBAL -->*/
 .modal-alpha{
   .modal-content{
-    padding: 30px;
+    border: none;
+    background: none;
+    padding: 160px 50px 50px 50px;
+    background: #FFF;
+    border-radius: 0;
+    position: relative;
+    min-height: 325px;
+    .title{
+      text-align: center;
+      font-size: 32px;
+      color:#000;
+      font-weight: 700;
+    }
+    .text{
+      text-align: center;
+      font-size: 16px;
+      font-weight: 700;
+      margin-top: 20px;
+      color: #4c4c4c;
+    }
   }
+  .head-type{
+    width: 100%;
+    left: 0px;
+    text-align: center;
+    top: 0px;
+    font-size: 52px;
+    color: #FFF;
+    position: absolute;
+    height: 130px;
+    i{
+      font-size: 80px;
+    }
+  }
+  .success{
+    .title{
+      color: #3c763d;
+    }
+    .head-type{
+      background: #d6e9c6;
+      i{
+        color: #68a237;
+      }
+    }
+    .text{
+    }
+  }
+  .error{
+    .title{
+      color: #a94442;
+    }
+    .head-type{
+      background: #f2dede;
+      i{
+        color: #e26262;
+      }
+    }
+    .text{
+    }
+  }
+  .warning{
+    .title{
+
+    }
+    .head-type{
+      color: #b8b5b5;
+    }
+    .text{
+    }
+  }
+  .prompt{
+    .title{
+
+    }
+    .head-type{
+      color: #b8b5b5;
+    }
+    .text{
+      color: #a3a3a3;
+      p{
+        color: #101c31;
+        font-size: 18px;
+        font-family: 'klavika_rgregular';
+      }
+    }
+    .approve{
+      background: #027ec5;
+      border-radius: 5px;
+    }
+    .reject{
+      background: #cdd6dc;
+      border-radius: 5px;
+    }
+
+  }
+  .icon-close{
+    display: inline-block;
+    position: absolute;
+    right: 10px;
+    z-index: 10;
+    top: 3px;
+    color: #FFF;
+    cursor: pointer;
+    font-size: 26px;
+  }
+  .icon-close{
+    color: #000;
+  }
+
 }
 // Usage
 /*<-- XS -->*/

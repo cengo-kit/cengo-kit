@@ -1,5 +1,5 @@
 gulp.task('iconfont', () => {
-  del.bind(null, ['app/fonts/icons/'])
+  del.bind(null, ['app/fonts/icons/']);
   return gulp.src('app/svg/*.svg')
     .pipe($.iconfontCss({
       fontName: 'icons',
@@ -16,5 +16,3 @@ gulp.task('iconfont', () => {
     }))
     .pipe(gulp.dest('app/fonts/icons/'));
 });
-
-
