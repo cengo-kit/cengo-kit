@@ -20,6 +20,5 @@ gulp.task('cengo', ()=> {
       .pipe(gulp.dest('app/'));
   }
 
-  gulp.start('inject:js');
-
+  gulp.start('inject');
 });

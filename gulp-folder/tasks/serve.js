@@ -1,5 +1,5 @@
 
-gulp.task('serve', ['info:dev', 'scripts', 'inject:js', 'views', 'iconfont', 'fonts'], () => {
+gulp.task('serve', ['info:dev', 'scripts', 'inject', 'views', 'iconfont', 'fonts'], () => {
   gulp.info = "dev";
   gulp.start('styles');
   browserSync({
@@ -24,7 +24,7 @@ gulp.task('serve', ['info:dev', 'scripts', 'inject:js', 'views', 'iconfont', 'fo
   gulp.watch(['app/**/*.scss'], ['styles']);
   gulp.watch(['app/scripts/**/*.js', 'app/modules/**/*.js'], ['scripts']);
   gulp.watch('app/fonts/**/*', ['fonts']);
-  gulp.watch('bower.json', ['wiredep', 'fonts']);
+  gulp.watch('bower.json', ['inject', 'fonts']);
   gulp.watch('app/svg/*.svg', ['iconfont']);
 });
 
@@ -57,7 +57,7 @@ gulp.task('serve:test', ['scripts'], () => {
   gulp.watch('test/spec/**/*.js', ['lint:test']);
 });
 
-gulp.task('serve:cms', ['info:cms', 'scripts:cms', 'inject:js:cms', 'views', 'iconfont', 'fonts:cms'], () => {
+gulp.task('serve:cms', ['info:cms', 'scripts:cms', 'inject:cms', 'views', 'iconfont', 'fonts:cms'], () => {
   gulp.info = "cms";
   gulp.start('styles:cms');
   browserSync({
@@ -82,6 +82,6 @@ gulp.task('serve:cms', ['info:cms', 'scripts:cms', 'inject:js:cms', 'views', 'ic
   gulp.watch(['app/**/*.scss'], ['styles:cms']);
   gulp.watch(['app/scripts/**/*.js', 'app/modules/**/*.js'], ['scripts:cms']);
   gulp.watch('app/fonts/**/*', ['fonts:cms']);
-  gulp.watch('bower.json', ['wiredep', 'fonts:cms']);
+  gulp.watch('bower.json', ['inject', 'fonts:cms']);
   gulp.watch('app/svg/*.svg', ['iconfont']);
 });

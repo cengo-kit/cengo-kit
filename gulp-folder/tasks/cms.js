@@ -20,6 +20,6 @@ gulp.task('cms', ['info', 'views', 'styles', 'scripts', 'fonts'], () => {
   gulp.watch('app/styles/**/*.scss', ['styles']);
   gulp.watch('app/scripts/**/*.js', ['scripts']);
   gulp.watch('app/fonts/**/*', ['fonts']);
-  gulp.watch('bower.json', ['wiredep', 'fonts']);
+  gulp.watch('bower.json', ['inject', 'fonts']);
 });
 
