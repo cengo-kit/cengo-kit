@@ -5,7 +5,7 @@ gulp.task('inject', function () {
     }))
     .pipe(gulp.dest('app/styles'));
   return gulp.src('app/layouts/layouts/*.jade')
-    .pipe($.convertEncoding())
+    .pipe($.convertEncoding({to: 'iso-8859-15'}))
     .pipe($.inject(series(gulp.src('./app/scripts/app.js', {read: false}), gulp.src(['./app/**/*.js', '!./app/scripts/app.js'], {
       read: false
     }).pipe(rename(function (path) {
@@ -30,7 +30,7 @@ gulp.task('inject:cms', function () {
     }))
     .pipe(gulp.dest('app/styles'));
   return gulp.src('../Cms13/Sites/1/templates/shared/*.cshtml')
-    .pipe($.convertEncoding())
+    .pipe($.convertEncoding(to: 'iso-8859-15'))
     .pipe($.inject(series(gulp.src('./app/scripts/app.js', {read: false}), gulp.src(['./app/**/*.js', '!./app/scripts/app.js'], {
       read: false
     }).pipe(rename(function (path) {
