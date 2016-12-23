@@ -38,7 +38,7 @@ gulp.task('inject:cms', function () {
     }))), {
       relative: false,
       ignorePath: 'app',
-      addRootSlash: false
+      addRootSlash: true
     }))
     .pipe(wiredep({
       relativePath: true,
