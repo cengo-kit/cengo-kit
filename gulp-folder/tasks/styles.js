@@ -10,8 +10,7 @@ gulp.task('styles', () => {
     }).on('error', $.sass.logError))
     .pipe($.autoprefixer({browsers: ['> 1%', 'last 2 versions', 'Firefox ESR']}))
     .pipe($.sourcemaps.write())
-    .pipe(gulp.dest('.tmp/styles'))
-    .pipe(reload({stream: true}));
+    .pipe(gulp.dest('.tmp/styles'));
 });
 
 gulp.task('styles:cms', () => {
@@ -27,6 +26,5 @@ gulp.task('styles:cms', () => {
     .pipe($.autoprefixer({browsers: ['> 1%', 'last 2 versions', 'Firefox ESR']}))
     .pipe($.sourcemaps.write())
     .pipe(gulp.dest('.tmp/styles'))
-    .pipe(gulp.dest('../Cms13/styles'))
-    .pipe(reload({stream: true}));
+    .pipe(gulp.dest('../Cms13/styles'));
 });
