@@ -15,11 +15,23 @@ gulp.task('serve', ['info:dev', 'scripts', 'inject', 'views', 'iconfont', 'fonts
   });
   gulp.watch('gulpfile.js', ['serve']);
 
+  let timeout = null;
   gulp.watch([
     'app/*.html',
     'app/images/**/*',
-    '.tmp/fonts/**/*'
-  ]).on('change', reload);
+    '.tmp/**/*.html',
+    '.tmp/images/**/*',
+    '.tmp/fonts/**/*',
+    '.tmp/js/**/*',
+    '.tmp/css/**/*'
+  ]).on('change', function (g) {
+    if (timeout != null) {
+      clearTimeout(timeout);
+    }
+    timeout = setTimeout(() => {
+      reload(g);
+    }, 300);
+  });
   gulp.watch('app/**/*.jade', ['views']);
   gulp.watch(['app/**/*.scss'], ['styles']);
   gulp.watch(['app/scripts/**/*.js', 'app/modules/**/*.js'], ['scripts']);
@@ -73,11 +85,23 @@ gulp.task('serve:cms', ['info:cms', 'scripts:cms', 'inject:cms', 'views', 'iconf
   });
   gulp.watch('gulpfile.js', ['serve:cms']);
 
+  let timeout = null;
   gulp.watch([
     'app/*.html',
     'app/images/**/*',
-    '.tmp/fonts/**/*'
-  ]).on('change', reload);
+    '.tmp/**/*.html',
+    '.tmp/images/**/*',
+    '.tmp/fonts/**/*',
+    '.tmp/js/**/*',
+    '.tmp/css/**/*'
+  ]).on('change', function (g) {
+    if (timeout != null) {
+      clearTimeout(timeout);
+    }
+    timeout = setTimeout(() => {
+      reload(g);
+    }, 300);
+  });
   gulp.watch('app/**/*.jade', ['views']);
   gulp.watch(['app/**/*.scss'], ['styles:cms']);
   gulp.watch(['app/scripts/**/*.js', 'app/modules/**/*.js'], ['scripts:cms']);
