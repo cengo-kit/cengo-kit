@@ -130,6 +130,12 @@ Gri.debug = function (parameter) {
   }
 };
 
+Gri.error = function (parameter) {
+  if (is.string(parameter) && this._debug) {
+    console.log(parameter, 'background: #ff3737; color: #FFF', 'background: #ff3737; color: #abff2b', 'background: #ff3737; color: #abff2b');
+  }
+};
+
 /*
  Runtimeda tum moduller bu methodu calistirir
  */
@@ -199,8 +205,8 @@ Gri.run = function () {
     try {
       fn.call(this._module);
     } catch (e) {
-      console.log(name)
-      console.log(e)
+      Gri.e = e;
+      Gri.error('%cHata oluştu. ' + e.stack + " " + e.message + ' %c %c')
     }
 
   }
