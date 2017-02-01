@@ -13,7 +13,6 @@ gulp.task('views', () => {
       path.dirname = "";
       path.basename = paths[paths.length - 1];
     }))
-    .pipe(gulp.dest('.tmp'))
-    .pipe(reload({stream: true}));
+    .pipe(gulp.dest('.tmp'));
 });
 
