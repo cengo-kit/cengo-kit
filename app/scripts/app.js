@@ -206,7 +206,7 @@ Gri.run = function () {
       fn.call(this._module);
     } catch (e) {
       Gri.e = e;
-      Gri.error('%cHata oluştu. ' + e.stack + " " + e.message + ' %c %c')
+      Gri.error('%cHata oluştu. ' + e.stack + ' ' + e.message + ' %c %c')
     }
 
   }

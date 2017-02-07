@@ -7,7 +7,7 @@ gulp.task('wiredep', () => {
 
   gulp.src('app/layouts/layouts/*.jade')
     .pipe(wiredep({
-      exclude: ['bootstrap-sass'],
+      exclude: ['bootstrap-sass','modernizr'],
       ignorePath: /^(\.\.\/)*\.\./
     }))
     .pipe(gulp.dest('app/layouts/layouts/'));
@@ -24,7 +24,7 @@ gulp.task('wiredep:cms', () => {
     .pipe(wiredep({
       relativePath: true,
       ignorePath:  /^(\.\.\/)+/,
-      exclude: ['bootstrap-sass'],
+      exclude: ['bootstrap-sass','modernizr'],
       fileTypes: {
         html: {
           replace: {

@@ -9,10 +9,12 @@ gulp.task('html', ['styles', 'scripts'], () => {
 });
 
 gulp.task('html:cms', () => {
-  return gulp.src(['.tmp/*.html'])
-    .pipe($.useref({searchPath: ['.tmp', '.'], noconcat:false}))
+  return gulp.src(['../Cms13/Sites/1/templates/shared/*.cshtml'])
+    .pipe($.useref({searchPath: ['../Cms13','.tmp', '.'], noconcat:false}))
+    .pipe($.if('*.js', $.uglify()))
     .pipe($.if('*.css', $.cssnano({safe: true, autoprefixer: false})))
-    .pipe($.if('*.html', $.htmlmin({collapseWhitespace: true})))
+    // .pipe($.if('*.html', $.htmlmin({collapseWhitespace: true})))
+    .pipe(gulp.dest('../Cms13/Sites/1/templates/shared/'))
     .pipe(gulp.dest('../Cms13/'));
 });
 

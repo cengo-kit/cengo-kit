@@ -69,7 +69,7 @@ gulp.task('serve:test', ['scripts'], () => {
   gulp.watch('test/spec/**/*.js', ['lint:test']);
 });
 
-gulp.task('serve:cms', ['info:cms', 'scripts:cms', 'inject:cms', 'views', 'iconfont', 'fonts:cms'], () => {
+gulp.task('serve:cms', ['info:cms', 'scripts:cms','images:cms', 'inject:cms', 'views', 'iconfont', 'fonts:cms'], () => {
   gulp.info = "cms";
   gulp.start('styles:cms');
   browserSync({

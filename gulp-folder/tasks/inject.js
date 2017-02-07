@@ -16,7 +16,7 @@ gulp.task('inject', function () {
       addRootSlash: false
     }))
     .pipe(wiredep({
-      exclude: ['bootstrap-sass'],
+      exclude: ['bootstrap-sass','modernizr'],
       ignorePath: /^(\.\.\/)*\.\./
     }))
     .pipe($.header('\ufeff'))
@@ -43,7 +43,7 @@ gulp.task('inject:cms', function () {
     .pipe(wiredep({
       relativePath: true,
       ignorePath:  /^(\.\.\/)+/,
-      exclude: ['bootstrap-sass'],
+      exclude: ['bootstrap-sass','modernizr'],
       fileTypes: {
         html: {
           replace: {
