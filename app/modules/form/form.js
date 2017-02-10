@@ -43,7 +43,7 @@ Gri.module({
 
     //Mask Phone
     $('input[mask]').each(function (index, item) {
-      $('input[mask]').mask($(item).attr('mask'));
+      $(item).mask($(item).attr('mask'));
     });
 
     //Validations
