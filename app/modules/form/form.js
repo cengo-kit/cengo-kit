@@ -8,7 +8,7 @@ Gri.module({
 
 
     //Defaults
-    var GRECAPTCHA_SECRET_KEY = "6LfYVicTAAAAAJm7GnR6Z2EhCMPIPCNbDPmmUiX3";
+    var GRECAPTCHA_SECRET_KEY = "6Lc6IAMTAAAAAHZEKw6hTGPhpDDlABLWu2_b_rKM";
 
 
     $.validationEngineLanguage.allRules["tcNo"] = {
