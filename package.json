@@ -39,7 +39,7 @@
     "stream-series": "^0.1.1",
     "wiredep": "^2.2.2",
     "gulp-bower": "0.0.13",
-    "gulp-copy": "^1.0.0"
+    "gulp-copy": "^1.0.0"
   },
   "eslintConfig": {
     "env": {
