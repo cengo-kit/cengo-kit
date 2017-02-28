@@ -23,7 +23,7 @@ gulp.task('serve', ['info:dev', 'scripts', 'inject', 'views', 'iconfont', 'fonts
     '.tmp/images/**/*',
     '.tmp/fonts/**/*',
     '.tmp/js/**/*',
-    '.tmp/css/**/*'
+    '.tmp/styles/**/*'
   ]).on('change', function (g) {
     if (timeout != null) {
       clearTimeout(timeout);
@@ -93,7 +93,7 @@ gulp.task('serve:cms', ['info:cms', 'scripts:cms','images:cms', 'inject:cms', 'v
     '.tmp/images/**/*',
     '.tmp/fonts/**/*',
     '.tmp/js/**/*',
-    '.tmp/css/**/*'
+    '.tmp/styles/**/*'
   ]).on('change', function (g) {
     if (timeout != null) {
       clearTimeout(timeout);
