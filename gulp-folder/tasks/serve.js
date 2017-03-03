@@ -22,7 +22,7 @@ gulp.task('serve', ['info:dev', 'scripts', 'inject', 'views', 'iconfont', 'fonts
     '.tmp/**/*.html',
     '.tmp/images/**/*',
     '.tmp/fonts/**/*',
-    '.tmp/js/**/*',
+    '.tmp/scripts/**/*',
     '.tmp/styles/**/*'
   ]).on('change', function (g) {
     if (timeout != null) {
@@ -92,7 +92,7 @@ gulp.task('serve:cms', ['info:cms', 'scripts:cms','images:cms', 'inject:cms', 'v
     '.tmp/**/*.html',
     '.tmp/images/**/*',
     '.tmp/fonts/**/*',
-    '.tmp/js/**/*',
+    '.tmp/scripts/**/*',
     '.tmp/styles/**/*'
   ]).on('change', function (g) {
     if (timeout != null) {
