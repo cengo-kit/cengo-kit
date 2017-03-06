@@ -6,7 +6,7 @@ Baslangic
 -------------
 
     git clone https://github.com/gricreative/gri-cengo-kit project-name
-    npm install
+    npm install && bower install
   
 Taskler
 -------------
