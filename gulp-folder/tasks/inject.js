@@ -10,12 +10,12 @@ gulp.task('inject', function () {
     }).pipe(rename(function (path) {
       let paths = path.basename.split('/');
       path.dirname = "scripts/";
-    }))),gulp.src(['./app/**/*.js', '!./app/scripts/**/*.js'], {
+    })), gulp.src(['./app/**/*.js', '!./app/scripts/**/*.js', '!./app/scripts/app.js'], {
       read: false
     }).pipe(rename(function (path) {
       let paths = path.basename.split('/');
       path.dirname = "scripts/";
-    })), {
+    }))), {
       relative: false,
       ignorePath: 'app',
       addRootSlash: true
