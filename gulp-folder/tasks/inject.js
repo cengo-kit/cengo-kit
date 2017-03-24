@@ -5,7 +5,12 @@ gulp.task('inject', function () {
     }))
     .pipe(gulp.dest('app/styles'));
   return gulp.src('app/layouts/layouts/*.jade')
-    .pipe($.inject(series(gulp.src('./app/scripts/app.js', {read: false}), gulp.src(['./app/**/*.js', '!./app/scripts/app.js'], {
+    .pipe($.inject(series(gulp.src('./app/scripts/app.js', {read: false}), gulp.src(['./app/**/*.js', '!./app/scripts/app.js', '!./app/modules/**/*.js'], {
+      read: false
+    }).pipe(rename(function (path) {
+      let paths = path.basename.split('/');
+      path.dirname = "scripts/";
+    })), gulp.src(['./app/**/*.js', '!./app/scripts/**/*.js', '!./app/scripts/app.js'], {
       read: false
     }).pipe(rename(function (path) {
       let paths = path.basename.split('/');
@@ -13,7 +18,7 @@ gulp.task('inject', function () {
     }))), {
       relative: false,
       ignorePath: 'app',
-      addRootSlash: false
+      addRootSlash: true
     }))
     .pipe(wiredep({
       exclude: ['bootstrap-sass','modernizr'],
@@ -30,7 +35,12 @@ gulp.task('inject:cms', function () {
     }))
     .pipe(gulp.dest('app/styles'));
   return gulp.src('../Cms13/Sites/1/templates/shared/*.cshtml')
-    .pipe($.inject(series(gulp.src('./app/scripts/app.js', {read: false}), gulp.src(['./app/**/*.js', '!./app/scripts/app.js'], {
+    .pipe($.inject(series(gulp.src('./app/scripts/app.js', {read: false}), gulp.src(['./app/**/*.js', '!./app/scripts/app.js', '!./app/modules/**/*.js'], {
+      read: false
+    }).pipe(rename(function (path) {
+      let paths = path.basename.split('/');
+      path.dirname = "scripts/";
+    })), gulp.src(['./app/**/*.js', '!./app/scripts/**/*.js'], {
       read: false
     }).pipe(rename(function (path) {
       let paths = path.basename.split('/');
