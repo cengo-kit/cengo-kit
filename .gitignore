@@ -5,7 +5,18 @@ bower_components
 test/bower_components
 .idea
 .vs
-gulpfile.js/
+
+### CMS'siz kurulum icin gecerlidir
+/app/fonts/icons/icons.*
+/app/styles/_icons.scss
+gulpfile.js
+
+### Kurulu CMS icin Gecerlidir
+# HTML
+HTML/app/fonts/icons/icons.*
+HTML/app/styles/_icons.scss
+HTML/gulpfile.js
+# CMS
 Cms13/bin
 Cms13/cache
 Cms13/Sites/1/upload
@@ -14,4 +25,3 @@ Cms13/images
 Cms13/styles
 Cms13/fonts
 packages
-/gulpfile.js
