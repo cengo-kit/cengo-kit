@@ -67,21 +67,27 @@ Gri.module({
         onValidationComplete: function(form, status){
           if(status) {
             if(sendByAjax){
+              this.onValidationComplete = null
               form.submit();
-              return false;
+            }else{
+              var _data = $(item).serialize();
+              $.ajax({type: 'post',
+                url: '/form/',
+                data: _data,
+                success: function (msg) {
+                  if(msg == "Güvenlik kodunu kontrol ediniz."){
+                    $(window).trigger('modal-error',{title:"Hata",text: msg.toString()})
+                  }else{
+                    $(window).trigger('modal-success',{title:"Başarılı",text: msg.toString()})
+                  }
+                },error: function (msg) {
+                  $(window).trigger('modal-error',{title:"Hata",text: msg.toString()})
+                }
+              });
+              grecaptcha.reset(index)
             }
 
-            var _data = $(item).serialize();
-            $.ajax({type: 'post',
-              url: '/form/',
-              data: _data,
-              success: function (msg) {
-                $(window).trigger('modal-success',{title:"Başarılı",text: msg.toString()})
-              },error: function (msg) {
-                $(window).trigger('modal-error',{title:"Hata",text: msg.toString()})
-              }
-            });
-            grecaptcha.reset($(item).find('.grecaptcha')[0])
+
           }
         }
       });
