@@ -5,12 +5,8 @@ Gri.module({
   container: window,
   state:'load',
   fn: function () {
-
-
     //Defaults
     var GRECAPTCHA_SECRET_KEY = "6Lc6IAMTAAAAAHZEKw6hTGPhpDDlABLWu2_b_rKM";
-
-
     $.validationEngineLanguage.allRules["tcNo"] = {
       // UK zip codes
       "func": function(field, rules, i, options){
@@ -34,21 +30,17 @@ Gri.module({
       },
       "alertText": "* Geçersiz TC No"
     };
-
     $.validationEngineLanguage.allRules["phone"] = {
       // UK zip codes
       "regex": /\(?([0-9]{3})\)?([ .-]?)([0-9]{3})\2([0-9]{4})/,
       "alertText": "* Yanlış telefon numarası"
     };
-
     //Mask Phone
     $('input[mask]').each(function (index, item) {
       $(item).mask($(item).attr('mask'));
     });
-
     //Validations
     this.$el.each(function(index,item){
-
       if($(item).find('.grecaptcha').length>0){
         //Set ReCaptcha
         var recaptchaEl = $(item).find('.grecaptcha').attr("data-sitekey", GRECAPTCHA_SECRET_KEY)[0];
@@ -56,10 +48,8 @@ Gri.module({
           sitekey: GRECAPTCHA_SECRET_KEY
         });
       }
-
       //Check file upload
       var sendByAjax = $(item).find('input[type=file]').length > 0;
-
       $(item).validationEngine('attach', {
         autoHidePrompt: true,
         autoHideDelay: 3000,
@@ -67,7 +57,7 @@ Gri.module({
         onValidationComplete: function(form, status){
           if(status) {
             if(sendByAjax){
-              this.onValidationComplete = null
+              this.onValidationComplete = null;
               form.submit();
             }else{
               var _data = $(item).serialize();
@@ -86,13 +76,9 @@ Gri.module({
               });
               grecaptcha.reset(index)
             }
-
-
           }
         }
       });
-
     });
-
   }
 });
