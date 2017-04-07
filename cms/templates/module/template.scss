@@ -1,0 +1,33 @@
+/*------------------------------------*\
+    #{{module_name}}
+\*------------------------------------*/
+
+/*<-- GLOBAL -->*/
+.{{module_name}}{
+
+}
+// Usage
+/*<-- XS -->*/
+@media (max-width: $screen-xs-max) {
+  .{{module_name}}{
+
+  }
+}
+/*<-- SM -->*/
+@media (min-width: $screen-sm-min) {
+  .{{module_name}}{
+
+  }
+}
+/*<-- MD -->*/
+@media (min-width: $screen-md-min) {
+  .{{module_name}}{
+
+  }
+}
+/*<-- LG -->*/
+@media (min-width: $screen-lg-min) {
+  .{{module_name}}{
+
+  }
+}
