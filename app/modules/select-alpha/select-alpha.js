@@ -6,6 +6,9 @@ Gri.module({
   $el: $('.select-alpha'),
   container: '.select-alpha',
   fn: function () {
-    
+      this.$el.find('select').selectpicker({
+        style: 'btn-default',
+        size: 4
+      });
   }
 });

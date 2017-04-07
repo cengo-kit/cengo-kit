@@ -50,14 +50,26 @@ block content
                     span Aracınızın Modeli
               .row
                 .col-sm-6
-                  .input-alpha
-                    input(type="text" class="validate[required]")
-                    span Aracınızın Model Yıllı
+                  .select-alpha
+                    select(class="validate[required]")
+                      option(value="") Aracinizin Model Yili
+                      option(value="2013") 2013
+                .col-sm-6
+                  .select-alpha.corporate-select
+                    select(class="validate[required]")
+                      option(value="") Müşteri Profili
+                      option(value="k") Kurumsal Müşteri
+                      option(value="b") Bireysel Müşteri
+              .row.corporate-alpha
                 .col-sm-6
                   .input-alpha
                     input(type="text" class="validate[required]")
-                    span Müşteri Profili
+                    span Firmanızın Adı
+                .col-sm-6
+                  .input-alpha
+                    input(type="text" class="validate[required]")
+                    span Firmadaki Göreviniz
               .border-alpha
               .clearfix
               include modules/checkbox-alpha/checkbox-alpha
-              include modules/button-alpha/button-alpha
+              input(type="submit" value="Gönder").button-alpha

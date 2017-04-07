@@ -6,8 +6,8 @@
 .checkbox-alpha{
   @include clearfix;
   cursor:pointer;
-  overflow: hidden;
   margin-top: 30px;
+  position: relative;
   .icheckbox{
     display: inline-block;
     width: 15px;
@@ -20,9 +20,7 @@
     color: #d6d6d6;
     float: left;
     background: #dcdedf;
-    position: relative;
     margin-right: 10px;
-
     &.checked{
       &:after{
         content: '';
@@ -36,22 +34,27 @@
         margin-left: -4px;
       }
     }
-    .iCheck-helper{
+    .iCheck-helper {
       z-index: 2;
     }
   }
-
-
   label{
     font-weight: 400;
     color: #28629c;
     float: left;
     max-width: 500px;
     width: 100%;
+    cursor:pointer;
     a{
       margin: 0px 5px;
       color: #e74a17;
       text-decoration: underline;
+    }
+  }
+  .formError{
+    margin-left: 0px;
+    .formErrorContent{
+      width: 220px;
     }
   }
 }

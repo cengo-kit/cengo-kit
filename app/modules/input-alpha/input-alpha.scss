@@ -4,7 +4,7 @@
 
 /*<-- GLOBAL -->*/
 .input-alpha {
-
+  margin-bottom: 40px;
   span {
     display: block;
     color: #00478c;
@@ -12,6 +12,7 @@
     top: -30px;
     z-index: -1;
     font-size: 1em;
+    height: 1px;
     @include transition(ease all .3s);
   }
   input {
@@ -36,6 +37,7 @@
       }
     }
   }
+
 }
 
 // Usage

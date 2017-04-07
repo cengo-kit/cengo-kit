@@ -20,6 +20,9 @@ $icon-font-path: '../fonts/';
 *{
   outline:none !important;
 }
+.bootstrap-select .dropdown-toggle:focus{
+  outline:none !important;
+}
 [tpl]{
   display: none !important;
 }
@@ -31,4 +34,18 @@ $icon-font-path: '../fonts/';
 body{
   background: url("/images/bg.jpg");
   font-family: $ford;
+}
+
+.formError{
+  top: 30px !important;
+  margin-left: -70px;
+  .formErrorContent{
+    background: #e74a17;
+    box-shadow: none;
+    border: none;
+    border-radius: 0px;
+  }
+  .formErrorArrow{
+    display: none;
+  }
 }

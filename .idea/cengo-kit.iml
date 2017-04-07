@@ -9,5 +9,6 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="gri-cengo-kit node_modules" level="project" />
+    <orderEntry type="library" name="ford-trucks-beton-fuari node_modules" level="project" />
   </component>
 </module>
