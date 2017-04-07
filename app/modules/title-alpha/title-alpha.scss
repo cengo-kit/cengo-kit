@@ -1,0 +1,41 @@
+/*------------------------------------*\
+    #title-alpha
+\*------------------------------------*/
+
+/*<-- GLOBAL -->*/
+.title-alpha {
+  font-family: $ford;
+  font-size: 2.000em;
+  font-weight: 400;
+  color: #00478c;
+
+}
+
+// Usage
+/*<-- XS -->*/
+@media (max-width: $screen-xs-max) {
+  .title-alpha {
+
+  }
+}
+
+/*<-- SM -->*/
+@media (min-width: $screen-sm-min) {
+  .title-alpha {
+
+  }
+}
+
+/*<-- MD -->*/
+@media (min-width: $screen-md-min) {
+  .title-alpha {
+
+  }
+}
+
+/*<-- LG -->*/
+@media (min-width: $screen-lg-min) {
+  .title-alpha {
+
+  }
+}

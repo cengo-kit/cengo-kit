@@ -1,0 +1,76 @@
+/*------------------------------------*\
+    #showcase-alpha
+\*------------------------------------*/
+
+/*<-- GLOBAL -->*/
+.showcase-alpha{
+  position: relative;
+  padding: 0px 30px;
+  >img{
+    z-index: -1;
+  }
+  .title{
+    font-family: $ford;
+    font-size: 2.429em;
+    color: #FFF;
+    margin-top: 120px;
+    text-align: center;
+  }
+  .text{
+    font-size: 1.714em;
+    font-family: $ford;
+    color: #FFF;
+    text-align: center;
+    margin-top: 30px;
+  }
+  .footer{
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    left: 0px;
+    background: #FFF;
+    padding: 0px 60px;
+    height: 50px;
+
+    .koc{
+      margin-top: 15px;
+      width: 50px;
+    }
+    .image-container{
+      position: relative;
+      .ford-trucks{
+        position: absolute;
+        right: 0px;
+        top: -45px;
+      }
+    }
+
+  }
+}
+// Usage
+/*<-- XS -->*/
+@media (max-width: $screen-xs-max) {
+  .showcase-alpha{
+
+  }
+}
+/*<-- SM -->*/
+@media (min-width: $screen-sm-min) {
+  .showcase-alpha{
+    .title{
+      font-size: 4.429em;
+    }
+  }
+}
+/*<-- MD -->*/
+@media (min-width: $screen-md-min) {
+  .showcase-alpha{
+
+  }
+}
+/*<-- LG -->*/
+@media (min-width: $screen-lg-min) {
+  .showcase-alpha{
+
+  }
+}

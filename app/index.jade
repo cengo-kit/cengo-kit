@@ -1,10 +1,63 @@
 extends layouts/layouts/default
 
 block content
-  .container
-    include modules/welcome/welcome
-    div(c-helper="mrT:30")
-      include modules/form/form
-    include modules/modal-alpha/modal-alpha
-
-
+  .container-fluid
+    .row
+      .col-md-6.no-padding
+        include modules/showcase-alpha/showcase-alpha
+      .col-md-6
+        .right-side-container
+          h1.title-alpha Beton 2017 Fuarı’na Hoş Geldiniz…
+          p.description-alpha Aşağıdaki bilgileri eksiksiz olarak doldurmanız, sizinle irtibat kurmamız ve kampanya dönemlerindeki fırsatlardan yararlanmanız için önem arz etmektedir.
+          .border-alpha
+          .form-alpha
+            form
+              .row
+                .col-sm-6
+                  .input-alpha
+                    input(type="text" class="validate[required]")
+                    span  Adınız
+                .col-sm-6
+                  .input-alpha
+                    input(type="text" class="validate[required]")
+                    span  Soyadınız
+              .row
+                .col-sm-6
+                  .input-alpha
+                    input(type="text" class="validate[required]")
+                    span  * Cep Telefonu
+                .col-sm-6
+                  .input-alpha
+                    input(type="text" class="validate[required,custom[email]]")
+                    span  E-Posta
+              .row
+                .col-sm-6
+                  .input-alpha
+                    input(type="text" class="validate[required]")
+                    span Yaşadığınız Şehir/Semt
+                .col-sm-6
+                  .input-alpha
+                    input(type="text" class="validate[required]")
+                    span Doğum Tarihiniz
+              .row
+                .col-sm-6
+                  .input-alpha
+                    input(type="text" class="validate[required]")
+                    span Aracınızın Markası
+                .col-sm-6
+                  .input-alpha
+                    input(type="text" class="validate[required]")
+                    span Aracınızın Modeli
+              .row
+                .col-sm-6
+                  .input-alpha
+                    input(type="text" class="validate[required]")
+                    span Aracınızın Model Yıllı
+                .col-sm-6
+                  .input-alpha
+                    input(type="text" class="validate[required]")
+                    span Müşteri Profili
+              .border-alpha
+              .clearfix
+              include modules/checkbox-alpha/checkbox-alpha
+              include modules/button-alpha/button-alpha

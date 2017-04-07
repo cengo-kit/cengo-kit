@@ -1,0 +1,42 @@
+/*------------------------------------*\
+    #description-alpha
+\*------------------------------------*/
+
+/*<-- GLOBAL -->*/
+.description-alpha {
+  font-family: $ford;
+  font-weight: 100;
+  color: #e74a17;
+  font-size: 1em;
+  margin: 10px 0px;
+  display: inline-block;
+}
+
+// Usage
+/*<-- XS -->*/
+@media (max-width: $screen-xs-max) {
+  .description-alpha {
+
+  }
+}
+
+/*<-- SM -->*/
+@media (min-width: $screen-sm-min) {
+  .description-alpha {
+
+  }
+}
+
+/*<-- MD -->*/
+@media (min-width: $screen-md-min) {
+  .description-alpha {
+
+  }
+}
+
+/*<-- LG -->*/
+@media (min-width: $screen-lg-min) {
+  .description-alpha {
+
+  }
+}

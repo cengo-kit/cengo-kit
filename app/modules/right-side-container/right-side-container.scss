@@ -1,0 +1,37 @@
+/*------------------------------------*\
+    #right-side-container
+\*------------------------------------*/
+
+/*<-- GLOBAL -->*/
+.right-side-container {
+  padding: 60px 65px;
+}
+
+// Usage
+/*<-- XS -->*/
+@media (max-width: $screen-xs-max) {
+  .right-side-container {
+
+  }
+}
+
+/*<-- SM -->*/
+@media (min-width: $screen-sm-min) {
+  .right-side-container {
+
+  }
+}
+
+/*<-- MD -->*/
+@media (min-width: $screen-md-min) {
+  .right-side-container {
+
+  }
+}
+
+/*<-- LG -->*/
+@media (min-width: $screen-lg-min) {
+  .right-side-container {
+
+  }
+}
