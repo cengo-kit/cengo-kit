@@ -2,7 +2,7 @@ gulp.task('views', () => {
   return gulp.src('app/*.jade')
     .pipe($.data((file) => {
       return {
-        dev: (gulp.info == "dev")s
+        dev: (gulp.info == "dev")
       };
     }))
     .pipe($.plumber())
