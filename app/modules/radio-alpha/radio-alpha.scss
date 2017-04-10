@@ -4,7 +4,48 @@
 
 /*<-- GLOBAL -->*/
 .radio-alpha{
+  width: 100%;
+  @include clearfix;
+  .iradio{
+    position: relative;
+    cursor: pointer;
+    float: left;
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    border: none;
+    background: #e1e2e3;
+    line-height: 40px;
+    text-align: center;
+    font-size: 15px;
+    overflow: hidden;
+    color: #d6d6d6;
+    border-radius: 50%;
 
+    &.checked{
+      &:after{
+        content: '';
+        width: 15px;
+        height: 15px;
+        border-radius: 50%;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        margin-left: -7px;
+        margin-top: -7px;
+        background: #e74a17;
+      }
+    }
+  }
+  >label{
+    color: #00478c;
+    font-size: 14px;
+    font-weight: 500;
+    margin-left: 15px;
+    margin-top: 5px;
+    display: inline-block;
+    cursor: pointer;
+  }
 }
 // Usage
 /*<-- XS -->*/

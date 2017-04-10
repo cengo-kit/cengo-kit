@@ -1,0 +1,45 @@
+extends layouts/layouts/default
+
+block content
+  .container-fluid
+    .row
+      .col-md-6.no-padding
+        include modules/showcase-alpha/showcase-alpha
+      .col-md-6.lightbox-pointer
+        .right-side-container
+          h1.title-alpha FORD OTOSAN İZİNLİ İLETİŞİM ONAY FORMU
+          p.description-beta Ford Otomotiv Sanayi Anonim Şirketi ("Ford Otosan") tarafından, tarafımdan sağlanan elektronik iletişim adresime, adreslerime telefon, çağrı merkezleri, faks, otomatik arama makineleri, akıllı ses kaydedici sistemler, elektronik posta, kısa mesaj hizmeti gibi vasıtalar kullanılarak elektronik ortamda veri, ses ve görüntü içerikli ticari elektronik ileti gönderilmesini, bilgilerimin bu amaçla kullanılmasını, saklanmasını, Ford Otosan'ın iktisadi ve ticari faaliyetlerinin yapılmasına elektronik ticaret ortam sağlayan gerçek veya tüzel kişi Aracı Hizmet Sağlayıcılar vasıtasıyla tarafınıza ticari elektronik ileti gönderebilmesi için Aracı Hizmet Sağlayıcılarla paylaşılmasını,
+            a(href="#") mevzuat kapsamındaki haklarım saklı kalmak kaydı ile;
+
+          .form-alpha
+            form
+              .clearfix
+              .radio-alpha(c-helper="mrT:10")
+                input(type='radio', name='onay', id='onay1', value="true" )
+                label(for="onay1")  Evet, kabul ediyorum.
+              .radio-alpha(c-helper="mrT:20")
+                input(type='radio', name='onay', id='onay2' value="false" )
+                label(for="onay2")  Hayır, kabul etmiyorum.
+
+              h6(c-helper="mrT:30") Size hangi yolla ulaşmamızı istersiniz?
+              .checkbox-beta
+                input(type="checkbox" class="validate[required]" id="for1" name="contanctEposta")
+                label(for="for1")
+                  | E-posta
+              .checkbox-beta
+                input(type="checkbox" class="validate[required]" id="for2" name="contanctTelefon")
+                label(for="for2")
+                  | Telefon
+              .checkbox-beta
+                input(type="checkbox" class="validate[required]" id="for3" name="contanctSms")
+                label(for="for3")
+                  | SMS
+              .border-alpha
+              .checkbox-alpha
+                input(type="checkbox" class="validate[required]" name="kullanimKosullari" id="for4")
+                label(for="for4")
+                  a(href="#") Gizlilik Politikası’nı
+                  | ve
+                  a(href="#") Kullanım Şartları’nı
+                  | okudum ve kabul ediyorum.
+              input(type="submit" value="Gönder").button-alpha

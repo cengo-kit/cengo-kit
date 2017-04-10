@@ -1,10 +1,10 @@
 'use strict';
 
 Gri.module({
-  name: 'radio-alpha',
+  name: 'checkbox-beta',
   ieVersion: null,
-  $el: $('.radio-alpha'),
-  container: '.radio-alpha',
+  $el: $('.checkbox-beta'),
+  container: '.checkbox-beta',
   fn: function () {
     this.$el.find('input').iCheck();
   }
