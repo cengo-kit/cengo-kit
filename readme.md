@@ -41,32 +41,32 @@ Generatorlar
 
 Javascript Mimarisi
 -------------
-####name
+####name####
 Modulun ismini belirtir
 
     name: 'navigasyon modulu'
 
-####ieVersion
+####ieVersion####
 Internet explorer versiyonuna gore modulu calistirma kontrolu yapar. 
 
     ieVersion: '>9' veya  ieVersion: '<10' veya ieVersion: '9'
 
-####$el
+####$el####
 Modul icin atanmis elementtir. Sayfa yer aliyorsa  element modul calismaktadir yoksa modul yuklenmez.
 
     $el:$('form')
 
-####state
+####state####
 Modulu state atar. Ve bu state te calismasini saglar.
 
     state:'load resize ready' -> Burada 3 tane state bu modul calisacaktir.
 
-####container
+####container####
 Modulun state'inin atilmasi gereken elementi belirtir. container atanmamis ise $el elementine state atanacaktir.
 
     container:'.homepage-container'
 
-####chain
+####chain####
 Modulleri birbirlerine baglar ve yazilan modulun once calismasini bekler
 
     chain:'homepage-container'
@@ -74,7 +74,7 @@ Modulleri birbirlerine baglar ve yazilan modulun once calismasini bekler
 Css Mimarisi
 -------------
 
-####mixin
+####mixin####
 _mixins.scss dosyasının içine bourbon harici custom mixinlerinizi yazabilirisiniz.
 
     @mixin cover-background($img-uri) {
@@ -85,7 +85,7 @@ _mixins.scss dosyasının içine bourbon harici custom mixinlerinizi yazabiliris
         background-size: cover;
     } 
 
-####_hacks
+####_hacks####
 _hacks.scss dosyası her tarayıcıya ayrı kod yazmak için oluşturuldu.
 
     @include [Mixin_Name]( 'selector', (property: value) )
