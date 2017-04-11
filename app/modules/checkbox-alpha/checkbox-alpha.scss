@@ -1,0 +1,85 @@
+/*------------------------------------*\
+    #checkbox-alpha
+\*------------------------------------*/
+
+/*<-- GLOBAL -->*/
+.checkbox-alpha{
+  @include clearfix;
+  cursor:pointer;
+  margin-top: 30px;
+  position: relative;
+  .icheckbox{
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    border: none;
+    background: #FFF;
+    line-height: 40px;
+    text-align: center;
+    font-size: 20px;
+    color: #d6d6d6;
+    float: left;
+    background: #dcdedf;
+    margin-right: 10px;
+    &.checked{
+      &:after{
+        content: '';
+        position: absolute;
+        width: 8px;
+        height: 8px;
+        background: #e74a17;
+        left: 50%;
+        top: 50%;
+        margin-top: -4px;
+        margin-left: -4px;
+      }
+    }
+    .iCheck-helper {
+      z-index: 2;
+    }
+  }
+  label{
+    font-weight: 400;
+    color: #28629c;
+    float: left;
+    max-width: 500px;
+    width: 100%;
+    cursor:pointer;
+    a{
+      margin: 0px 5px;
+      color: #e74a17;
+      text-decoration: underline;
+    }
+  }
+  .formError{
+    margin-left: 0px;
+    .formErrorContent{
+      width: 220px;
+    }
+  }
+}
+// Usage
+/*<-- XS -->*/
+@media (max-width: $screen-xs-max) {
+  .checkbox-alpha{
+
+  }
+}
+/*<-- SM -->*/
+@media (min-width: $screen-sm-min) {
+  .checkbox-alpha{
+
+  }
+}
+/*<-- MD -->*/
+@media (min-width: $screen-md-min) {
+  .checkbox-alpha{
+
+  }
+}
+/*<-- LG -->*/
+@media (min-width: $screen-lg-min) {
+  .checkbox-alpha{
+
+  }
+}

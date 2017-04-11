@@ -1,0 +1,70 @@
+/*------------------------------------*\
+    #input-alpha
+\*------------------------------------*/
+
+/*<-- GLOBAL -->*/
+.input-alpha {
+  margin-bottom: 40px;
+  span {
+    display: block;
+    color: #00478c;
+    position: relative;
+    top: -30px;
+    z-index: -1;
+    font-size: 1em;
+    height: 1px;
+    @include transition(ease all .3s);
+  }
+  input {
+    font-size: 1em;
+    color: #e74a17;
+    border: none;
+    border-bottom: 2px solid #c9ccd0;
+    background: transparent;
+    padding-bottom: 15px;
+    margin-top: 10px;
+    width: 100%;
+    &:focus{
+      &+span{
+        font-size: 0.643em;
+        top: -50px;
+      }
+    }
+    &.filled{
+      &+span{
+        top: -50px;
+        font-size: 0.643em;
+      }
+    }
+  }
+
+}
+
+// Usage
+/*<-- XS -->*/
+@media (max-width: $screen-xs-max) {
+  .input-alpha {
+
+  }
+}
+
+/*<-- SM -->*/
+@media (min-width: $screen-sm-min) {
+  .input-alpha {
+
+  }
+}
+
+/*<-- MD -->*/
+@media (min-width: $screen-md-min) {
+  .input-alpha {
+
+  }
+}
+
+/*<-- LG -->*/
+@media (min-width: $screen-lg-min) {
+  .input-alpha {
+
+  }
+}

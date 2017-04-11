@@ -1,0 +1,65 @@
+/*------------------------------------*\
+    #select-alpha
+\*------------------------------------*/
+
+/*<-- GLOBAL -->*/
+.select-alpha{
+  margin-bottom: 40px;
+  .btn-group{
+    width: 100% !important;
+    &.open{
+      background: transparent;
+      border: none;
+    }
+    .btn-default{
+      background-color: transparent !important;
+      border-bottom: 1px solid #c9ccd0 !important;
+      border-top: none;
+      border-left: none;
+      border-right: none;
+      box-shadow: none !important;
+      span{
+        color: #00478c;
+      }
+    }
+    .dropdown-toggle{
+      box-shadow: none !important;
+      border-radius: 0px;
+      padding: 13px 2px;
+    }
+    .dropdown-menu{
+      border-radius: 0px;
+      >li{
+        >a{
+          padding: 5px 20px;
+        }
+      }
+    }
+  }
+
+}
+// Usage
+/*<-- XS -->*/
+@media (max-width: $screen-xs-max) {
+  .select-alpha{
+
+  }
+}
+/*<-- SM -->*/
+@media (min-width: $screen-sm-min) {
+  .select-alpha{
+
+  }
+}
+/*<-- MD -->*/
+@media (min-width: $screen-md-min) {
+  .select-alpha{
+
+  }
+}
+/*<-- LG -->*/
+@media (min-width: $screen-lg-min) {
+  .select-alpha{
+
+  }
+}

@@ -1,0 +1,95 @@
+/*------------------------------------*\
+    #checkbox-beta
+\*------------------------------------*/
+
+/*<-- GLOBAL -->*/
+.checkbox-beta {
+  @include clearfix;
+  cursor: pointer;
+  margin-top: 30px;
+  position: relative;
+  .icheckbox {
+    display: inline-block;
+    width: 28px;
+    height: 28px;
+    border: none;
+    background: #FFF;
+    line-height: 40px;
+    text-align: center;
+    font-size: 20px;
+    color: #d6d6d6;
+    float: left;
+    background: #dcdedf;
+    margin-right: 10px;
+    &.checked {
+      @include icon(tick);
+      &:before {
+        position: absolute;
+        color: #e74c19;
+        font-size: 12px;
+        left: 6px;
+        top: -6px;
+        //width: 8px;
+        //height: 8px;
+        //background: #e74a17;
+        //left: 50%;
+        //top: 50%;
+        //margin-top: -4px;
+        //margin-left: -4px;
+      }
+    }
+    .iCheck-helper {
+      z-index: 2;
+    }
+  }
+  label {
+    font-weight: 400;
+    font-size: 14px;
+    color: #28629c;
+    float: left;
+    max-width: 310px;
+    width: 100%;
+    cursor: pointer;
+    margin-top: 5px;
+    a {
+      margin: 0px 5px;
+      color: #e74a17;
+      text-decoration: underline;
+    }
+  }
+  .formError {
+    margin-left: 0px;
+    .formErrorContent {
+      width: 220px;
+    }
+  }
+}
+
+// Usage
+/*<-- XS -->*/
+@media (max-width: $screen-xs-max) {
+  .checkbox-beta {
+
+  }
+}
+
+/*<-- SM -->*/
+@media (min-width: $screen-sm-min) {
+  .checkbox-beta {
+
+  }
+}
+
+/*<-- MD -->*/
+@media (min-width: $screen-md-min) {
+  .checkbox-beta {
+
+  }
+}
+
+/*<-- LG -->*/
+@media (min-width: $screen-lg-min) {
+  .checkbox-beta {
+
+  }
+}

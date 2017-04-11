@@ -1,0 +1,44 @@
+/*------------------------------------*\
+    #description-beta
+\*------------------------------------*/
+
+/*<-- GLOBAL -->*/
+.description-beta{
+  font-family: $ford;
+  font-weight: 100;
+  color: #4d4846;
+  font-size: 1em;
+  margin: 10px 0px;
+  display: inline-block;
+  line-height: 25px;
+  a{
+    color: #e74a17;
+    text-decoration: underline;
+    margin-left: 5px;
+  }
+}
+// Usage
+/*<-- XS -->*/
+@media (max-width: $screen-xs-max) {
+  .description-beta{
+
+  }
+}
+/*<-- SM -->*/
+@media (min-width: $screen-sm-min) {
+  .description-beta{
+
+  }
+}
+/*<-- MD -->*/
+@media (min-width: $screen-md-min) {
+  .description-beta{
+
+  }
+}
+/*<-- LG -->*/
+@media (min-width: $screen-lg-min) {
+  .description-beta{
+
+  }
+}
