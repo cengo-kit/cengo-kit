@@ -7,3 +7,4 @@ const series = require('stream-series');
 const $ = gulpLoadPlugins();
 const reload = browserSync.reload;
 const rename = require('gulp-rename');
+const fs = require('fs');

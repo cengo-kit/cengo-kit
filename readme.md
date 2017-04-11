@@ -30,6 +30,9 @@ Generatorlar
   Projeniz icin otomatik modul olusturur. Jade, scss ve js dosyalarini klasorde barindirir.
 
     gulp cengo -m modul-ismi
+  Modulleri çoklu oluşturmak için txt dosyasını kullanabilirsiniz.
+    
+    gulp cengo -ms multi-modules.txt
     
   Projeniz icin otomatik gerekli sablonda sayfa (jade) dosyasi olusturur.
 
