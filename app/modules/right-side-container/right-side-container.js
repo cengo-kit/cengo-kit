@@ -6,6 +6,6 @@ Gri.module({
   $el: $('.right-side-container'),
   container: '.right-side-container',
   fn: function () {
-    
+    this.$el.height($(window).height() - 120);
   }
 });
