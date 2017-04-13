@@ -1,3 +1,4 @@
+/*
 
 const fs = require('fs');
 
@@ -16,3 +17,4 @@ fs.writeFile("gulpfile.js", gulpFileJS, function(err) {
   }
   console.log("Gulpfile.js created!");
 });
+*/
