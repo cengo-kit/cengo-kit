@@ -3,7 +3,6 @@ require('./gulp-folder/tasks/build');
 require('./gulp-folder/tasks/cengo');
 require('./gulp-folder/tasks/clean');
 require('./gulp-folder/tasks/cms');
-require('./gulp-folder/tasks/copy');
 require('./gulp-folder/tasks/default');
 require('./gulp-folder/tasks/extras');
 require('./gulp-folder/tasks/fonts');
