@@ -19,7 +19,8 @@
     "iCheck": "^1.0.2",
     "jquery": "jQuery#1.9.1",
     "respond": "^1.4.2",
-    "image-scale": "https://github.com/gestixi/image-scale.git#^1.3.2"
+    "image-scale": "https://github.com/gestixi/image-scale.git#^1.3.2",
+    "jquery-form": "^4.2.1"
   },
   "overrides": {},
   "devDependencies": {
