@@ -1,6 +1,6 @@
 
 gulp.task('images', () => {
-  return gulp.src('app/images/**/*')
+  return gulp.src(['!app/images/**/*.db','app/images/**/*'])
     .pipe($.cache($.imagemin({
       progressive: true,
       interlaced: true,
@@ -13,7 +13,7 @@ gulp.task('images', () => {
 
 
 gulp.task('images:cms', () => {
-  return gulp.src('app/images/**/*')
+  return gulp.src(['!app/images/**/*.db','app/images/**/*'])
     .pipe($.cache($.imagemin({
       progressive: true,
       interlaced: true,
