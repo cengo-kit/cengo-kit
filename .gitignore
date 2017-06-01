@@ -3,19 +3,17 @@ dist
 .tmp
 bower_components
 test/bower_components
-.idea
+.idea/
 .vs
 
 ### CMS'siz kurulum icin gecerlidir
 /app/fonts/icons/icons.*
 /app/styles/_icons.scss
-gulpfile.js
 
 ### Kurulu CMS icin Gecerlidir
 # HTML
 HTML/app/fonts/icons/icons.*
 HTML/app/styles/_icons.scss
-HTML/gulpfile.js
 # CMS
 Cms13/bin
 Cms13/cache
