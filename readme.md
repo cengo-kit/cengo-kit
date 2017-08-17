@@ -5,7 +5,7 @@ Gri Cengo Kit
 Baslangic
 -------------
 
-    git clone https://github.com/cengo-kit/gri-cengo-kit project-name
+    git clone https://github.com/cengo-kit/cengo-kit project-name
     npm install && bower install
   
 Taskler
