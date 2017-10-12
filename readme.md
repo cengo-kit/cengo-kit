@@ -91,8 +91,13 @@ _hacks.scss dosyası her tarayıcıya ayrı kod yazmak için oluşturuldu.
     @include [Mixin_Name]( 'selector', (property: value) )
     Example:
     @include only_ie9( '.my_element', (color: red) )
+    // ----------------------
     @include only_ff28_above( '.my_element', (
         background-color: green,
         display: flex,
-        margin: 2em,
-    )) 
+        margin: 2em
+    ))
+    // ----------------------
+    @include ie9((
+      background-color: green
+    ));
