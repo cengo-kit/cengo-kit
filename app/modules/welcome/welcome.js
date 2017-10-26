@@ -1,4 +1,4 @@
-Gri.module({
+CNG.module({
   name: 'welcome',
   ieVersion: null,
   $el: $('.welcome'),

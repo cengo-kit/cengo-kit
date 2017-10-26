@@ -36,7 +36,7 @@ if (window.console && typeof(window.console.time) == 'undefined') {
 }
 
 
-const Gri = {
+const CNG = {
   // Runtime da tum moduller buraya atanir.
   modules: [],
   _module: null,
@@ -49,7 +49,7 @@ let V = {};
 /*
  Module icin ie kontrolu yapar.
  */
-Gri.checkIEVersion = function () {
+CNG.checkIEVersion = function () {
   if (is[null](this._module.ieVersion) || is.undefined(this._module.ieVersion)) {
     return this;
   }
@@ -98,7 +98,7 @@ Gri.checkIEVersion = function () {
 /*
  Module icin event atamasi yapar.
  */
-Gri.setEvent = function () {
+CNG.setEvent = function () {
   const $el = this._module.$el;
   const container = this._module.container;
   const state = this._module.state;
@@ -119,7 +119,7 @@ Gri.setEvent = function () {
 /*
  Debug modu kontrolu yapar.
  */
-Gri.debug = function (parameter) {
+CNG.debug = function (parameter) {
   if (is.boolean(parameter)) {
     this._debug = parameter;
     Cookies.set('debug', parameter);
@@ -130,7 +130,7 @@ Gri.debug = function (parameter) {
   }
 };
 
-Gri.error = function (parameter) {
+CNG.error = function (parameter) {
   if (is.string(parameter) && this._debug) {
     console.log(parameter, 'background: #ff3737; color: #FFF', 'background: #ff3737; color: #abff2b', 'background: #ff3737; color: #abff2b');
   }
@@ -139,25 +139,25 @@ Gri.error = function (parameter) {
 /*
  Runtimeda tum moduller bu methodu calistirir
  */
-Gri.module = function (module) {
-  Gri.modules.push(module);
-  Gri.moduleQueueChecker()
+CNG.module = function (module) {
+  CNG.modules.push(module);
+  CNG.moduleQueueChecker()
 };
 
 /*
  Framework icin baslatici fonksiyondur.
  */
-Gri.init = function () {
-  let gri = this;
+CNG.init = function () {
+  let CNG = this;
 
   //Browser kontrolü yapılır
-  Gri.browser();
+  CNG.browser();
 
   //Tum modulleri document ready de calistirir.
-  let moduleSize = Gri.modules.length;
+  let moduleSize = CNG.modules.length;
   for (let i = moduleSize; i > 0; i--) {
     //Set _module
-    this._module = Gri.modules[0];
+    this._module = CNG.modules[0];
     this.valid = true;
 
     //Gerekli oncelik siralariyla filitreleri calistiyoruz.
@@ -171,22 +171,22 @@ Gri.init = function () {
     }
 
     //Gerekli islemlerden gecen 0'inci modulu siliyoruz
-    delete Gri.modules[0];
+    delete CNG.modules[0];
 
     //Clone array witouth undefined
     const tmpArr = [];
-    for (let x = 0; x < Gri.modules.length; x++) {
-      if (!is.undefined(Gri.modules[x]) && !is[null](Gri.modules[x])) {
-        tmpArr.push(Gri.modules[x]);
+    for (let x = 0; x < CNG.modules.length; x++) {
+      if (!is.undefined(CNG.modules[x]) && !is[null](CNG.modules[x])) {
+        tmpArr.push(CNG.modules[x]);
       }
     }
-    Gri.modules = tmpArr;
+    CNG.modules = tmpArr;
     //Re-set loop size
-    moduleSize = Gri.modules.length;
+    moduleSize = CNG.modules.length;
   }
 
   //Remove modules to prevent global injection
-  // delete Gri.modules;
+  // delete CNG.modules;
   if (eval(Cookies.get('debug'))) {
     console.timeEnd('document load time');
   }
@@ -195,7 +195,7 @@ Gri.init = function () {
 /*
  Modulu calistirir.
  */
-Gri.run = function () {
+CNG.run = function () {
   const name = this._module.name;
   const fn = this._module.fn;
   const state = this._module.state;
@@ -205,14 +205,14 @@ Gri.run = function () {
     try {
       fn.call(this._module);
     } catch (e) {
-      Gri.e = e;
-      Gri.error('%cHata oluştu. ' + e.stack + ' ' + e.message + ' %c %c')
+      CNG.e = e;
+      CNG.error('%cHata oluştu. ' + e.stack + ' ' + e.message + ' %c %c')
     }
 
   }
 
   if (this.debug()) {
-    Gri.debug('%cModul %c' + name + ' %c yuklendi.');
+    CNG.debug('%cModul %c' + name + ' %c yuklendi.');
   }
 
   return this;
@@ -221,7 +221,7 @@ Gri.run = function () {
 /*
  Birbirine bagli modulleri zincirler
  */
-Gri.chain = function () {
+CNG.chain = function () {
   let bool = false;
   //Check if module has chains
 
@@ -233,12 +233,12 @@ Gri.chain = function () {
   //Loop chains
   for (let i  in chains) {
     //if they exist in queue break and add this module on tail
-    if (_.where(Gri.modules, {'name': chains[i]}).length != 0) {
-      Gri.modules = _(Gri.modules).filter(function (item) {
-        return item.name !== Gri._module.name;
+    if (_.where(CNG.modules, {'name': chains[i]}).length != 0) {
+      CNG.modules = _(CNG.modules).filter(function (item) {
+        return item.name !== CNG._module.name;
       });
-      Gri.modules.push(this._module);
-      this._module = Gri.modules[0];
+      CNG.modules.push(this._module);
+      this._module = CNG.modules[0];
       bool = true;
       break;
     }
@@ -249,18 +249,18 @@ Gri.chain = function () {
 /*
  Modullerin yuklenmesini bekler
  */
-Gri.moduleQueueChecker = function () {
-  const gri = this;
+CNG.moduleQueueChecker = function () {
+  const CNG = this;
   clearTimeout(this._moduleQueueChecker);
   this._moduleQueueChecker = setTimeout(function () {
-    gri.init();
+    CNG.init();
   }, 1);
 };
 
 /*
  Hangi tarayıcı olduğunu class olarak html tagına ekler.
  */
-Gri.browser = function () {
+CNG.browser = function () {
   const ua = navigator.userAgent.toLowerCase(),
     is = function (t) {
       return ua.indexOf(t) > -1
@@ -277,4 +277,4 @@ Gri.browser = function () {
   h.className += ' ' + c;
   return c;
 };
-Gri.debug('%c Gri Cengo Kit %c v0.2%c');
+CNG.debug('%c Cengo Kit %c v0.2%c'); 

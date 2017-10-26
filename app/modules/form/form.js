@@ -1,4 +1,4 @@
-Gri.module({
+CNG.module({
   name: 'form',
   ieVersion: null,
   $el: $('form').not('.no-validation'),
