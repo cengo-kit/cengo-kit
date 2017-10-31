@@ -1,6 +1,6 @@
 'use strict';
 
-Gri.module({
+CNG.module({
   name: '{{module_name}}',
   ieVersion: null,
   $el: $('.{{module_name}}'),

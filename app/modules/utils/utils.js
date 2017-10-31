@@ -1,6 +1,6 @@
 'use strict';
 
-Gri.module({
+CNG.module({
   name: 'utils',
   ieVersion: null,
   $el: $('[c-helper]'),

@@ -17,4 +17,3 @@ require('./gulp-folder/tasks/serve');
 require('./gulp-folder/tasks/styles');
 require('./gulp-folder/tasks/views');
 require('./gulp-folder/tasks/wiredep');
-

@@ -1,21 +1,21 @@
-Gri Cengo Kit
+Cengo Kit
 ===================
 
 
-Baslangic
+Başlangıç
 -------------
 
-    git clone https://github.com/cengo-kit/gri-cengo-kit project-name
+    git clone https://github.com/cengo-kit/cengo-kit project-name
     npm install && bower install
   
 Taskler
 -------------
 
-  Projeyi development olarak ayaga kaldirir ve tarayicinizda acar.
+  Projeyi development olarak ayağa kaldırır ve tarayıcınızda açar.
 
     gulp serve
 
-   Projeyi production olarak ayaga kaldirir ve tarayicinizda acar.
+  Projeyi production olarak ayağa kaldırır ve tarayıcınızda açar.
 
     gulp serve:dist
 
@@ -27,14 +27,15 @@ Taskler
 Generatorlar
 -------------
 
-  Projeniz icin otomatik modul olusturur. Jade, scss ve js dosyalarini klasorde barindirir.
+  Projeniz için otomatik modül oluşturur. Jade, scss ve js dosyalarını klasörde barındırır.
 
     gulp cengo -m modul-ismi
-  Modulleri çoklu oluşturmak için txt dosyasını kullanabilirsiniz.
+  
+  Modülleri çoklu oluşturmak için txt dosyasını kullanabilirsiniz.
     
     gulp cengo -ms multi-modules.txt
     
-  Projeniz icin otomatik gerekli sablonda sayfa (jade) dosyasi olusturur.
+  Projeniz için otomatik gerekli şablonda sayfa (jade) dosyası oluşturur.
 
     gulp cengo -p sayfa-ismi
 
@@ -42,32 +43,32 @@ Generatorlar
 Javascript Mimarisi
 -------------
 #### name ####
-Modulun ismini belirtir
+Modülün ismini belirtir
 
     name: 'navigasyon modulu'
 
 #### ieVersion ####
-Internet explorer versiyonuna gore modulu calistirma kontrolu yapar. 
+Internet Explorer versiyonuna göre modülü çalıştırma kontrolü yapar. 
 
     ieVersion: '>9' veya  ieVersion: '<10' veya ieVersion: '9'
 
 #### $el ####
-Modul icin atanmis elementtir. Sayfa yer aliyorsa  element modul calismaktadir yoksa modul yuklenmez.
+Modül için atanmış elementtir. Sayfa yer alıyorsa element modül çalışmaktadır yoksa modül yüklenmez.
 
     $el:$('form')
 
 #### state ####
-Modulu state atar. Ve bu state te calismasini saglar.
+Modülü state atar ve bu state'te çalışmasını sağlar.
 
     state:'load resize ready' -> Burada 3 tane state bu modul calisacaktir.
 
 #### container ####
-Modulun state'inin atilmasi gereken elementi belirtir. container atanmamis ise $el elementine state atanacaktir.
+Modülün state'inin atılması gereken elementi belirtir. container atanmamiş ise $el elementine state atanacaktir.
 
     container:'.homepage-container'
 
 #### chain ####
-Modulleri birbirlerine baglar ve yazilan modulun once calismasini bekler
+Modülleri birbirlerine bağlar ve yazılan modülün önce çalışmasını bekler
 
     chain:'homepage-container'
 
@@ -91,8 +92,13 @@ _hacks.scss dosyası her tarayıcıya ayrı kod yazmak için oluşturuldu.
     @include [Mixin_Name]( 'selector', (property: value) )
     Example:
     @include only_ie9( '.my_element', (color: red) )
+    // ----------------------
     @include only_ff28_above( '.my_element', (
         background-color: green,
         display: flex,
-        margin: 2em,
-    )) 
+        margin: 2em
+    ))
+    // ----------------------
+    @include ie9((
+      background-color: green
+    ));

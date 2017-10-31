@@ -8,7 +8,9 @@ gulp.task('info:cms', () => {
   gulp.src('bower.json').pipe(
     $.copy('../Cms13/')
   );
-  $.bower({ cwd: '../Cms13/' });
+  setTimeout(function () {
+    $.bower({ cwd: '../Cms13/' });
+  },5000)
 });
 
 

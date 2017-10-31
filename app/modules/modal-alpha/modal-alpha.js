@@ -1,4 +1,4 @@
-Gri.module({
+CNG.module({
   name: 'modal-alpha',
   ieVersion: null,
   $el: $('.modal-alpha'),
