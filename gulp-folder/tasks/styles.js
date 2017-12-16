@@ -10,7 +10,8 @@ gulp.task('styles', () => {
     }).on('error', $.sass.logError))
     .pipe($.autoprefixer({browsers: ['> 1%', 'last 2 versions', 'Firefox ESR']}))
     .pipe($.sourcemaps.write())
-    .pipe(gulp.dest('.tmp/styles'));
+    .pipe(gulp.dest('.tmp/styles'))
+    .pipe(browserSync.stream());
 });
 
 gulp.task('styles:cms', () => {

@@ -5,6 +5,7 @@ gulp.task('serve', ['info:dev', 'scripts', 'inject', 'views', 'iconfont', 'fonts
   browserSync({
     notify: false,
     port: 9000,
+    reloadThrottle: 500,
     server: {
       baseDir: ['.tmp', 'app'],
       directory: true,
@@ -15,29 +16,16 @@ gulp.task('serve', ['info:dev', 'scripts', 'inject', 'views', 'iconfont', 'fonts
   });
   gulp.watch('gulpfile.js', ['serve']);
 
-  let timeout = null;
-  gulp.watch([
-    'app/*.html',
-    'app/images/**/*',
-    '.tmp/**/*.html',
-    '.tmp/images/**/*',
-    '.tmp/fonts/**/*',
-    '.tmp/scripts/**/*',
-    '.tmp/styles/**/*'
-  ]).on('change', function (g) {
-    if (timeout != null) {
-      clearTimeout(timeout);
-    }
-    timeout = setTimeout(() => {
-      reload(g);
-    }, 300);
-  });
   gulp.watch('app/**/*.jade', ['views']);
   gulp.watch(['app/**/*.scss'], ['styles']);
   gulp.watch(['app/scripts/**/*.js', 'app/modules/**/*.js'], ['scripts']);
   gulp.watch('app/fonts/**/*', ['fonts']);
   gulp.watch('bower.json', ['inject', 'fonts']);
   gulp.watch('app/svg/*.svg', ['iconfont']);
+
+  gulp.watch(['.tmp/*.html', '.tmp/images/**/*', '.tmp/fonts/**/*', '.tmp/scripts/**/*.js'], () => {
+    browserSync.reload();
+  });
 });
 
 gulp.task('serve:dist', ['build'], () => {
