@@ -2,10 +2,10 @@
   form(action="#" method='get').bottom-side
     .row(c-helper="mrT:20")
       .col-xs-12
-        input(placeholder="Adiniz" class="validate[required]").input-alpha
+        input(placeholder="Adınız", data-rule-required="true", data-msg-required="Adınızı yazınız").input-alpha
     .row(c-helper="mrT:20")
       .col-xs-12
-        input(placeholder="Soyadiniz" class="validate[required]").input-alpha
+        input(placeholder="Soyadınız", data-rule-required="true", data-msg-required="Soyadınız yazınız").input-alpha
 
     h3.title-beta.mrTop30 Tercih ettiginiz iletisim kanali
     .row(c-helper="mrT:20")
@@ -15,7 +15,7 @@
       .row(c-helper="mrT:20")
         .col-xs-12
           .select-alpha
-            select(class="validate[required]")
+            select(data-rule-required="true")
               option(value="")  Sozlesmeyi Aldigim Sirket
               option(value="1")  Test
               option(value="2")  Test
