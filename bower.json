@@ -13,7 +13,6 @@
     "bootstrap-datepicker": "^1.6.1",
     "owl.carousel": "^2.1.6",
     "underscore": "^1.8.3",
-    //"validationengine": "validationEngine#master",
     "jquery-mask-plugin": "^1.14.0",
     "seiyria-bootstrap-slider": "^9.2.0",
     "iCheck": "^1.0.2",
