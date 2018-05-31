@@ -2,7 +2,7 @@
   "name": "gri-cengo-kit",
   "private": true,
   "dependencies": {
-    "bootstrap": "^4.1.1",
+    "bootstrap": "^3.3.6",
     "bootstrap-sass": "^3.3.7",
     "modernizr": "~2.8.1",
     "is_js": "^0.9.0",
