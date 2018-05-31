@@ -2,10 +2,11 @@
 html.no-js
   head
     meta(charset='utf-8')
-    title My Webapp
+    title GUST DENIM & WEAR
     meta(name='description' content='')
     meta(name='viewport' content='width=device-width, initial-scale=1')
     link(rel='apple-touch-icon' href='apple-touch-icon.png')
+    link(href='https://fonts.googleapis.com/css?family=Marcellus|Poppins:400,700', rel='stylesheet')
     // Place favicon.ico and apple-touch-icon.png in the root directory
 
     script(src='https://www.google.com/recaptcha/api.js')
@@ -16,6 +17,7 @@ html.no-js
     link(rel='stylesheet', href='/bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker3.css')
     link(rel='stylesheet', href='/bower_components/owl.carousel/dist/assets/owl.carousel.css')
     link(rel='stylesheet', href='/bower_components/owl.carousel/dist/assets/owl.theme.default.css')
+    link(rel='stylesheet', href='/bower_components/validationengine/css/validationEngine.jquery.css')
     link(rel='stylesheet', href='/bower_components/seiyria-bootstrap-slider/dist/css/bootstrap-slider.css')
     // endbower
     // endbuild
@@ -40,35 +42,38 @@ html.no-js
     // build:js /scripts/vendor.js
     // bower:js
     script(src='/bower_components/jquery/jquery.js')
-    script(src='/bower_components/bootstrap/dist/js/bootstrap.js')
     script(src='/bower_components/is_js/is.js')
     script(src='/bower_components/js-cookie/src/js.cookie.js')
     script(src='/bower_components/bootstrap-select/dist/js/bootstrap-select.js')
     script(src='/bower_components/moment/moment.js')
-    script(src='/bower_components/highcharts/highcharts.js')
-    script(src='/bower_components/highcharts/highcharts-more.js')
-    script(src='/bower_components/highcharts/modules/exporting.js')
     script(src='/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.js')
     script(src='/bower_components/owl.carousel/dist/owl.carousel.js')
     script(src='/bower_components/underscore/underscore.js')
+    script(src='/bower_components/validationengine/js/jquery.validationEngine.js')
     script(src='/bower_components/jquery-mask-plugin/dist/jquery.mask.js')
     script(src='/bower_components/seiyria-bootstrap-slider/dist/bootstrap-slider.js')
     script(src='/bower_components/iCheck/icheck.min.js')
     script(src='/bower_components/respond/dest/respond.src.js')
     script(src='/bower_components/image-scale/image-scale.js')
     script(src='/bower_components/jquery-form/src/jquery.form.js')
-    script(src='/bower_components/twbs-pagination/jquery.twbsPagination.js')
-    script(src='/bower_components/jquery-validation/dist/jquery.validate.js')
     // endbower
 
     //- inject:js
     script(src="/scripts/app.js")
     script(src="/scripts/jquery.validationEngine-languages.js")
+    script(src="/scripts/card-alpha.js")
+    script(src="/scripts/categories.js")
+    script(src="/scripts/filter-left.js")
+    script(src="/scripts/filter-top.js")
+    script(src="/scripts/footer.js")
     script(src="/scripts/form.js")
+    script(src="/scripts/header.js")
+    script(src="/scripts/hero.js")
     script(src="/scripts/modal-alpha.js")
     script(src="/scripts/pagination.js")
+    script(src="/scripts/product-list-alpha.js")
+    script(src="/scripts/tab-alpha.js")
     script(src="/scripts/utils.js")
-    script(src="/scripts/welcome.js")
     //- endinject
     // endbuild
 

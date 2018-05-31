@@ -1,42 +1,48 @@
 /*------------------------------------*\
-    #welcome
+    #filter-top
 \*------------------------------------*/
 
 /*<-- GLOBAL -->*/
-.welcome{
-  h1{
-    text-align: center;
-  }
-  h2{
-    text-align: center;
-  }
-  h3{
-    display: inline-block;
-  }
+.filter-top{
+
 }
 // Usage
 /*<-- XS -->*/
 @media (max-width: $screen-xs-max) {
-  .welcome{
+  .filter-top{
 
   }
 }
-
 /*<-- SM -->*/
 @media (min-width: $screen-sm-min) {
-  .welcome{
+  .filter-top{
 
   }
 }
 /*<-- MD -->*/
 @media (min-width: $screen-md-min) {
-  .welcome{
+  .filter-top{
+    text-align: right;
+    margin: 0 15px 60px 0;
 
+    a {
+      font: {
+        size: 16px;
+        weight: 700;
+      }
+      color: #000;
+      margin: 0 0 0 15px;
+
+      &:hover,
+      &:focus {
+        text-decoration: none;
+      }
+    }
   }
 }
 /*<-- LG -->*/
 @media (min-width: $screen-lg-min) {
-  .welcome{
+  .filter-top{
 
   }
 }

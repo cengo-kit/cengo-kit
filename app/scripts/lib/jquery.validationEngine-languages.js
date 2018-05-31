@@ -197,8 +197,8 @@
             'alertText3': 'mm/dd/yyyy hh:mm:ss AM|PM or ',
             'alertText4': 'yyyy-mm-dd hh:mm:ss AM|PM'
           },
-          "validateMIME":  {
-            "func": function(field, rules, i, options){
+          'validateMIME':  {
+            'func': function(field, rules, i, options){
               //add to input tag: data-validation-engine="validate[required, custom[validateMIME[image/jpeg|image/png]]]"
 
               var fileInput = field[0].files[0];
@@ -208,7 +208,7 @@
                 return MimeFilter.test(fileInput.type);
               } else { return true;}
             },
-            "alertText": "* Wrong Mime Type."
+            'alertText': '* Wrong Mime Type.'
 
           }
         };
@@ -369,8 +369,8 @@
           'validate2fields': {
             'alertText': '* Lütfen \'HELLO\' yazın'
           },
-          "validateMIME":  {
-            "func": function(field, rules, i, options){
+          'validateMIME':  {
+            'func': function(field, rules, i, options){
               //add to input tag: data-validation-engine="validate[required, custom[validateMIME[image/jpeg|image/png]]]"
 
               var fileInput = field[0].files[0];
@@ -380,7 +380,7 @@
                 return MimeFilter.test(fileInput.type);
               } else { return true;}
             },
-            "alertText": "* Dosya uzantısı desteklenmiyor."
+            'alertText': '* Dosya uzantısı desteklenmiyor.'
 
           }
         };

@@ -5,10 +5,7 @@ bower_components
 test/bower_components
 .idea/
 .vs
-
-### CMS'siz kurulum icin gecerlidir
-/app/fonts/icons/icons.*
-/app/styles/_icons.scss
+package-lock.json
 
 ### Kurulu CMS icin Gecerlidir
 # HTML
@@ -18,8 +15,5 @@ HTML/app/styles/_icons.scss
 Cms13/bin
 Cms13/cache
 Cms13/Sites/1/upload
-Cms13/scripts
 Cms13/images
-Cms13/styles
-Cms13/fonts
 packages

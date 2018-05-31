@@ -36,6 +36,15 @@
 	@if $filename == error {
 		$char: "\E003";
 	}
+	@if $filename == facebook {
+		$char: "\E004";
+	}
+	@if $filename == instagram {
+		$char: "\E005";
+	}
+	@if $filename == twitter {
+		$char: "\E006";
+	}
 
 	@return $char;
 }
@@ -59,4 +68,13 @@
 }
 .icon-error {
 	@include icon(error);
+}
+.icon-facebook {
+	@include icon(facebook);
+}
+.icon-instagram {
+	@include icon(instagram);
+}
+.icon-twitter {
+	@include icon(twitter);
 }

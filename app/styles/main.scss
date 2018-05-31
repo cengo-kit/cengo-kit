@@ -1,5 +1,6 @@
 //Its important to use bootstrap icons
 $icon-font-path: '../fonts/';
+@import "variables";
 @import "icons";
 @import "hacks";
 
@@ -10,12 +11,24 @@ $icon-font-path: '../fonts/';
 //custom mixins
 @import "mixins";
 
-
-
 //Importing All Modules
 @import "../modules/**/*";
 
-
 [tpl]{
   display: none !important;
+}
+
+body {
+  font: {
+    size: 16px;
+    family: $font-sans, sans-serif;
+  }
+
+  &.subpage {
+    padding: 70px 0 0;
+  }
+}
+
+.lock {
+  overflow: hidden;
 }

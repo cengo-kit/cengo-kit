@@ -1,0 +1,129 @@
+/*------------------------------------*\
+    #footer
+\*------------------------------------*/
+
+/*<-- GLOBAL -->*/
+.footer {
+  padding: 60px 0;
+  border-top: 1px solid #000;
+
+  &-newsletter {
+    text-align: center;
+
+    h3 {
+      font: {
+        size: 24px;
+        family: $font-serif;
+      }
+      margin: 0 0 30px;
+    }
+
+    form {
+      margin: 0 0 55px;
+
+      input {
+        width: 100%;
+        height: 55px;
+        padding: 0 15px;
+        border: 1px solid #000;
+        text-align: center;
+        margin: 0 0 20px;
+
+        &:hover,
+        &:focus {
+          outline: none;
+        }
+      }
+
+      p {
+        font-size: 13px;
+      }
+    }
+  }
+
+  &-content {
+    &-item {
+      margin: 0 0 40px;
+
+      h4 {
+        color: #000;
+        font-family: $font-serif;
+        font-size: 24px;
+        margin: 0 0 15px;
+      }
+
+      ul {
+        padding: 0;
+        margin: 0;
+        list-style-type: none;
+
+        li {
+          font-size: 14px;
+          margin: 0 0 10px;
+
+          a {
+            color: #000;
+          }
+        }
+      }
+    }
+  }
+
+  &-bottom {
+    &-social {
+      ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+
+        li {
+          float: left;
+
+          a {
+            color: #000;
+          }
+        }
+      }
+    }
+  }
+}
+// Usage
+/*<-- XS -->*/
+@media (max-width: $screen-xs-max) {
+  .footer{
+
+  }
+}
+
+/*<-- SM -->*/
+@media (min-width: $screen-sm-min) {
+  .footer{
+    &-newsletter {
+      h3 {
+        font-size: 36px;
+      }
+
+      form {
+        margin: 0 0 110px;
+      }
+    }
+
+    &-content {
+      &-item {
+        margin: 0 0 60px;
+      }
+    }
+  }
+}
+/*<-- MD -->*/
+@media (min-width: $screen-md-min) {
+  .footer {
+
+  }
+}
+/*<-- LG -->*/
+@media (min-width: $screen-lg-min) {
+  .footer{
+
+  }
+}

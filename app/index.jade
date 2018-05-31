@@ -1,4 +1,9 @@
 extends layouts/layouts/default
 
 block content
-	include modules/pagination/pagination
+  include modules/header/header
+  include modules/hero/hero
+  include modules/categories/categories
+  .container-fluid
+    include modules/product-list-alpha/product-list-alpha
+  include modules/footer/footer

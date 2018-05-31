@@ -1,27 +1,25 @@
 {
-  "name": "cengo-kit",
+  "name": "gri-cengo-kit",
   "private": true,
   "dependencies": {
-    "bootstrap": "^3.3.6",
-    "bootstrap-sass": "~3.3.5",
+    "bootstrap": "^4.1.1",
+    "bootstrap-sass": "^3.3.7",
     "modernizr": "~2.8.1",
     "is_js": "^0.9.0",
     "js-cookie": "^2.1.2",
     "bootstrap-select": "^1.10.0",
     "moment": "^2.13.0",
-    "highcharts": "^4.2.5",
     "bootstrap-datepicker": "^1.6.1",
     "owl.carousel": "^2.1.6",
     "underscore": "^1.8.3",
+    "validationengine": "validationEngine#master",
     "jquery-mask-plugin": "^1.14.0",
     "seiyria-bootstrap-slider": "^9.2.0",
     "iCheck": "^1.0.2",
     "jquery": "jQuery#1.9.1",
     "respond": "^1.4.2",
     "image-scale": "https://github.com/gestixi/image-scale.git#^1.3.2",
-    "jquery-form": "^4.2.1",
-    "twbs-pagination": "^1.4.1",
-    "jquery-validation": "^1.17.0"
+    "jquery-form": "^4.2.1"
   },
   "overrides": {},
   "devDependencies": {
